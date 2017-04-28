@@ -2,7 +2,6 @@ import React from 'react';
 import './App.css';
 import moment from 'moment';
 import _ from 'lodash';
-import { Nav, NavItem } from 'react-bootstrap'
 
 import timeData from './data/time.json';
 
@@ -26,9 +25,28 @@ class App extends React.Component {
     clearInterval(this.interval);
   }
 
+  renderStatus(term) {
+    const { now } = this.state;
+    const start = moment(term.start, 'HH:mm');
+    const end = moment(term.end, 'HH:mm');
+    if (now < start) {
+      return <span style={{ color: 'black' }}>({start.fromNow()})</span>;
+    }
+    if (start <= now && now < end) {
+      return <span style={{ color: 'red' }}>ON AIR</span>;
+    }
+    return (
+      <span style={{ color: 'gray' }}>FINISH</span>
+    );
+  }
+
   render() {
     const basicList = _.map(timeData, (e, k) => (
-      <li><span>{k}限</span>{e.start} - {e.end}</li>
+      <div className="time-row">
+        <div>{k}限</div>
+        <div>{e.start} - {e.end}</div>
+        <div className="from-now">{this.renderStatus(e)}</div>
+      </div>
     ));
     return (
       <div className="App">
@@ -40,9 +58,9 @@ class App extends React.Component {
           { this.state.now.format('HH:mm') }
           <span className="sub-second">{ this.state.now.format('.ss') }</span>
         </h2>
-        <ul className="basic-list">
+        <div className="basic-list">
           {basicList}
-        </ul>
+        </div>
       </div>
     );
   }

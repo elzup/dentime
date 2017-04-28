@@ -4,7 +4,6 @@ body {
   font-family: sans-serif;
 }
 
-
 .head-time {
   font-size: 40px;
 }
@@ -14,12 +13,28 @@ ul {
 }
 
 .basic-list {
-  font-size: 20px;
+  font-size: 25px;
   padding: 0;
-  margin: 0;
+  margin: 0 auto;
+  width: 400px;
+  align-items: center;
+  align-content: center;
 }
 
 .sub-second {
   font-size: .74em;
   color: gray;
+}
+
+.time-row {
+  display: flex;
+}
+
+.time-row > div {
+  margin-right: 1em;
+}
+
+.from-now {
+  font-size: .8em;
+  line-height: 1.8em;
 }
