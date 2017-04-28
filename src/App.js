@@ -36,7 +36,10 @@ class App extends React.Component {
           <h1>Dendai Time's Gate</h1>
           <h2>時間を統べる</h2>
         </div>
-        <h2 className="head-time">{ this.state.now.format('MM/DD HH:mm:ss') }</h2>
+        <h2 className="head-time">
+          { this.state.now.format('HH:mm') }
+          <span className="sub-second">{ this.state.now.format('.ss') }</span>
+        </h2>
         <ul className="basic-list">
           {basicList}
         </ul>
