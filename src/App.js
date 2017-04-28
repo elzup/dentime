@@ -59,7 +59,9 @@ class App extends React.Component {
           <span className="sub-second">{ this.state.now.format('.ss') }</span>
         </h2>
         <div className="basic-list">
+          <p>開館 07:30</p>
           {basicList}
+          <p>閉館 22:30</p>
         </div>
       </div>
     );
