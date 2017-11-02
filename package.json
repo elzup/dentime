@@ -1,25 +1,39 @@
 {
-  "name": "time",
-  "version": "0.1.0",
-  "private": true,
-  "homepage": "http://dendai.github.io/time",
-  "dependencies": {
-    "lodash": "^4.17.4",
-    "moment": "^2.18.1",
-    "react": "^15.5.4",
-    "react-bootstrap": "^0.31.0",
-    "react-dom": "^15.5.4"
-  },
-  "devDependencies": {
-    "gh-pages": "^0.12.0",
-    "react-scripts": "0.9.5"
-  },
-  "scripts": {
-    "start": "react-scripts start",
-    "build": "react-scripts build",
-    "test": "react-scripts test --env=jsdom",
-    "predeploy": "npm run build",
-    "deploy": "gh-pages -d build",
-    "eject": "react-scripts eject"
-  }
+	"name": "time",
+	"version": "0.1.0",
+	"private": true,
+	"homepage": "https://dendai.github.io/time",
+	"scripts": {
+		"start": "react-scripts start",
+		"build": "react-scripts build",
+		"test": "react-scripts test --env=jsdom",
+		"predeploy": "npm run build",
+		"deploy": "gh-pages -d build",
+		"eject": "react-scripts eject",
+		"precommit": "lint-staged"
+	},
+	"dependencies": {
+		"lodash": "^4.17.4",
+		"moment": "^2.19.1",
+		"react": "^16.0.0",
+		"react-bootstrap": "^0.31.5",
+		"react-dom": "^16.0.0",
+		"styled-components": "^2.2.3"
+	},
+	"devDependencies": {
+		"babel-eslint": "^7.2.3",
+		"eslint": "^4.1.1",
+		"eslint-config-react-app": "^2.0.1",
+		"eslint-plugin-flowtype": "^2.34.1",
+		"eslint-plugin-import": "^2.6.0",
+		"eslint-plugin-jsx-a11y": "^5.1.1",
+		"eslint-plugin-react": "^7.1.0",
+		"lint-staged": "^4.3.0",
+		"flow-bin": "^0.58.0",
+		"gh-pages": "^1.0.0",
+		"react-scripts": "^1.0.16"
+	},
+	"lint-staged": {
+		"*.js": ["prettier --config ./.prettierrc --write", "git add"]
+	}
 }
