@@ -7,7 +7,7 @@ import Clock from '../Clock'
 import Board from '../Board'
 
 import { loadData } from '../../api'
-import type { Period, PeriodInfo } from '../../types'
+import type { Period, PeriodInfo, PeriodStatus } from '../../types'
 
 type Props = {}
 
@@ -20,6 +20,7 @@ type State = {
 function initialPeriod(info: PeriodInfo): Period {
 	const start = moment({ h: info.start.h, m: info.start.m })
 	const end = moment({ h: info.end.h, m: info.end.m })
+	// TODO: correct
 	const status = null
 	return {
 		info,
@@ -29,12 +30,26 @@ function initialPeriod(info: PeriodInfo): Period {
 	}
 }
 
-function updatePeriod(period: Period, now: moment): Period {
-	const status = {}
-	return {
-		...period,
-		status,
+function diffStatus(period: Period, now: moment): PeriodStatus {
+	if (now.isBefore(period.start)) {
+		return {
+			type: 'before',
+			fromNowStr: period.start.from(now),
+		}
+	} else if (now.isBefore(period.end)) {
+		return {
+			type: 'progress',
+		}
+	} else {
+		return {
+			type: 'finish',
+		}
 	}
+}
+
+function updatePeriod(period: Period, now: moment): Period {
+	const status = diffStatus(period, now)
+	return Object.assign(period, { status })
 }
 
 class App extends React.Component<Props, State> {

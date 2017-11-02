@@ -14,13 +14,11 @@ export type PeriodInfo = {|
 
 export type PeriodStatusBefore = {
 	type: 'before',
-	until: moment,
+	fromNowStr: string,
 }
 
 export type PeriodStatusProgress = {
 	type: 'progress',
-	rate: number,
-	remain: number,
 }
 
 export type PeriodStatusFinish = {
