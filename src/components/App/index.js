@@ -2,9 +2,10 @@
 
 import React from 'react'
 import moment from 'moment'
-import { Header } from '../Header'
-import { Clock } from '../Board'
-import { Board } from '../Board'
+import Header from '../Header'
+import Clock from '../Clock'
+import Board from '../Board'
+
 import { loadData } from '../../api'
 import type { Period } from '../../types'
 

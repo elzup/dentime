@@ -11,9 +11,10 @@ type Props = {
 	now: moment,
 }
 
-export const Clock = ({ now }: Props) => (
+const Clock = ({ now }: Props) => (
 	<Wrapper>
 		{now.format('HH:mm')}
 		<SubSecond>{now.format('.ss')}</SubSecond>
 	</Wrapper>
 )
+export default Clock
