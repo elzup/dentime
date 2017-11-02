@@ -1,8 +1,8 @@
 // @flow
 
-import type { Term } from '../types'
+import type { PeriodInfo } from '../types'
 
-export async function loadData(): Promise<Term[]> {
+export async function loadData(): Promise<PeriodInfo[]> {
 	return [
 		{
 			period: 1,
