@@ -6,12 +6,14 @@ import { Header } from '../Header'
 import { Clock } from '../Board'
 import { Board } from '../Board'
 import { loadData } from '../../api'
+import type { Period } from '../../types'
 
 type Props = {}
 
 type State = {
 	now: moment,
 	intervalId: number,
+	periods: Period[],
 }
 
 class App extends React.Component<Props, State> {
@@ -20,6 +22,7 @@ class App extends React.Component<Props, State> {
 		this.state = {
 			now: moment(),
 			intervalId: 0,
+			periods: [],
 		}
 	}
 
@@ -42,11 +45,12 @@ class App extends React.Component<Props, State> {
 	}
 
 	render() {
+		const { state } = this
 		return (
 			<div>
 				<Header />
 				<Clock />
-				<Board />
+				<Board periods={state.periods} />
 			</div>
 		)
 	}

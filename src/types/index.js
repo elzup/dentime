@@ -1,4 +1,5 @@
 // @flow
+import moment from 'moment'
 
 export type Time = {|
 	+h: number,
@@ -13,12 +14,13 @@ export type PeriodInfo = {|
 
 export type PeriodStatusBefore = {
 	type: 'before',
-	until: number,
+	until: moment,
 }
 
 export type PeriodStatusProgress = {
 	type: 'progress',
-	until: number,
+	rate: number,
+	remain: number,
 }
 
 export type PeriodStatusFinish = {
@@ -32,4 +34,6 @@ export type PeriodStatus =
 export type Period = {|
 	+info: PeriodInfo,
 	status: PeriodStatus,
+	+startStr: string,
+	+endStr: string,
 |}

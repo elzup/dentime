@@ -1,13 +1,14 @@
 // @flow
 
 import React from 'react'
+import type { Period } from '../../types'
 
-const TimeRow = () => (
+const TimeRow = ({ period }: { period: Period }) => (
 	<div className="time-row">
-		<div>{k}限</div>
+		<div>{period.info.period}限</div>
 		<div>
-			{e.start} - {e.end}
+			{period.startStr} - {period.endStr}
 		</div>
-		<div className="from-now">{this.renderStatus(e)}</div>
 	</div>
 )
+export default TimeRow
