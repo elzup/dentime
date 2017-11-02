@@ -1,9 +1,10 @@
+// @flow
+
 import React from 'react'
-import './App.css'
 import moment from 'moment'
 import _ from 'lodash'
 
-import timeData from './data/time.json'
+import timeData from '../../data/time.json'
 
 class App extends React.Component {
 	constructor(props) {
