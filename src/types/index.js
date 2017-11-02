@@ -30,6 +30,7 @@ export type PeriodStatus =
 	| PeriodStatusBefore
 	| PeriodStatusProgress
 	| PeriodStatusFinish
+	| null
 
 export type Period = {|
 	+info: PeriodInfo,
