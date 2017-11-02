@@ -3,14 +3,21 @@
 import React from 'react'
 import moment from 'moment'
 import _ from 'lodash'
+import { loadData } from '../../api'
 
-import timeData from '../../data/time.json'
+type Props = {}
 
-class App extends React.Component {
-	constructor(props) {
+type State = {
+	now: any,
+	intervalId: number,
+}
+
+class App extends React.Component<Props, State> {
+	constructor(props: Props) {
 		super(props)
 		this.state = {
 			now: moment(),
+			intervalId: 0,
 		}
 	}
 
@@ -19,11 +26,17 @@ class App extends React.Component {
 	}
 
 	componentDidMount() {
-		this.interval = setInterval(this.tick.bind(this), 1000)
+		this.initialize()
+	}
+
+	async initialize() {
+		const data = await loadData()
+		const intervalId = setInterval(this.tick.bind, 1000)
+		this.setState({ intervalId })
 	}
 
 	componentWillUnmount() {
-		clearInterval(this.interval)
+		clearInterval(this.state.intervalId)
 	}
 
 	renderStatus(term) {
