@@ -35,6 +35,6 @@ export type PeriodStatus =
 export type Period = {|
 	+info: PeriodInfo,
 	status: PeriodStatus,
-	+startStr: string,
-	+endStr: string,
+	+start: moment,
+	+end: moment,
 |}

@@ -18,21 +18,22 @@ type State = {
 }
 
 function initialPeriod(info: PeriodInfo): Period {
-	// TDOO: fill 0
-	const startStr = `${info.start.h}:${info.start.m}`
-	const endStr = `${info.end.h}:${info.end.m}`
+	const start = moment({ h: info.start.h, m: info.start.m })
+	const end = moment({ h: info.end.h, m: info.end.m })
 	const status = null
 	return {
 		info,
 		status,
-		startStr,
-		endStr,
+		start,
+		end,
 	}
 }
 
 function updatePeriod(period: Period, now: moment): Period {
+	const status = {}
 	return {
 		...period,
+		status,
 	}
 }
 
@@ -47,12 +48,14 @@ class App extends React.Component<Props, State> {
 	}
 
 	tick() {
-		this.setState({ now: this.state.now.add({ s: 1 }) })
+		const now = this.state.now.add({ s: 1 })
+		const periods = this.state.periods.map(period => updatePeriod(period, now))
+		this.setState({ now })
 	}
 
 	async initialize() {
 		const infos = await loadData()
-		const intervalId = setInterval(this.tick.bind, 1000)
+		const intervalId = setInterval(this.tick.bind(this), 1000)
 		const periods = infos.map(initialPeriod)
 		// TDOO: Correct initialize
 		this.setState({ intervalId, periods })

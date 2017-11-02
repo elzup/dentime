@@ -7,7 +7,7 @@ const TimeRow = ({ period }: { period: Period }) => (
 	<div className="time-row">
 		<div>{period.info.period}限</div>
 		<div>
-			{period.startStr} - {period.endStr}
+			{period.start.format('HH:mm')} - {period.end.format('HH:mm')}
 		</div>
 	</div>
 )
