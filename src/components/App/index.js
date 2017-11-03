@@ -37,8 +37,11 @@ function diffStatus(period: Period, now: moment): PeriodStatus {
 			fromNowStr: period.start.from(now),
 		}
 	} else if (now.isBefore(period.end)) {
+		const progress = now.diff(period.start, 'minutes')
 		return {
 			type: 'progress',
+			progress,
+			rate: progress / 90,
 		}
 	} else {
 		return {
@@ -71,7 +74,10 @@ class App extends React.Component<Props, State> {
 	async initialize() {
 		const infos = await loadData()
 		const intervalId = setInterval(this.tick.bind(this), 1000)
-		const periods = infos.map(initialPeriod)
+		const periods = infos
+			.map(initialPeriod)
+			.map(period => updatePeriod(period, this.state.now))
+
 		// TDOO: Correct initialize
 		this.setState({ intervalId, periods })
 	}

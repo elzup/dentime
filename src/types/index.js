@@ -19,6 +19,8 @@ export type PeriodStatusBefore = {
 
 export type PeriodStatusProgress = {
 	type: 'progress',
+	progress: number,
+	rate: number,
 }
 
 export type PeriodStatusFinish = {
