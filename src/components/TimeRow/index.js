@@ -20,7 +20,13 @@ const Row = styled.div`
 `
 
 const StRow = styled.div`
+	margin-left: 5px;
 	display: flex;
+`
+
+const PeriodLabel = styled.div`
+	width: 2em;
+	margin-left: 5px;
 `
 
 const StatusLabel = styled.div`
@@ -30,27 +36,24 @@ const StatusLabel = styled.div`
 	text-align: left;
 `
 
-const Opt = styled.span`
-	font-size: 0.5em;
-	width: 4em;
-`
+const Bar = styled.span``
 
 const TimeStatusBefore = ({ st }: { st: PeriodStatusBefore }) => (
 	<StRow>
 		<StatusLabel />
-		<Opt>{st.fromNowStr}</Opt>
+		<Bar />
 	</StRow>
 )
 const TimeStatusProgress = ({ st }: { st: PeriodStatusProgress }) => (
 	<StRow>
 		<StatusLabel color={'red'}>Now</StatusLabel>
-		<Opt />
+		<Bar />
 	</StRow>
 )
 const TimeStatusFinish = ({ st }: { st: PeriodStatusFinish }) => (
 	<StRow>
 		<StatusLabel color={'gray'}>Fin</StatusLabel>
-		<Opt />
+		<Bar />
 	</StRow>
 )
 
@@ -72,7 +75,7 @@ function getStatus(st: PeriodStatus) {
 
 const TimeRow = ({ period }: { period: Period }) => (
 	<Row>
-		<div>{period.info.period}限</div>
+		<PeriodLabel>{period.info.period}限</PeriodLabel>
 		<div>
 			{period.start.format('HH:mm')} - {period.end.format('HH:mm')}
 		</div>
