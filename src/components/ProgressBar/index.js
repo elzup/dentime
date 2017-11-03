@@ -2,6 +2,7 @@
 import React from 'react'
 
 import styled from 'styled-components'
+import type { PeriodStatus } from '../../types'
 
 const Wrapper = styled.div`
 	width: 100%;
@@ -18,13 +19,35 @@ const Bar = styled.div`
 `
 
 type Props = {
-	rate: number,
+	status: PeriodStatus,
 }
 
-const ProgressBar = ({ rate }: Props) => (
-	<Wrapper>
-		<Bar rate={rate} />
-	</Wrapper>
-)
+const ProgressBar = ({ status }: Props) => {
+	if (status === null) {
+		return <Wrapper />
+	}
+	switch (status.type) {
+		case 'before':
+			return (
+				<Wrapper>
+					<Bar rate={0} />
+				</Wrapper>
+			)
+		case 'progress':
+			return (
+				<Wrapper>
+					<Bar rate={status.rate} />
+				</Wrapper>
+			)
+		case 'finish':
+			return (
+				<Wrapper>
+					<Bar rate={1} />
+				</Wrapper>
+			)
+		default:
+			return null
+	}
+}
 
 export default ProgressBar
