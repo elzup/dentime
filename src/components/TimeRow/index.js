@@ -1,6 +1,7 @@
 // @flow
 
 import React from 'react'
+import ProgressBar from '../ProgressBar'
 import type {
 	Period,
 	PeriodStatus,
@@ -36,24 +37,36 @@ const StatusLabel = styled.div`
 	text-align: left;
 `
 
-const Bar = styled.span``
+const Opt = styled.div`
+	color: #444;
+	font-size: 0.5em;
+`
+
+const BarWrap = styled.div`
+	width: 100px;
+`
 
 const TimeStatusBefore = ({ st }: { st: PeriodStatusBefore }) => (
 	<StRow>
+		<Opt />
 		<StatusLabel />
-		<Bar />
+		<BarWrap />
 	</StRow>
 )
 const TimeStatusProgress = ({ st }: { st: PeriodStatusProgress }) => (
 	<StRow>
+		<Opt>{`${st.progress}/90`}</Opt>
 		<StatusLabel color={'red'}>Now</StatusLabel>
-		<Bar />
+		<BarWrap>
+			<ProgressBar rate={st.rate} />
+		</BarWrap>
 	</StRow>
 )
 const TimeStatusFinish = ({ st }: { st: PeriodStatusFinish }) => (
 	<StRow>
+		<Opt />
 		<StatusLabel color={'gray'}>Fin</StatusLabel>
-		<Bar />
+		<BarWrap />
 	</StRow>
 )
 

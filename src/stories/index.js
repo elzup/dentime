@@ -41,10 +41,22 @@ const statusBefore: PeriodStatusBefore = {
 	fromNowStr: '2時間前',
 }
 
-const statusProgress: PeriodStatusProgress = {
+const statusProgress1: PeriodStatusProgress = {
+	type: 'progress',
+	progress: 0,
+	rate: 0.0 / 90,
+}
+
+const statusProgress2: PeriodStatusProgress = {
 	type: 'progress',
 	progress: 40,
-	rate: 40 / 90,
+	rate: 40.0 / 90,
+}
+
+const statusProgress3: PeriodStatusProgress = {
+	type: 'progress',
+	progress: 85,
+	rate: 85.0 / 90,
 }
 
 const statusFinish: PeriodStatusFinish = {
@@ -52,12 +64,15 @@ const statusFinish: PeriodStatusFinish = {
 }
 
 storiesOf('TimeRow', module)
-	.add('Before', () => (
-		<TimeRow period={Object.assign(pb, { status: statusBefore })} />
-	))
+	.add('Before', () => <TimeRow period={{ ...pb, status: statusBefore }} />)
 	.add('Progress', () => (
-		<TimeRow period={Object.assign(pb, { status: statusProgress })} />
+		<div>
+			<TimeRow period={{ ...pb, status: statusProgress1 }} />
+			<TimeRow period={{ ...pb, status: statusProgress2 }} />
+			<TimeRow period={{ ...pb, status: statusProgress3 }} />
+		</div>
 	))
-	.add('Finish', () => (
-		<TimeRow period={Object.assign(pb, { status: statusFinish })} />
+	.add('Progress2', () => (
+		<TimeRow period={{ ...pb, status: statusProgress1 }} />
 	))
+	.add('Finish', () => <TimeRow period={{ ...pb, status: statusFinish }} />)
