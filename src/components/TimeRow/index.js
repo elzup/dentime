@@ -2,13 +2,7 @@
 
 import React from 'react'
 import ProgressBar from '../ProgressBar'
-import type {
-	Period,
-	PeriodStatus,
-	PeriodStatusBefore,
-	PeriodStatusFinish,
-	PeriodStatusProgress,
-} from '../../types'
+import type { Period, PeriodStatus } from '../../types'
 
 import styled from 'styled-components'
 
@@ -58,19 +52,27 @@ function getStatus(st: PeriodStatus) {
 	)
 }
 
+function remainLabel(st: PeriodStatus) {
+	if (st === null || st.type !== 'progress') {
+		return null
+	}
+	return <span>{90 - st.progress}min</span>
+}
+
 const TimeRow = ({ period }: { period: Period }) => (
 	<div>
-		<RowBetween>
-			<Row>
-				<PeriodLabel>{period.info.period}限</PeriodLabel>
-				<div>
-					{period.start.format('HH:mm')} - {period.end.format('HH:mm')}
-				</div>
-				<div>{getStatus(period.status)}</div>
-			</Row>
-			<div>{}</div>
-		</RowBetween>
+		<Row>
+			<PeriodLabel>{period.info.period}限</PeriodLabel>
+			<div>
+				{period.start.format('HH:mm')} - {period.end.format('HH:mm')}
+			</div>
+			<div>{getStatus(period.status)}</div>
+		</Row>
 		<ProgressBar status={period.status} />
+		<RowBetween>
+			<div />
+			<div>{remainLabel(period.status)}</div>
+		</RowBetween>
 	</div>
 )
 export default TimeRow

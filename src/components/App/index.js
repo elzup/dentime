@@ -95,8 +95,8 @@ class App extends React.Component<Props, State> {
 		return (
 			<div>
 				<Header />
-				<Clock now={state.now} />
 				<Board periods={state.periods} />
+				<Clock now={state.now} />
 			</div>
 		)
 	}
