@@ -42,8 +42,6 @@ const Opt = styled.div`
 	font-size: 0.5em;
 `
 
-const BarWrap = styled.div``
-
 const TimeStatusBefore = ({ st }: { st: PeriodStatusBefore }) => (
 	<StRow>
 		<Opt />
