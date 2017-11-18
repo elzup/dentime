@@ -48,7 +48,7 @@ function getStatus(st: PeriodStatus) {
 	}
 	const { color, label } = {
 		before: { color: 'black', label: '' },
-		progress: { color: 'red', label: 'Now' },
+		progress: { color: '#ebe971', label: 'Now' },
 		finish: { color: 'gray', label: 'Fin' },
 	}[st.type]
 	return (

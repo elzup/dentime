@@ -6,6 +6,8 @@ import Header from '../Header'
 import Clock from '../Clock'
 import Board from '../Board'
 
+import styled from 'styled-components'
+
 import { loadData } from '../../api'
 import type { Period, PeriodInfo, PeriodStatus } from '../../types'
 
@@ -16,6 +18,8 @@ type State = {
 	intervalId: number,
 	periods: Period[],
 }
+
+const MainWrap = styled.div``
 
 function initialPeriod(info: PeriodInfo): Period {
 	const start = moment({ h: info.start.h, m: info.start.m })
@@ -93,11 +97,11 @@ class App extends React.Component<Props, State> {
 	render() {
 		const { state } = this
 		return (
-			<div>
+			<MainWrap>
 				<Header />
 				<Board periods={state.periods} />
 				<Clock now={state.now} />
-			</div>
+			</MainWrap>
 		)
 	}
 }

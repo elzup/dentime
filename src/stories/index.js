@@ -61,18 +61,12 @@ const statusFinish: PeriodStatusFinish = {
 	type: 'finish',
 }
 
-storiesOf('TimeRow', module)
-	.add('Before', () => <TimeRow period={pb} nextBreak={false} />)
-	.add('Progress', () => (
-		<div>
-			<TimeRow period={{ ...pb, status: statusProgress1 }} nextBreak={false} />
-			<TimeRow period={{ ...pb, status: statusProgress2 }} nextBreak={false} />
-			<TimeRow period={{ ...pb, status: statusProgress3 }} nextBreak={false} />
-		</div>
-	))
-	.add('Progress2', () => (
+storiesOf('TimeRow', module).add('Progress', () => (
+	<div>
+		<TimeRow period={{ ...pb, status: statusBefore }} nextBreak={false} />
 		<TimeRow period={{ ...pb, status: statusProgress1 }} nextBreak={false} />
-	))
-	.add('Finish', () => (
+		<TimeRow period={{ ...pb, status: statusProgress2 }} nextBreak={false} />
+		<TimeRow period={{ ...pb, status: statusProgress3 }} nextBreak={false} />
 		<TimeRow period={{ ...pb, status: statusFinish }} nextBreak={false} />
-	))
+	</div>
+))
