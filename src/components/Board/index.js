@@ -7,8 +7,12 @@ import type { Period } from '../../types'
 import styled from 'styled-components'
 
 const Wrapper = styled.div`
-	text-align: center;
 	padding: 10px;
+`
+const BreakLine = styled.hr`
+	height: 6px;
+	border: #004;
+	color: #004;
 `
 
 const Board = ({ periods }: { periods: Period[] }) => {
@@ -16,7 +20,10 @@ const Board = ({ periods }: { periods: Period[] }) => {
 		<Wrapper>
 			<p>開館 07:30</p>
 			{periods.map(period => (
-				<TimeRow key={period.info.period} period={period} />
+				<div>
+					<TimeRow key={period.info.period} period={period} />
+					{[2, 5].includes(period.info.period) && <BreakLine />}
+				</div>
 			))}
 			<p>閉館 22:30</p>
 		</Wrapper>

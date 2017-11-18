@@ -2,7 +2,7 @@
 import React from 'react'
 import moment from 'moment'
 
-import '../initialize'
+import '../config/initialize'
 
 import { storiesOf } from '@storybook/react'
 import { action } from '@storybook/addon-actions'
