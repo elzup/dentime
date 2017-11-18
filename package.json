@@ -1,8 +1,8 @@
 {
 	"name": "time",
-	"version": "0.1.0",
+	"version": "0.2.0",
 	"private": true,
-	"homepage": "https://dendai.github.io/time",
+	"homepage": "https://elzup.github.io/dentime",
 	"scripts": {
 		"start": "react-scripts start",
 		"build": "react-scripts build",
@@ -39,9 +39,6 @@
 		"react-scripts": "^1.0.16"
 	},
 	"lint-staged": {
-		"*.js": [
-			"prettier --config ./.prettierrc --write",
-			"git add"
-		]
+		"*.js": ["prettier --config ./.prettierrc --write", "git add"]
 	}
 }
