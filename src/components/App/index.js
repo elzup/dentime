@@ -71,8 +71,14 @@ class App extends React.Component<Props, State> {
 
 	tick() {
 		const now = this.state.now.add({ s: 1 })
-		const periods = this.state.periods.map(period => updatePeriod(period, now))
-		this.setState({ now, periods })
+		if (now.second() !== 0) {
+			this.setState({ now })
+		} else {
+			const periods = this.state.periods.map(period =>
+				updatePeriod(period, now),
+			)
+			this.setState({ now, periods })
+		}
 	}
 
 	async initialize() {
