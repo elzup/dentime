@@ -3,26 +3,25 @@
 import React from 'react'
 import TimeRow from '../TimeRow'
 import type { Period } from '../../types'
+import config from '../../config'
 
 import styled from 'styled-components'
 
 const Wrapper = styled.div`
 	padding: 10px;
+	background: ${config.color.sub};
 `
-const BreakLine = styled.hr`
-	height: 6px;
-	border: #004;
-	color: #004;
-`
-
 const Board = ({ periods }: { periods: Period[] }) => {
 	return (
 		<Wrapper>
 			<p>開館 07:30</p>
 			{periods.map(period => (
 				<div>
-					<TimeRow key={period.info.period} period={period} />
-					{[2, 5].includes(period.info.period) && <BreakLine />}
+					<TimeRow
+						nextBreak={[2, 5].includes(period.info.period)}
+						key={period.info.period}
+						period={period}
+					/>
 				</div>
 			))}
 			<p>閉館 22:30</p>

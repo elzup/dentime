@@ -13,6 +13,7 @@ const Wrapper = styled.div`
 const Title = styled.h2`
 	margin: 0;
 	padding: 0;
+	font-size: 20px;
 `
 
 const Header = () => (

@@ -8,7 +8,7 @@ injectGlobal`
 html, body {
   height: 100%;
   min-height: 100%;
-  background: ${config.color.sub};
+  background: ${config.color.main};
   color: ${config.color.font};
 }
 

@@ -6,6 +6,12 @@ import type { Period, PeriodStatus } from '../../types'
 
 import styled from 'styled-components'
 
+const Wrapper = styled.div`
+	border-bottom: ${p => (p.nextBreak ? '#25252e solid' : 'none')};
+	padding-bottom: ${p => (p.nextBreak ? '20px' : '0px')};
+	margin-bottom: ${p => (p.nextBreak ? '20px' : '0px')};
+`
+
 const Row = styled.div`
 	display: flex;
 	font-size: 1.5em;
@@ -59,8 +65,14 @@ function remainLabel(st: PeriodStatus) {
 	return <span>{90 - st.progress}min</span>
 }
 
-const TimeRow = ({ period }: { period: Period }) => (
-	<div>
+const TimeRow = ({
+	period,
+	nextBreak,
+}: {
+	period: Period,
+	nextBreak: boolean,
+}) => (
+	<Wrapper nextBreak={nextBreak}>
 		<Row>
 			<PeriodLabel>{period.info.period}限</PeriodLabel>
 			<div>
@@ -73,6 +85,6 @@ const TimeRow = ({ period }: { period: Period }) => (
 			<div />
 			<div>{remainLabel(period.status)}</div>
 		</RowBetween>
-	</div>
+	</Wrapper>
 )
 export default TimeRow
