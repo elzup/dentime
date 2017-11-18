@@ -3,5 +3,9 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
 import App from './components/App'
-import './initialize'
-ReactDOM.render(<App />, document.getElementById('root'))
+import './config/initialize'
+
+const root = document.getElementById('root')
+if (root !== null) {
+	ReactDOM.render(<App />, root)
+}

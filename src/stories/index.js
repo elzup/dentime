@@ -2,11 +2,9 @@
 import React from 'react'
 import moment from 'moment'
 
-import '../initialize'
+import '../config/initialize'
 
 import { storiesOf } from '@storybook/react'
-import { action } from '@storybook/addon-actions'
-import { linkTo } from '@storybook/addon-links'
 
 import type {
 	Period,
@@ -63,16 +61,12 @@ const statusFinish: PeriodStatusFinish = {
 	type: 'finish',
 }
 
-storiesOf('TimeRow', module)
-	.add('Before', () => <TimeRow period={{ ...pb, status: statusBefore }} />)
-	.add('Progress', () => (
-		<div>
-			<TimeRow period={{ ...pb, status: statusProgress1 }} />
-			<TimeRow period={{ ...pb, status: statusProgress2 }} />
-			<TimeRow period={{ ...pb, status: statusProgress3 }} />
-		</div>
-	))
-	.add('Progress2', () => (
-		<TimeRow period={{ ...pb, status: statusProgress1 }} />
-	))
-	.add('Finish', () => <TimeRow period={{ ...pb, status: statusFinish }} />)
+storiesOf('TimeRow', module).add('Progress', () => (
+	<div>
+		<TimeRow period={{ ...pb, status: statusBefore }} nextBreak={false} />
+		<TimeRow period={{ ...pb, status: statusProgress1 }} nextBreak={false} />
+		<TimeRow period={{ ...pb, status: statusProgress2 }} nextBreak={false} />
+		<TimeRow period={{ ...pb, status: statusProgress3 }} nextBreak={false} />
+		<TimeRow period={{ ...pb, status: statusFinish }} nextBreak={false} />
+	</div>
+))

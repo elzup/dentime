@@ -2,21 +2,26 @@
 
 import React from 'react'
 import ProgressBar from '../ProgressBar'
-import type {
-	Period,
-	PeriodStatus,
-	PeriodStatusBefore,
-	PeriodStatusFinish,
-	PeriodStatusProgress,
-} from '../../types'
+import type { Period, PeriodStatus } from '../../types'
 
 import styled from 'styled-components'
 
+const Wrapper = styled.div`
+	border-bottom: ${p => (p.nextBreak ? '#25252e solid' : 'none')};
+	padding-bottom: ${p => (p.nextBreak ? '20px' : '0px')};
+	margin-bottom: ${p => (p.nextBreak ? '20px' : '0px')};
+`
+
 const Row = styled.div`
 	display: flex;
-	text-align: center;
 	font-size: 1.5em;
-	justify-content: center;
+	justify-content: left;
+	padding: 2.5px 0;
+`
+
+const RowBetween = styled.div`
+	display: flex;
+	justify-content: space-between;
 	padding: 2.5px 0;
 `
 
@@ -37,51 +42,37 @@ const StatusLabel = styled.div`
 	text-align: left;
 `
 
-const Opt = styled.div`
-	color: #444;
-	font-size: 0.5em;
-`
-
-const BarWrap = styled.div``
-
-const TimeStatusBefore = ({ st }: { st: PeriodStatusBefore }) => (
-	<StRow>
-		<Opt />
-		<StatusLabel />
-	</StRow>
-)
-
-const TimeStatusProgress = ({ st }: { st: PeriodStatusProgress }) => (
-	<StRow>
-		<Opt>{`${st.progress}/90`}</Opt>
-		<StatusLabel color={'red'}>Now</StatusLabel>
-	</StRow>
-)
-const TimeStatusFinish = ({ st }: { st: PeriodStatusFinish }) => (
-	<StRow>
-		<Opt />
-		<StatusLabel color={'gray'}>Fin</StatusLabel>
-	</StRow>
-)
-
 function getStatus(st: PeriodStatus) {
 	if (st === null) {
 		return null
 	}
-	switch (st.type) {
-		case 'before':
-			return <TimeStatusBefore st={st} />
-		case 'progress':
-			return <TimeStatusProgress st={st} />
-		case 'finish':
-			return <TimeStatusFinish st={st} />
-		default:
-			return null
-	}
+	const { color, label } = {
+		before: { color: 'black', label: '' },
+		progress: { color: '#ebe971', label: 'Now' },
+		finish: { color: 'gray', label: 'Fin' },
+	}[st.type]
+	return (
+		<StRow>
+			<StatusLabel color={color}>{label}</StatusLabel>
+		</StRow>
+	)
 }
 
-const TimeRow = ({ period }: { period: Period }) => (
-	<div>
+function remainLabel(st: PeriodStatus) {
+	if (st === null || st.type !== 'progress') {
+		return null
+	}
+	return <span>{90 - st.progress}min</span>
+}
+
+const TimeRow = ({
+	period,
+	nextBreak,
+}: {
+	period: Period,
+	nextBreak: boolean,
+}) => (
+	<Wrapper nextBreak={nextBreak}>
 		<Row>
 			<PeriodLabel>{period.info.period}限</PeriodLabel>
 			<div>
@@ -90,6 +81,10 @@ const TimeRow = ({ period }: { period: Period }) => (
 			<div>{getStatus(period.status)}</div>
 		</Row>
 		<ProgressBar status={period.status} />
-	</div>
+		<RowBetween>
+			<div />
+			<div>{remainLabel(period.status)}</div>
+		</RowBetween>
+	</Wrapper>
 )
 export default TimeRow

@@ -1,17 +1,24 @@
 // @flow
 import React from 'react'
 import styled from 'styled-components'
+import config from '../../config'
+const { color } = config
 
 const Wrapper = styled.div`
-	background: #2d56a0;
+	background: ${color.main};
 	color: white;
 	text-align: center;
-	padding: 30px;
+	padding: 10px;
+`
+const Title = styled.h2`
+	margin: 0;
+	padding: 0;
+	font-size: 20px;
 `
 
 const Header = () => (
 	<Wrapper>
-		<h1>Dendai Time</h1>
+		<Title>Dendai Time</Title>
 	</Wrapper>
 )
 export default Header

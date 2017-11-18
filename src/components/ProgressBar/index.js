@@ -7,14 +7,14 @@ import type { PeriodStatus } from '../../types'
 const Wrapper = styled.div`
 	width: 100%;
 	height: 5px;
-	background: #ccc;
+	background: #004645;
 	border-radius: 5px;
 `
 
 const Bar = styled.div`
 	width: ${p => p.rate * 100}%;
 	height: 100%;
-	background: green;
+	background: #a6c0bf;
 	border-radius: 5px;
 `
 
