@@ -8,6 +8,7 @@ import styled from 'styled-components'
 
 const Wrapper = styled.div`
 	text-align: center;
+	padding: 10px;
 `
 
 const Board = ({ periods }: { periods: Period[] }) => {

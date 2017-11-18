@@ -14,9 +14,14 @@ import styled from 'styled-components'
 
 const Row = styled.div`
 	display: flex;
-	text-align: center;
 	font-size: 1.5em;
-	justify-content: center;
+	justify-content: left;
+	padding: 2.5px 0;
+`
+
+const RowBetween = styled.div`
+	display: flex;
+	justify-content: space-between;
 	padding: 2.5px 0;
 `
 
@@ -37,56 +42,34 @@ const StatusLabel = styled.div`
 	text-align: left;
 `
 
-const Opt = styled.div`
-	color: #444;
-	font-size: 0.5em;
-`
-
-const TimeStatusBefore = ({ st }: { st: PeriodStatusBefore }) => (
-	<StRow>
-		<Opt />
-		<StatusLabel />
-	</StRow>
-)
-
-const TimeStatusProgress = ({ st }: { st: PeriodStatusProgress }) => (
-	<StRow>
-		<Opt>{`${st.progress}/90`}</Opt>
-		<StatusLabel color={'red'}>Now</StatusLabel>
-	</StRow>
-)
-const TimeStatusFinish = ({ st }: { st: PeriodStatusFinish }) => (
-	<StRow>
-		<Opt />
-		<StatusLabel color={'gray'}>Fin</StatusLabel>
-	</StRow>
-)
-
 function getStatus(st: PeriodStatus) {
 	if (st === null) {
 		return null
 	}
-	switch (st.type) {
-		case 'before':
-			return <TimeStatusBefore st={st} />
-		case 'progress':
-			return <TimeStatusProgress st={st} />
-		case 'finish':
-			return <TimeStatusFinish st={st} />
-		default:
-			return null
-	}
+	const { color, label } = {
+		before: { color: 'black', label: '' },
+		progress: { color: 'red', label: 'Now' },
+		finish: { color: 'gray', label: 'Fin' },
+	}[st.type]
+	return (
+		<StRow>
+			<StatusLabel color={color}>{label}</StatusLabel>
+		</StRow>
+	)
 }
 
 const TimeRow = ({ period }: { period: Period }) => (
 	<div>
-		<Row>
-			<PeriodLabel>{period.info.period}限</PeriodLabel>
-			<div>
-				{period.start.format('HH:mm')} - {period.end.format('HH:mm')}
-			</div>
-			<div>{getStatus(period.status)}</div>
-		</Row>
+		<RowBetween>
+			<Row>
+				<PeriodLabel>{period.info.period}限</PeriodLabel>
+				<div>
+					{period.start.format('HH:mm')} - {period.end.format('HH:mm')}
+				</div>
+				<div>{getStatus(period.status)}</div>
+			</Row>
+			<div>{}</div>
+		</RowBetween>
 		<ProgressBar status={period.status} />
 	</div>
 )
