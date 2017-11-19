@@ -10,9 +10,9 @@ const Wrapper = styled.div`
 	padding-bottom: 0px;
 	margin-bottom: 0px;
 	&[data-nextspace='true'] {
-		border-bottom: #25252e solid;
-		padding-bottom: 20px;
-		margin-bottom: 20px;
+		border-bottom: #717b8a dashed;
+		padding-bottom: 5px;
+		margin-bottom: 5px;
 	}
 `
 
