@@ -3,7 +3,7 @@
 import React from 'react'
 import moment from 'moment'
 import Header from '../Header'
-import Clock from '../Clock'
+import Footer from '../Footer'
 import Board from '../Board'
 
 import styled from 'styled-components'
@@ -106,7 +106,7 @@ class App extends React.Component<Props, State> {
 			<MainWrap>
 				<Header />
 				<Board periods={state.periods} />
-				<Clock now={state.now} />
+				<Footer now={state.now} />
 			</MainWrap>
 		)
 	}

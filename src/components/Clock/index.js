@@ -8,11 +8,11 @@ import config from '../../config'
 const Wrapper = styled.div`
 	background: ${config.color.main};
 	text-align: center;
-	padding: 10px;
 `
 
 const Frame = styled.h2`
 	font-size: 2em;
+	margin: 0;
 `
 
 const SubSecond = styled.span`
