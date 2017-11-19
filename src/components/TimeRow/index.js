@@ -7,9 +7,13 @@ import type { Period, PeriodStatus } from '../../types'
 import styled from 'styled-components'
 
 const Wrapper = styled.div`
-	border-bottom: ${p => (p.nextBreak ? '#25252e solid' : 'none')};
-	padding-bottom: ${p => (p.nextBreak ? '20px' : '0px')};
-	margin-bottom: ${p => (p.nextBreak ? '20px' : '0px')};
+	padding-bottom: 0px;
+	margin-bottom: 0px;
+	&[data-nextspace='true'] {
+		border-bottom: #25252e solid;
+		padding-bottom: 20px;
+		margin-bottom: 20px;
+	}
 `
 
 const Row = styled.div`
@@ -72,7 +76,7 @@ const TimeRow = ({
 	period: Period,
 	nextBreak: boolean,
 }) => (
-	<Wrapper nextBreak={nextBreak}>
+	<Wrapper data-nextspace={nextBreak}>
 		<Row>
 			<PeriodLabel>{period.info.period}限</PeriodLabel>
 			<div>
