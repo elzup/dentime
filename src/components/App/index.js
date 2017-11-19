@@ -90,6 +90,14 @@ class App extends React.Component<Props, State> {
 
 		// TDOO: Correct initialize
 		this.setState({ intervalId, periods })
+
+		window.addEventListener(
+			'touchmove',
+			event => {
+				event.preventDefault()
+			},
+			true,
+		)
 	}
 
 	componentDidMount() {
