@@ -35,8 +35,10 @@ const StRow = styled.div`
 `
 
 const PeriodLabel = styled.div`
-	width: 2em;
+	text-align: right;
+	width: 3em;
 	margin-left: 5px;
+	margin-right: 5px;
 `
 
 const StatusLabel = styled.div`

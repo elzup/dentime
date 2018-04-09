@@ -2,6 +2,8 @@
 
 import React from 'react'
 import moment from 'moment'
+import _ from 'lodash'
+
 import Header from '../Header'
 import Footer from '../Footer'
 import Board from '../Board'
@@ -15,7 +17,7 @@ type Props = {}
 
 type State = {
 	now: moment,
-	intervalId: number,
+	intervalId: any,
 	periods: Period[],
 }
 
@@ -84,7 +86,8 @@ class App extends React.Component<Props, State> {
 	async initialize() {
 		const infos = await loadData()
 		const intervalId = setInterval(this.tick.bind(this), 1000)
-		const periods = infos
+
+		const periods = _.map({ ...infos.base.periods, ...infos.d.periods })
 			.map(initialPeriod)
 			.map(period => updatePeriod(period, this.state.now))
 

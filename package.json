@@ -16,6 +16,7 @@
 	},
 	"dependencies": {
 		"axios": "^0.18.0",
+		"lodash": "^4.17.5",
 		"moment": "^2.22.0",
 		"react": "^16.3.1",
 		"react-bootstrap": "^0.32.1",

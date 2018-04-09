@@ -7,7 +7,7 @@ export type Time = {|
 |}
 
 export type PeriodInfo = {|
-	+period: number,
+	+period: string,
 	+start: Time,
 	+end: Time,
 |}
@@ -38,3 +38,15 @@ export type Period = {|
 	+start: moment,
 	+end: moment,
 |}
+
+export type Profile = {
+	periods: {
+		[key: string]: PeriodInfo,
+	},
+}
+
+export type TimeResponse = {
+	base: Profile,
+	d: Profile,
+	j: Profile,
+}
