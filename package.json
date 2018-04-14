@@ -12,6 +12,8 @@
 		"eject": "react-scripts eject",
 		"precommit": "lint-staged",
 		"storybook": "start-storybook -p 9009 -s public",
+		"update-data":
+			"curl https://raw.githubusercontent.com/elzup/db/master/tdu/time.json > public/time.json",
 		"build-storybook": "build-storybook -s public"
 	},
 	"dependencies": {
@@ -41,9 +43,6 @@
 		"react-scripts": "^1.1.4"
 	},
 	"lint-staged": {
-		"*.js": [
-			"prettier --config ./.prettierrc --write",
-			"git add"
-		]
+		"*.js": ["prettier --config ./.prettierrc --write", "git add"]
 	}
 }
