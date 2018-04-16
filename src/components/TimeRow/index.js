@@ -68,7 +68,7 @@ function remainLabel(st: PeriodStatus) {
 	if (st === null || st.type !== 'progress') {
 		return null
 	}
-	return <span>{90 - st.progress}min</span>
+	return <span>{100 - st.progress}min</span>
 }
 
 const TimeRow = ({

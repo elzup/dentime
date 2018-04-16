@@ -42,19 +42,19 @@ const statusBefore: PeriodStatusBefore = {
 const statusProgress1: PeriodStatusProgress = {
 	type: 'progress',
 	progress: 0,
-	rate: 0.0 / 90,
+	rate: 0.0 / 100,
 }
 
 const statusProgress2: PeriodStatusProgress = {
 	type: 'progress',
 	progress: 40,
-	rate: 40.0 / 90,
+	rate: 40.0 / 100,
 }
 
 const statusProgress3: PeriodStatusProgress = {
 	type: 'progress',
 	progress: 85,
-	rate: 85.0 / 90,
+	rate: 85.0 / 100,
 }
 
 const statusFinish: PeriodStatusFinish = {
