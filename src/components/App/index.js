@@ -47,7 +47,7 @@ function diffStatus(period: Period, now: moment): PeriodStatus {
 		return {
 			type: 'progress',
 			progress,
-			rate: progress / 90,
+			rate: progress / 100,
 		}
 	} else {
 		return {
