@@ -15,7 +15,8 @@ const Wrapper = styled.div`
 	justify-content: center;
 `
 const BoardFrame = styled.div`
-	width: 90%;
+	min-width: 300px;
+	width: 100%;
 	max-width: 600px;
 `
 

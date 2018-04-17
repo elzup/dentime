@@ -15,12 +15,17 @@ const Wrapper = styled.div`
 		margin-bottom: 5px;
 	}
 `
-
 const Row = styled.div`
 	display: flex;
 	font-size: 1.5em;
-	justify-content: left;
 	padding: 2.5px 0;
+`
+
+const TimeRange = styled.div`
+	flex: auto;
+`
+const Status = styled.div`
+	flex: 0;
 `
 
 const RowBetween = styled.div`
@@ -35,17 +40,12 @@ const StRow = styled.div`
 `
 
 const PeriodLabel = styled.div`
-	text-align: right;
-	width: 3em;
+	width: 50px;
 	margin-left: 5px;
-	margin-right: 5px;
 `
 
 const StatusLabel = styled.div`
-	width: 100px;
-	width: 3em;
 	color: ${p => p.color};
-	text-align: left;
 `
 
 function getStatus(st: PeriodStatus) {
@@ -80,11 +80,11 @@ const TimeRow = ({
 }) => (
 	<Wrapper data-nextspace={nextBreak}>
 		<Row>
-			<PeriodLabel>{period.info.period}限</PeriodLabel>
-			<div>
+			<PeriodLabel>({period.info.period.toLowerCase()})</PeriodLabel>
+			<TimeRange>
 				{period.start.format('HH:mm')} - {period.end.format('HH:mm')}
-			</div>
-			<div>{getStatus(period.status)}</div>
+			</TimeRange>
+			<Status>{getStatus(period.status)}</Status>
 		</Row>
 		<ProgressBar status={period.status} />
 		<RowBetween>
