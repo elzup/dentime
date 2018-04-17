@@ -1,0 +1,373 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders correctly 1`] = `
+<div
+  className="sc-iwsKbI bpCJVP"
+>
+  <div
+    className="sc-gZMcBi faJkAP"
+  >
+    <p>
+      開館 08:00
+    </p>
+    <div
+      className="sc-htpNat fkpZnl"
+      data-nextspace={false}
+    >
+      <div
+        className="sc-bxivhb gmmjKU"
+      >
+        <div
+          className="sc-htoDjs iqMdgh"
+        >
+          (
+          1
+          )
+        </div>
+        <div
+          className="sc-ifAKCX hbvzua"
+        >
+          09:20
+           - 
+          11:00
+        </div>
+        <div
+          className="sc-EHOje kVgZYz"
+        >
+          <div
+            className="sc-gzVnrw bgGAJS"
+          >
+            <div
+              className="sc-dnqmqq fiwbuD"
+              color="gray"
+            >
+              Fin
+            </div>
+          </div>
+        </div>
+      </div>
+      <div
+        className="sc-bdVaJa hgiEXr"
+      >
+        <div
+          className="sc-bwzfXH ccWcMI"
+        />
+      </div>
+      <div
+        className="sc-bZQynM jYclWu"
+      >
+        <div />
+        <div />
+      </div>
+    </div>
+    <div
+      className="sc-htpNat fkpZnl"
+      data-nextspace={true}
+    >
+      <div
+        className="sc-bxivhb gmmjKU"
+      >
+        <div
+          className="sc-htoDjs iqMdgh"
+        >
+          (
+          2
+          )
+        </div>
+        <div
+          className="sc-ifAKCX hbvzua"
+        >
+          11:10
+           - 
+          12:50
+        </div>
+        <div
+          className="sc-EHOje kVgZYz"
+        >
+          <div
+            className="sc-gzVnrw bgGAJS"
+          >
+            <div
+              className="sc-dnqmqq fiwbuD"
+              color="gray"
+            >
+              Fin
+            </div>
+          </div>
+        </div>
+      </div>
+      <div
+        className="sc-bdVaJa hgiEXr"
+      >
+        <div
+          className="sc-bwzfXH ccWcMI"
+        />
+      </div>
+      <div
+        className="sc-bZQynM jYclWu"
+      >
+        <div />
+        <div />
+      </div>
+    </div>
+    <div
+      className="sc-htpNat fkpZnl"
+      data-nextspace={false}
+    >
+      <div
+        className="sc-bxivhb gmmjKU"
+      >
+        <div
+          className="sc-htoDjs iqMdgh"
+        >
+          (
+          3
+          )
+        </div>
+        <div
+          className="sc-ifAKCX hbvzua"
+        >
+          13:40
+           - 
+          15:20
+        </div>
+        <div
+          className="sc-EHOje kVgZYz"
+        >
+          <div
+            className="sc-gzVnrw bgGAJS"
+          >
+            <div
+              className="sc-dnqmqq bjlFPx"
+              color="#ebe971"
+            >
+              Now
+            </div>
+          </div>
+        </div>
+      </div>
+      <div
+        className="sc-bdVaJa hgiEXr"
+      >
+        <div
+          className="sc-bwzfXH bEfBYg"
+        />
+      </div>
+      <div
+        className="sc-bZQynM jYclWu"
+      >
+        <div />
+        <div>
+          <span>
+            25
+            min
+          </span>
+        </div>
+      </div>
+    </div>
+    <div
+      className="sc-htpNat fkpZnl"
+      data-nextspace={false}
+    >
+      <div
+        className="sc-bxivhb gmmjKU"
+      >
+        <div
+          className="sc-htoDjs iqMdgh"
+        >
+          (
+          4
+          )
+        </div>
+        <div
+          className="sc-ifAKCX hbvzua"
+        >
+          15:30
+           - 
+          17:10
+        </div>
+        <div
+          className="sc-EHOje kVgZYz"
+        >
+          <div
+            className="sc-gzVnrw bgGAJS"
+          >
+            <div
+              className="sc-dnqmqq MWfZD"
+              color="black"
+            >
+              
+            </div>
+          </div>
+        </div>
+      </div>
+      <div
+        className="sc-bdVaJa hgiEXr"
+      >
+        <div
+          className="sc-bwzfXH kNOoWe"
+        />
+      </div>
+      <div
+        className="sc-bZQynM jYclWu"
+      >
+        <div />
+        <div />
+      </div>
+    </div>
+    <div
+      className="sc-htpNat fkpZnl"
+      data-nextspace={true}
+    >
+      <div
+        className="sc-bxivhb gmmjKU"
+      >
+        <div
+          className="sc-htoDjs iqMdgh"
+        >
+          (
+          5
+          )
+        </div>
+        <div
+          className="sc-ifAKCX hbvzua"
+        >
+          17:20
+           - 
+          19:00
+        </div>
+        <div
+          className="sc-EHOje kVgZYz"
+        >
+          <div
+            className="sc-gzVnrw bgGAJS"
+          >
+            <div
+              className="sc-dnqmqq MWfZD"
+              color="black"
+            >
+              
+            </div>
+          </div>
+        </div>
+      </div>
+      <div
+        className="sc-bdVaJa hgiEXr"
+      >
+        <div
+          className="sc-bwzfXH kNOoWe"
+        />
+      </div>
+      <div
+        className="sc-bZQynM jYclWu"
+      >
+        <div />
+        <div />
+      </div>
+    </div>
+    <div
+      className="sc-htpNat fkpZnl"
+      data-nextspace={false}
+    >
+      <div
+        className="sc-bxivhb gmmjKU"
+      >
+        <div
+          className="sc-htoDjs iqMdgh"
+        >
+          (
+          d5
+          )
+        </div>
+        <div
+          className="sc-ifAKCX hbvzua"
+        >
+          18:00
+           - 
+          19:40
+        </div>
+        <div
+          className="sc-EHOje kVgZYz"
+        >
+          <div
+            className="sc-gzVnrw bgGAJS"
+          >
+            <div
+              className="sc-dnqmqq MWfZD"
+              color="black"
+            >
+              
+            </div>
+          </div>
+        </div>
+      </div>
+      <div
+        className="sc-bdVaJa hgiEXr"
+      >
+        <div
+          className="sc-bwzfXH kNOoWe"
+        />
+      </div>
+      <div
+        className="sc-bZQynM jYclWu"
+      >
+        <div />
+        <div />
+      </div>
+    </div>
+    <div
+      className="sc-htpNat fkpZnl"
+      data-nextspace={false}
+    >
+      <div
+        className="sc-bxivhb gmmjKU"
+      >
+        <div
+          className="sc-htoDjs iqMdgh"
+        >
+          (
+          d6
+          )
+        </div>
+        <div
+          className="sc-ifAKCX hbvzua"
+        >
+          19:50
+           - 
+          21:30
+        </div>
+        <div
+          className="sc-EHOje kVgZYz"
+        >
+          <div
+            className="sc-gzVnrw bgGAJS"
+          >
+            <div
+              className="sc-dnqmqq MWfZD"
+              color="black"
+            >
+              
+            </div>
+          </div>
+        </div>
+      </div>
+      <div
+        className="sc-bdVaJa hgiEXr"
+      >
+        <div
+          className="sc-bwzfXH kNOoWe"
+        />
+      </div>
+      <div
+        className="sc-bZQynM jYclWu"
+      >
+        <div />
+        <div />
+      </div>
+    </div>
+    <p>
+      閉館 22:30
+    </p>
+  </div>
+</div>
+`;

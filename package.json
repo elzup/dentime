@@ -12,14 +12,15 @@
 		"eject": "react-scripts eject",
 		"precommit": "lint-staged",
 		"storybook": "start-storybook -p 9009 -s public",
-		"update-data":
-			"curl https://raw.githubusercontent.com/elzup/db/master/tdu/time.json > public/time.json",
+		"update-data": "curl https://raw.githubusercontent.com/elzup/db/master/tdu/time.json > public/time.json",
 		"build-storybook": "build-storybook -s public",
 		"contributors:add": "all-contributors add",
 		"contributors:generate": "all-contributors generate"
 	},
 	"dependencies": {
 		"axios": "^0.18.0",
+		"enzyme": "^3.3.0",
+		"enzyme-adapter-react-16": "^1.1.1",
 		"lodash": "^4.17.5",
 		"moment": "^2.22.0",
 		"react": "^16.3.1",
@@ -41,11 +42,15 @@
 		"eslint-plugin-react": "^7.7.0",
 		"flow-bin": "^0.69.0",
 		"gh-pages": "^1.1.0",
-		"jest": "^22.4.3",
+		"jest": "20.0.4",
 		"lint-staged": "^7.0.3",
-		"react-scripts": "^1.1.4"
+		"react-scripts": "^1.1.4",
+		"react-test-renderer": "^16.3.2"
 	},
 	"lint-staged": {
-		"*.js": ["prettier --config ./.prettierrc --write", "git add"]
+		"*.js": [
+			"prettier --config ./.prettierrc --write",
+			"git add"
+		]
 	}
 }
