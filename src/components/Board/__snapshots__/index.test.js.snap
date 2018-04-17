@@ -18,11 +18,10 @@ exports[`renders correctly 1`] = `
         className="sc-bxivhb gmmjKU"
       >
         <div
-          className="sc-htoDjs iqMdgh"
+          className="sc-htoDjs jqJPFL"
         >
-          (
           1
-          )
+          .
         </div>
         <div
           className="sc-ifAKCX hbvzua"
@@ -32,7 +31,10 @@ exports[`renders correctly 1`] = `
           11:00
         </div>
         <div
-          className="sc-EHOje fIehnl"
+          className="sc-EHOje jZdre"
+        />
+        <div
+          className="sc-bZQynM gFbXoq"
         >
           <div
             className="sc-gzVnrw bgGAJS"
@@ -52,12 +54,6 @@ exports[`renders correctly 1`] = `
         <div
           className="sc-bwzfXH ccWcMI"
         />
-      </div>
-      <div
-        className="sc-bZQynM jYclWu"
-      >
-        <div />
-        <div />
       </div>
     </div>
     <div
@@ -68,11 +64,10 @@ exports[`renders correctly 1`] = `
         className="sc-bxivhb gmmjKU"
       >
         <div
-          className="sc-htoDjs iqMdgh"
+          className="sc-htoDjs jqJPFL"
         >
-          (
           2
-          )
+          .
         </div>
         <div
           className="sc-ifAKCX hbvzua"
@@ -82,7 +77,10 @@ exports[`renders correctly 1`] = `
           12:50
         </div>
         <div
-          className="sc-EHOje fIehnl"
+          className="sc-EHOje jZdre"
+        />
+        <div
+          className="sc-bZQynM gFbXoq"
         >
           <div
             className="sc-gzVnrw bgGAJS"
@@ -103,12 +101,6 @@ exports[`renders correctly 1`] = `
           className="sc-bwzfXH ccWcMI"
         />
       </div>
-      <div
-        className="sc-bZQynM jYclWu"
-      >
-        <div />
-        <div />
-      </div>
     </div>
     <div
       className="sc-htpNat KjgwS"
@@ -118,11 +110,10 @@ exports[`renders correctly 1`] = `
         className="sc-bxivhb gmmjKU"
       >
         <div
-          className="sc-htoDjs iqMdgh"
+          className="sc-htoDjs jqJPFL"
         >
-          (
           3
-          )
+          .
         </div>
         <div
           className="sc-ifAKCX hbvzua"
@@ -132,7 +123,16 @@ exports[`renders correctly 1`] = `
           15:20
         </div>
         <div
-          className="sc-EHOje fIehnl"
+          className="sc-EHOje jZdre"
+        >
+          <span>
+            (
+            25
+            min)
+          </span>
+        </div>
+        <div
+          className="sc-bZQynM gFbXoq"
         >
           <div
             className="sc-gzVnrw bgGAJS"
@@ -153,17 +153,6 @@ exports[`renders correctly 1`] = `
           className="sc-bwzfXH bEfBYg"
         />
       </div>
-      <div
-        className="sc-bZQynM jYclWu"
-      >
-        <div />
-        <div>
-          <span>
-            25
-            min
-          </span>
-        </div>
-      </div>
     </div>
     <div
       className="sc-htpNat KjgwS"
@@ -173,11 +162,10 @@ exports[`renders correctly 1`] = `
         className="sc-bxivhb gmmjKU"
       >
         <div
-          className="sc-htoDjs iqMdgh"
+          className="sc-htoDjs jqJPFL"
         >
-          (
           4
-          )
+          .
         </div>
         <div
           className="sc-ifAKCX hbvzua"
@@ -187,7 +175,10 @@ exports[`renders correctly 1`] = `
           17:10
         </div>
         <div
-          className="sc-EHOje fIehnl"
+          className="sc-EHOje jZdre"
+        />
+        <div
+          className="sc-bZQynM gFbXoq"
         >
           <div
             className="sc-gzVnrw bgGAJS"
@@ -207,12 +198,6 @@ exports[`renders correctly 1`] = `
         <div
           className="sc-bwzfXH kNOoWe"
         />
-      </div>
-      <div
-        className="sc-bZQynM jYclWu"
-      >
-        <div />
-        <div />
       </div>
     </div>
     <div
@@ -223,11 +208,10 @@ exports[`renders correctly 1`] = `
         className="sc-bxivhb gmmjKU"
       >
         <div
-          className="sc-htoDjs iqMdgh"
+          className="sc-htoDjs jqJPFL"
         >
-          (
           5
-          )
+          .
         </div>
         <div
           className="sc-ifAKCX hbvzua"
@@ -237,7 +221,10 @@ exports[`renders correctly 1`] = `
           19:00
         </div>
         <div
-          className="sc-EHOje fIehnl"
+          className="sc-EHOje jZdre"
+        />
+        <div
+          className="sc-bZQynM gFbXoq"
         >
           <div
             className="sc-gzVnrw bgGAJS"
@@ -258,12 +245,6 @@ exports[`renders correctly 1`] = `
           className="sc-bwzfXH kNOoWe"
         />
       </div>
-      <div
-        className="sc-bZQynM jYclWu"
-      >
-        <div />
-        <div />
-      </div>
     </div>
     <div
       className="sc-htpNat KjgwS"
@@ -273,11 +254,10 @@ exports[`renders correctly 1`] = `
         className="sc-bxivhb gmmjKU"
       >
         <div
-          className="sc-htoDjs iqMdgh"
+          className="sc-htoDjs jqJPFL"
         >
-          (
           d5
-          )
+          .
         </div>
         <div
           className="sc-ifAKCX hbvzua"
@@ -287,7 +267,10 @@ exports[`renders correctly 1`] = `
           19:40
         </div>
         <div
-          className="sc-EHOje fIehnl"
+          className="sc-EHOje jZdre"
+        />
+        <div
+          className="sc-bZQynM gFbXoq"
         >
           <div
             className="sc-gzVnrw bgGAJS"
@@ -307,12 +290,6 @@ exports[`renders correctly 1`] = `
         <div
           className="sc-bwzfXH kNOoWe"
         />
-      </div>
-      <div
-        className="sc-bZQynM jYclWu"
-      >
-        <div />
-        <div />
       </div>
     </div>
     <div
@@ -323,11 +300,10 @@ exports[`renders correctly 1`] = `
         className="sc-bxivhb gmmjKU"
       >
         <div
-          className="sc-htoDjs iqMdgh"
+          className="sc-htoDjs jqJPFL"
         >
-          (
           d6
-          )
+          .
         </div>
         <div
           className="sc-ifAKCX hbvzua"
@@ -337,7 +313,10 @@ exports[`renders correctly 1`] = `
           21:30
         </div>
         <div
-          className="sc-EHOje fIehnl"
+          className="sc-EHOje jZdre"
+        />
+        <div
+          className="sc-bZQynM gFbXoq"
         >
           <div
             className="sc-gzVnrw bgGAJS"
@@ -357,12 +336,6 @@ exports[`renders correctly 1`] = `
         <div
           className="sc-bwzfXH kNOoWe"
         />
-      </div>
-      <div
-        className="sc-bZQynM jYclWu"
-      >
-        <div />
-        <div />
       </div>
     </div>
     <p>

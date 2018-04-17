@@ -1,5 +1,6 @@
 // @flow
 
+import 'normalize.css'
 import 'moment/locale/ja'
 import { injectGlobal } from 'styled-components'
 import config from './'

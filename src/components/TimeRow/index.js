@@ -22,16 +22,14 @@ const Row = styled.div`
 const TimeRange = styled.div`
 	flex: auto;
 `
-const Status = styled.div`
-	flex: 0;
+const Remain = styled.div`
 	font-size: 0.6em;
 	align-self: flex-end;
+	padding-left: 5px;
 `
-
-const RowBetween = styled.div`
-	display: flex;
-	justify-content: space-between;
-	padding: 2.5px 0;
+const Status = styled.div`
+	font-size: 0.6em;
+	align-self: flex-end;
 `
 
 const StRow = styled.div`
@@ -42,6 +40,7 @@ const StRow = styled.div`
 const PeriodLabel = styled.div`
 	width: 50px;
 	margin-left: 5px;
+	color: #a6ccff;
 `
 
 const StatusLabel = styled.div`
@@ -68,7 +67,7 @@ function remainLabel(st: PeriodStatus) {
 	if (st === null || st.type !== 'progress') {
 		return null
 	}
-	return <span>{100 - st.progress}min</span>
+	return <span>({100 - st.progress}min)</span>
 }
 
 const TimeRow = ({
@@ -80,17 +79,14 @@ const TimeRow = ({
 }) => (
 	<Wrapper data-nextspace={nextBreak}>
 		<Row>
-			<PeriodLabel>({period.info.period.toLowerCase()})</PeriodLabel>
+			<PeriodLabel>{period.info.period.toLowerCase()}.</PeriodLabel>
 			<TimeRange>
 				{period.start.format('HH:mm')} - {period.end.format('HH:mm')}
 			</TimeRange>
+			<Remain>{remainLabel(period.status)}</Remain>
 			<Status>{getStatus(period.status)}</Status>
 		</Row>
 		<ProgressBar status={period.status} />
-		<RowBetween>
-			<div />
-			<div>{remainLabel(period.status)}</div>
-		</RowBetween>
 	</Wrapper>
 )
 export default TimeRow
