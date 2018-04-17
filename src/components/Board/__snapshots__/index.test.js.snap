@@ -11,7 +11,7 @@ exports[`renders correctly 1`] = `
       開館 08:00
     </p>
     <div
-      className="sc-htpNat fkpZnl"
+      className="sc-htpNat KjgwS"
       data-nextspace={false}
     >
       <div
@@ -32,7 +32,7 @@ exports[`renders correctly 1`] = `
           11:00
         </div>
         <div
-          className="sc-EHOje kVgZYz"
+          className="sc-EHOje fIehnl"
         >
           <div
             className="sc-gzVnrw bgGAJS"
@@ -61,7 +61,7 @@ exports[`renders correctly 1`] = `
       </div>
     </div>
     <div
-      className="sc-htpNat fkpZnl"
+      className="sc-htpNat KjgwS"
       data-nextspace={true}
     >
       <div
@@ -82,7 +82,7 @@ exports[`renders correctly 1`] = `
           12:50
         </div>
         <div
-          className="sc-EHOje kVgZYz"
+          className="sc-EHOje fIehnl"
         >
           <div
             className="sc-gzVnrw bgGAJS"
@@ -111,7 +111,7 @@ exports[`renders correctly 1`] = `
       </div>
     </div>
     <div
-      className="sc-htpNat fkpZnl"
+      className="sc-htpNat KjgwS"
       data-nextspace={false}
     >
       <div
@@ -132,7 +132,7 @@ exports[`renders correctly 1`] = `
           15:20
         </div>
         <div
-          className="sc-EHOje kVgZYz"
+          className="sc-EHOje fIehnl"
         >
           <div
             className="sc-gzVnrw bgGAJS"
@@ -166,7 +166,7 @@ exports[`renders correctly 1`] = `
       </div>
     </div>
     <div
-      className="sc-htpNat fkpZnl"
+      className="sc-htpNat KjgwS"
       data-nextspace={false}
     >
       <div
@@ -187,7 +187,7 @@ exports[`renders correctly 1`] = `
           17:10
         </div>
         <div
-          className="sc-EHOje kVgZYz"
+          className="sc-EHOje fIehnl"
         >
           <div
             className="sc-gzVnrw bgGAJS"
@@ -216,7 +216,7 @@ exports[`renders correctly 1`] = `
       </div>
     </div>
     <div
-      className="sc-htpNat fkpZnl"
+      className="sc-htpNat KjgwS"
       data-nextspace={true}
     >
       <div
@@ -237,7 +237,7 @@ exports[`renders correctly 1`] = `
           19:00
         </div>
         <div
-          className="sc-EHOje kVgZYz"
+          className="sc-EHOje fIehnl"
         >
           <div
             className="sc-gzVnrw bgGAJS"
@@ -266,7 +266,7 @@ exports[`renders correctly 1`] = `
       </div>
     </div>
     <div
-      className="sc-htpNat fkpZnl"
+      className="sc-htpNat KjgwS"
       data-nextspace={false}
     >
       <div
@@ -287,7 +287,7 @@ exports[`renders correctly 1`] = `
           19:40
         </div>
         <div
-          className="sc-EHOje kVgZYz"
+          className="sc-EHOje fIehnl"
         >
           <div
             className="sc-gzVnrw bgGAJS"
@@ -316,7 +316,7 @@ exports[`renders correctly 1`] = `
       </div>
     </div>
     <div
-      className="sc-htpNat fkpZnl"
+      className="sc-htpNat KjgwS"
       data-nextspace={false}
     >
       <div
@@ -337,7 +337,7 @@ exports[`renders correctly 1`] = `
           21:30
         </div>
         <div
-          className="sc-EHOje kVgZYz"
+          className="sc-EHOje fIehnl"
         >
           <div
             className="sc-gzVnrw bgGAJS"

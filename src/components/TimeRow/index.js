@@ -7,12 +7,10 @@ import type { Period, PeriodStatus } from '../../types'
 import styled from 'styled-components'
 
 const Wrapper = styled.div`
-	padding-bottom: 0px;
-	margin-bottom: 0px;
+	margin-top: 10px;
 	&[data-nextspace='true'] {
 		border-bottom: #717b8a dashed;
 		padding-bottom: 5px;
-		margin-bottom: 5px;
 	}
 `
 const Row = styled.div`
@@ -26,6 +24,8 @@ const TimeRange = styled.div`
 `
 const Status = styled.div`
 	flex: 0;
+	font-size: 0.6em;
+	align-self: flex-end;
 `
 
 const RowBetween = styled.div`
