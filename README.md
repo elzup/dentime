@@ -4,7 +4,7 @@
 
 > TDU classes time board.
 
-![screenshot_20171119-221941](https://user-images.githubusercontent.com/2284908/32991063-1b811bfa-cd78-11e7-92dc-cbdcefe1620a.png)
+![ss](https://user-images.githubusercontent.com/2284908/38863872-eb48d920-4273-11e8-8eb1-e6d9dc3bff08.png)
 
 ## Contributors
 
