@@ -14,7 +14,9 @@
 		"storybook": "start-storybook -p 9009 -s public",
 		"update-data":
 			"curl https://raw.githubusercontent.com/elzup/db/master/tdu/time.json > public/time.json",
-		"build-storybook": "build-storybook -s public"
+		"build-storybook": "build-storybook -s public",
+		"contributors:add": "all-contributors add",
+		"contributors:generate": "all-contributors generate"
 	},
 	"dependencies": {
 		"axios": "^0.18.0",
@@ -29,6 +31,7 @@
 		"@storybook/addon-actions": "^3.4.0",
 		"@storybook/addon-links": "^3.4.0",
 		"@storybook/react": "^3.4.0",
+		"all-contributors-cli": "^4.11.1",
 		"babel-eslint": "^8.2.2",
 		"eslint": "^4.19.1",
 		"eslint-config-react-app": "^2.1.0",
