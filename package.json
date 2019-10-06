@@ -34,7 +34,7 @@
 		"@storybook/addon-links": "3.4.12",
 		"@storybook/react": "3.4.12",
 		"all-contributors-cli": "4.11.2",
-		"babel-eslint": "8.2.6",
+		"babel-eslint": "10.0.3",
 		"eslint": "4.19.1",
 		"eslint-config-react-app": "2.1.0",
 		"eslint-plugin-flowtype": "2.50.3",
