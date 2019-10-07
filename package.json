@@ -33,7 +33,7 @@
 		"@storybook/addon-actions": "3.4.12",
 		"@storybook/addon-links": "3.4.12",
 		"@storybook/react": "3.4.12",
-		"all-contributors-cli": "4.11.2",
+		"all-contributors-cli": "6.9.1",
 		"eslint-config-react-app": "2.1.0",
 		"eslint-plugin-flowtype": "2.50.3",
 		"eslint-plugin-import": "2.18.2",
