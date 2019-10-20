@@ -30,9 +30,9 @@
 		"styled-components": "3.4.10"
 	},
 	"devDependencies": {
-		"@storybook/addon-actions": "3.4.12",
-		"@storybook/addon-links": "3.4.12",
-		"@storybook/react": "3.4.12",
+		"@storybook/addon-actions": "5.2.4",
+		"@storybook/addon-links": "5.2.4",
+		"@storybook/react": "5.2.4",
 		"all-contributors-cli": "6.9.1",
 		"eslint-config-react-app": "5.0.2",
 		"eslint-plugin-flowtype": "4.3.0",
