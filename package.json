@@ -24,26 +24,26 @@
 		"lodash": "4.17.15",
 		"moment": "2.24.0",
 		"normalize.css": "8.0.1",
-		"react": "16.10.2",
-		"react-bootstrap": "0.32.4",
-		"react-dom": "16.10.2",
-		"styled-components": "4.4.0"
+		"react": "16.11.0",
+		"react-bootstrap": "0.33.0",
+		"react-dom": "16.11.0",
+		"styled-components": "4.4.1"
 	},
 	"devDependencies": {
-		"@storybook/addon-actions": "5.2.4",
-		"@storybook/addon-links": "5.2.4",
-		"@storybook/react": "5.2.4",
-		"all-contributors-cli": "6.9.1",
+		"@storybook/addon-actions": "5.2.5",
+		"@storybook/addon-links": "5.2.5",
+		"@storybook/react": "5.2.5",
+		"all-contributors-cli": "6.9.3",
 		"eslint-config-react-app": "5.0.2",
 		"eslint-plugin-flowtype": "4.3.0",
 		"eslint-plugin-import": "2.18.2",
 		"eslint-plugin-jsx-a11y": "6.2.3",
 		"eslint-plugin-react": "7.16.0",
-		"flow-bin": "0.109.0",
+		"flow-bin": "0.111.0",
 		"gh-pages": "2.1.1",
 		"lint-staged": "9.4.2",
 		"react-scripts": "3.2.0",
-		"react-test-renderer": "16.10.2"
+		"react-test-renderer": "16.11.0"
 	},
 	"lint-staged": {
 		"*.js": [
