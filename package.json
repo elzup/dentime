@@ -27,7 +27,7 @@
 		"react": "16.12.0",
 		"react-bootstrap": "0.33.1",
 		"react-dom": "16.12.0",
-		"styled-components": "4.4.1"
+		"styled-components": "5.0.0"
 	},
 	"devDependencies": {
 		"@storybook/addon-actions": "5.3.9",
