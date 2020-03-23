@@ -1,5 +1,3 @@
-// @flow
-
 import React from 'react'
 import moment from 'moment'
 import styled from 'styled-components'
@@ -21,7 +19,7 @@ const SubSecond = styled.span`
 `
 
 type Props = {
-	now: moment,
+	now: moment
 }
 
 const Clock = ({ now }: Props) => (

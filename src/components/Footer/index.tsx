@@ -1,5 +1,3 @@
-// @flow
-
 import React from 'react'
 import moment from 'moment'
 import styled from 'styled-components'
@@ -24,7 +22,7 @@ const Link = styled.a`
 `
 
 type Props = {
-	now: moment,
+	now: moment
 }
 
 const Footer = ({ now }: Props) => (

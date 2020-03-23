@@ -1,4 +1,3 @@
-// @flow
 
 import type { TimeResponse } from '../types'
 import axios from 'axios'

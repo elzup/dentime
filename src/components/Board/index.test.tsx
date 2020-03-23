@@ -1,4 +1,3 @@
-// @flow
 import React from 'react'
 import Board from '.'
 import renderer from 'react-test-renderer'

@@ -1,5 +1,3 @@
-// @flow
-
 const config = {
 	color: {
 		main: '#001a3c',
