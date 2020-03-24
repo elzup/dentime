@@ -1,5 +1,5 @@
 import React from 'react'
-import moment from 'moment'
+import { Moment } from 'moment'
 import styled from 'styled-components'
 
 import Clock from '../Clock'
@@ -22,7 +22,7 @@ const Link = styled.a`
 `
 
 type Props = {
-	now: moment
+	now: Moment
 }
 
 const Footer = ({ now }: Props) => (

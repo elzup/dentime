@@ -1,6 +1,6 @@
 
 import React from 'react'
-import moment from 'moment'
+import moment, {Moment} from 'moment'
 import _ from 'lodash'
 
 import styled from 'styled-components'
@@ -15,7 +15,7 @@ import type { Period, PeriodInfo, PeriodStatus } from '../../types'
 type Props = {}
 
 type State = {
-	now: moment,
+	now: Moment,
 	intervalId: unknown,
 	periods: Period[],
 }
@@ -36,7 +36,7 @@ function initialPeriod(info: PeriodInfo): Period {
 	}
 }
 
-function diffStatus(period: Period, now: moment): PeriodStatus {
+function diffStatus(period: Period, now: Moment): PeriodStatus {
 	if (now.isBefore(period.start)) {
 		return {
 			type: 'before',
@@ -57,7 +57,7 @@ function diffStatus(period: Period, now: moment): PeriodStatus {
 	}
 }
 
-function updatePeriod(period: Period, now: moment): Period {
+function updatePeriod(period: Period, now: Moment): Period {
 	const status = diffStatus(period, now)
 
 	return Object.assign(period, { status })

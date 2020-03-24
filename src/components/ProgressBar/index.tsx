@@ -10,7 +10,7 @@ const Wrapper = styled.div`
 	border-radius: 5px;
 `
 
-const Bar = styled.div`
+const Bar = styled.div<{rate: number}>`
 	width: ${p => p.rate * 100}%;
 	height: 100%;
 	background: #a6c0bf;

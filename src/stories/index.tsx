@@ -1,3 +1,4 @@
+/* eslint-disable import/no-extraneous-dependencies */
 import React from 'react'
 import moment from 'moment'
 
@@ -27,7 +28,7 @@ const pb: Period = {
 	info: {
 		start: { h: 10, m: 40 },
 		end: { h: 12, m: 10 },
-		period: 2,
+		period: '2',
 	},
 	status: null,
 }
