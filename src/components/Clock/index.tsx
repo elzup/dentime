@@ -30,4 +30,5 @@ const Clock = ({ now }: Props) => (
 		</Frame>
 	</Wrapper>
 )
+
 export default Clock

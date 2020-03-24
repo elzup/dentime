@@ -1,9 +1,9 @@
 
 import React from 'react'
+import styled from 'styled-components'
 import ProgressBar from '../ProgressBar'
 import type { Period, PeriodStatus } from '../../types'
 
-import styled from 'styled-components'
 
 const Wrapper = styled.div`
 	margin-top: 10px;
@@ -55,6 +55,7 @@ function getStatus(st: PeriodStatus) {
 		progress: { color: '#ebe971', label: 'Now' },
 		finish: { color: 'gray', label: 'Fin' },
 	}[st.type]
+
 	return (
 		<StRow>
 			<StatusLabel color={color}>{label}</StatusLabel>
@@ -88,4 +89,5 @@ const TimeRow = ({
 		<ProgressBar status={period.status} />
 	</Wrapper>
 )
+
 export default TimeRow

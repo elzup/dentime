@@ -36,4 +36,5 @@ const Footer = ({ now }: Props) => (
 		</SideBlock>
 	</Row>
 )
+
 export default Footer

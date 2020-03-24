@@ -2,7 +2,6 @@ import React from 'react'
 import moment from 'moment'
 
 import '../config/initialize'
-
 import { storiesOf } from '@storybook/react'
 
 import type {

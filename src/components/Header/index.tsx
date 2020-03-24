@@ -1,6 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
 import config from '../../config'
+
 const { color } = config
 
 const Wrapper = styled.div`
@@ -20,4 +21,5 @@ const Header = () => (
 		<Title>Dendai Time</Title>
 	</Wrapper>
 )
+
 export default Header

@@ -1,10 +1,9 @@
-
 import React from 'react'
+import styled from 'styled-components'
 import TimeRow from '../TimeRow'
 import type { Period } from '../../types'
 import config from '../../config'
 
-import styled from 'styled-components'
 
 const Wrapper = styled.div`
 	padding: 10px;

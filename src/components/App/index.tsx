@@ -3,11 +3,11 @@ import React from 'react'
 import moment from 'moment'
 import _ from 'lodash'
 
+import styled from 'styled-components'
 import Header from '../Header'
 import Footer from '../Footer'
 import Board from '../Board'
 
-import styled from 'styled-components'
 
 import { loadData } from '../../api'
 import type { Period, PeriodInfo, PeriodStatus } from '../../types'
@@ -16,7 +16,7 @@ type Props = {}
 
 type State = {
 	now: moment,
-	intervalId: any,
+	intervalId: unknown,
 	periods: Period[],
 }
 
@@ -27,6 +27,7 @@ function initialPeriod(info: PeriodInfo): Period {
 	const end = moment({ h: info.end.h, m: info.end.m })
 	// TODO: correct
 	const status = null
+
 	return {
 		info,
 		status,
@@ -43,6 +44,7 @@ function diffStatus(period: Period, now: moment): PeriodStatus {
 		}
 	} else if (now.isBefore(period.end)) {
 		const progress = now.diff(period.start, 'minutes')
+
 		return {
 			type: 'progress',
 			progress,
@@ -57,6 +59,7 @@ function diffStatus(period: Period, now: moment): PeriodStatus {
 
 function updatePeriod(period: Period, now: moment): Period {
 	const status = diffStatus(period, now)
+
 	return Object.assign(period, { status })
 }
 
@@ -72,12 +75,14 @@ class App extends React.Component<Props, State> {
 
 	tick() {
 		const now = this.state.now.add({ s: 1 })
+
 		if (now.second() !== 0) {
 			this.setState({ now })
 		} else {
 			const periods = this.state.periods.map(period =>
 				updatePeriod(period, now),
 			)
+
 			this.setState({ now, periods })
 		}
 	}
@@ -112,6 +117,7 @@ class App extends React.Component<Props, State> {
 
 	render() {
 		const { state } = this
+
 		return (
 			<MainWrap>
 				<Header />
