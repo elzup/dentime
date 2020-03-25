@@ -1,6 +1,6 @@
-import moment from 'moment'
+import { Period } from '../../types'
 
-const periodsData = [
+const periodsData: Period[] = [
 	{
 		info: {
 			period: '1',
@@ -8,8 +8,6 @@ const periodsData = [
 			end: { h: 11, m: 0 },
 		},
 		status: { type: 'finish' },
-		start: '2018-04-17T00:20:00.000Z',
-		end: '2018-04-17T02:00:00.000Z',
 	},
 	{
 		info: {
@@ -18,8 +16,6 @@ const periodsData = [
 			end: { h: 12, m: 50 },
 		},
 		status: { type: 'finish' },
-		start: '2018-04-17T02:10:00.000Z',
-		end: '2018-04-17T03:50:00.000Z',
 	},
 	{
 		info: {
@@ -28,8 +24,6 @@ const periodsData = [
 			end: { h: 15, m: 20 },
 		},
 		status: { type: 'progress', progress: 75, rate: 0.75 },
-		start: '2018-04-17T04:40:00.000Z',
-		end: '2018-04-17T06:20:00.000Z',
 	},
 	{
 		info: {
@@ -37,9 +31,7 @@ const periodsData = [
 			start: { h: 15, m: 30 },
 			end: { h: 17, m: 10 },
 		},
-		status: { type: 'before', fromNowStr: '35分後' },
-		start: '2018-04-17T06:30:00.000Z',
-		end: '2018-04-17T08:10:00.000Z',
+		status: { type: 'before' },
 	},
 	{
 		info: {
@@ -47,9 +39,7 @@ const periodsData = [
 			start: { h: 17, m: 20 },
 			end: { h: 19, m: 0 },
 		},
-		status: { type: 'before', fromNowStr: '2時間後' },
-		start: '2018-04-17T08:20:00.000Z',
-		end: '2018-04-17T10:00:00.000Z',
+		status: { type: 'before' },
 	},
 	{
 		info: {
@@ -57,9 +47,7 @@ const periodsData = [
 			start: { h: 18, m: 0 },
 			end: { h: 19, m: 40 },
 		},
-		status: { type: 'before', fromNowStr: '3時間後' },
-		start: '2018-04-17T09:00:00.000Z',
-		end: '2018-04-17T10:40:00.000Z',
+		status: { type: 'before' },
 	},
 	{
 		info: {
@@ -67,16 +55,12 @@ const periodsData = [
 			start: { h: 19, m: 50 },
 			end: { h: 21, m: 30 },
 		},
-		status: { type: 'before', fromNowStr: '5時間後' },
-		start: '2018-04-17T10:50:00.000Z',
-		end: '2018-04-17T12:30:00.000Z',
+		status: { type: 'before' },
 	},
 ]
 
 const periods = periodsData.map(p => ({
 	...p,
-	start: moment(p.start),
-	end: moment(p.end),
 }))
 
 export default periods

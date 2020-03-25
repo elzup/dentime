@@ -1,5 +1,3 @@
-import { Moment } from 'moment'
-
 export type Time = {
 	h: number
 	m: number
@@ -11,9 +9,9 @@ export type PeriodInfo = {
 	end: Time
 }
 
+export type PeriodStatusType = 'before' | 'progress' | 'finish'
 export type PeriodStatusBefore = {
 	type: 'before'
-	fromNowStr: string
 }
 
 export type PeriodStatusProgress = {
@@ -34,8 +32,6 @@ export type PeriodStatus =
 export type Period = {
 	readonly info: PeriodInfo
 	status: PeriodStatus
-	readonly start: Moment
-	readonly end: Moment
 }
 
 export type Profile = {

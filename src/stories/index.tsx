@@ -35,7 +35,6 @@ const pb: Period = {
 
 const statusBefore: PeriodStatusBefore = {
 	type: 'before',
-	fromNowStr: '2時間前',
 }
 
 const statusProgress1: PeriodStatusProgress = {

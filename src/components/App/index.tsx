@@ -1,16 +1,16 @@
 
 import _ from 'lodash'
-import moment, { Moment } from 'moment'
 import React, { useEffect, useState } from 'react'
 import styled from 'styled-components'
 import useSWR from 'swr'
 import fetch from 'unfetch'
 import { useSeconds } from 'use-seconds'
 import { GlobalStyle } from '../../config/initialize'
-import type { Period, PeriodInfo, PeriodStatus, TimeResponse } from '../../types'
+import type { Period, PeriodInfo, PeriodStatus, TimeResponse, Time, PeriodStatusType } from '../../types'
 import Board from '../Board'
 import Footer from '../Footer'
 import Header from '../Header'
+import { disableTouch } from '../../utils/browser'
 
 
 async function fetcher <JSON = unknown>(url: string): Promise<JSON> {
@@ -24,45 +24,48 @@ type Props = {}
 const MainWrap = styled.div``
 
 function initialPeriod(info: PeriodInfo): Period {
-	const start = moment({ h: info.start.h, m: info.start.m })
-	const end = moment({ h: info.end.h, m: info.end.m })
-	// TODO: correct
 	const status = null
 
 	return {
 		info,
 		status,
-		start,
-		end,
 	}
 }
 
-function diffStatus(period: Period, now: Moment): PeriodStatus {
-	if (now.isBefore(period.start)) {
-		return {
+const compare = (bt: number, et: number, nt: number): PeriodStatusType => {
+
+	if (nt < bt) return 'before'
+	if (nt < et) return 'progress'
+	return 'finish'
+}
+
+function diffStatus(period: Period, now: Time): PeriodStatus {
+	const bt = period.info.start.h * 60 + period.info.start.m
+	const et = period.info.end.h * 60 + period.info.end.m
+	const nt = now.h * 60 + now.m
+	const statusType = compare(bt, et, nt)
+
+	switch(statusType) {
+		case 'before':
+			return {
 			type: 'before',
-			fromNowStr: period.start.from(now),
-		}
-	} else if (now.isBefore(period.end)) {
-		const progress = now.diff(period.start, 'minutes')
+			}
+		case 'progress':
+			const progress = nt - bt
 
 		return {
 			type: 'progress',
 			progress,
-			rate: progress / 100,
+			rate: progress / (et - bt),
 		}
-	} else {
-		return {
-			type: 'finish',
-		}
+
+	default:
+		return { type: 'finish', }
 	}
 }
 
-function updatePeriod(period: Period, now: Moment): Period {
-	const status = diffStatus(period, now)
-
-	return Object.assign(period, { status })
-}
+const updatePeriod = (period: Period, now: Time): Period => 
+	({ ...period, status: diffStatus(period, now) })
 
 function App (props: Props) {
 	const [now] = useSeconds()
@@ -71,23 +74,13 @@ function App (props: Props) {
 
 	console.log({periods});
 	
-	useEffect(() => {
-
-		window.addEventListener(
-			'touchmove',
-			event => {
-				event.preventDefault()
-			},
-			true,
-		)
-
-	}, [])
+	useEffect(() => disableTouch(), [])
 	useEffect(() => {
 		if (!data) return
 	
 		const periods = _.map({ ...data.base.periods, ...data.d.periods })
 			.map(initialPeriod)
-			.map(period => updatePeriod(period, moment(now)))
+			.map(period => updatePeriod(period, now))
 
 			setPeriods(periods)
 	}, [now, data])
@@ -97,7 +90,7 @@ function App (props: Props) {
 				<GlobalStyle />
 				<Header />
 				<Board periods={periods} />
-				<Footer now={moment(now)} />
+				<Footer now={now} />
 			</MainWrap>
 		)
 }
