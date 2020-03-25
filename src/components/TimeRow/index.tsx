@@ -15,6 +15,7 @@ const Wrapper = styled.div`
 const Row = styled.div`
 	display: flex;
 	font-size: 1.5em;
+	font-weight: 700;
 	padding: 2.5px 0;
 `
 

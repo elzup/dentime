@@ -10,11 +10,13 @@ const Wrapper = styled.div`
 
 const Frame = styled.h2`
 	font-size: 2em;
+	font-weight: 400;
 	margin: 0;
 `
 
 const SubSecond = styled.span`
 	font-size: 0.7em;
+	font-weight: 700;
 	color: gray;
 `
 
