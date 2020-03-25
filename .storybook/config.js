@@ -1,7 +1,15 @@
-import { configure } from '@storybook/react';
+import React from 'react'
+import { configure, addDecorator } from '@storybook/react'
+import { GlobalStyle } from '../src/config/initialize'
 
 function loadStories() {
-  require('../src/stories');
+	require('../src/stories')
 }
 
-configure(loadStories, module);
+addDecorator(s => (
+	<>
+		<GlobalStyle />
+		{s()}
+	</>
+))
+configure(loadStories, module)
