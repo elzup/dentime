@@ -44,6 +44,7 @@ exports[`renders correctly 1`] = `
   display: -ms-flexbox;
   display: flex;
   font-size: 1.5em;
+  font-weight: 700;
   padding: 2.5px 0;
 }
 
@@ -111,6 +112,10 @@ exports[`renders correctly 1`] = `
   min-width: 300px;
   width: 100%;
   max-width: 600px;
+}
+
+.c1 > p {
+  font-weight: 800;
 }
 
 <div

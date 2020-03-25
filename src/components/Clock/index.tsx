@@ -1,7 +1,8 @@
 import React from 'react'
-import { Moment } from 'moment'
 import styled from 'styled-components'
 import config from '../../config'
+import { pad, pad2 } from '../../utils/formats'
+import { useTime } from '../../utils/hooks'
 
 const Wrapper = styled.div`
 	background: ${config.color.main};
@@ -10,25 +11,27 @@ const Wrapper = styled.div`
 
 const Frame = styled.h2`
 	font-size: 2em;
+	font-weight: 400;
 	margin: 0;
 `
 
 const SubSecond = styled.span`
 	font-size: 0.7em;
+	font-weight: 700;
 	color: gray;
 `
 
-type Props = {
-	now: Moment
-}
+const Clock = () => {
+	const [hm, sec] = useTime()
 
-const Clock = ({ now }: Props) => (
-	<Wrapper>
-		<Frame>
-			{now.format('HH:mm')}
-			<SubSecond>{now.format('.ss')}</SubSecond>
-		</Frame>
-	</Wrapper>
-)
+	return (
+		<Wrapper>
+			<Frame>
+				{pad(hm)}
+				<SubSecond>.{pad2(sec)}</SubSecond>
+			</Frame>
+		</Wrapper>
+	)
+}
 
 export default Clock

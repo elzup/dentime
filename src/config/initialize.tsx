@@ -12,7 +12,6 @@ html, body {
 }
 
 body {
-  /* font-avenir: 'Avenir Next W01', sans-serif; font-weight: 700; */
   font-family: 'Helvetica Neue', 'Segoe UI',
   'Noto Sans Japanese', 'ヒラギノ角ゴ ProN W3', Meiryo, monospace;
   margin: 0;

@@ -1,11 +1,7 @@
+import fetch from 'unfetch'
 
-import axios from 'axios'
-import type { TimeResponse } from '../types'
+export async function fetcher<JSON = unknown>(url: string): Promise<JSON> {
+	const r = await fetch(url)
 
-const DATA_URL = (process.env.PUBLIC_URL || '') + '/time.json'
-
-export async function loadData(): Promise<TimeResponse> {
-	const res = await axios.get(DATA_URL)
-
-	return res.data
+	return r.json()
 }

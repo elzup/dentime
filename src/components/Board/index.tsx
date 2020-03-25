@@ -16,6 +16,9 @@ const BoardFrame = styled.div`
 	min-width: 300px;
 	width: 100%;
 	max-width: 600px;
+	> p {
+		font-weight: 800;
+	}
 `
 
 const Board = ({ periods }: { periods: Period[] }) => {

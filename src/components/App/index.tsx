@@ -1,131 +1,27 @@
-
-import React from 'react'
-import moment, {Moment} from 'moment'
-import _ from 'lodash'
-
+import React, { useEffect } from 'react'
 import styled from 'styled-components'
-import Header from '../Header'
-import Footer from '../Footer'
+import { GlobalStyle } from '../../config/initialize'
+import { disableTouch } from '../../utils/browser'
 import Board from '../Board'
-
-
-import { loadData } from '../../api'
-import type { Period, PeriodInfo, PeriodStatus } from '../../types'
-
-type Props = {}
-
-type State = {
-	now: Moment,
-	intervalId: unknown,
-	periods: Period[],
-}
+import Footer from '../Footer'
+import Header from '../Header'
+import { usePeriods } from './hooks'
 
 const MainWrap = styled.div``
 
-function initialPeriod(info: PeriodInfo): Period {
-	const start = moment({ h: info.start.h, m: info.start.m })
-	const end = moment({ h: info.end.h, m: info.end.m })
-	// TODO: correct
-	const status = null
+function App() {
+	const periods = usePeriods()
 
-	return {
-		info,
-		status,
-		start,
-		end,
-	}
-}
+	useEffect(disableTouch, [])
 
-function diffStatus(period: Period, now: Moment): PeriodStatus {
-	if (now.isBefore(period.start)) {
-		return {
-			type: 'before',
-			fromNowStr: period.start.from(now),
-		}
-	} else if (now.isBefore(period.end)) {
-		const progress = now.diff(period.start, 'minutes')
-
-		return {
-			type: 'progress',
-			progress,
-			rate: progress / 100,
-		}
-	} else {
-		return {
-			type: 'finish',
-		}
-	}
-}
-
-function updatePeriod(period: Period, now: Moment): Period {
-	const status = diffStatus(period, now)
-
-	return Object.assign(period, { status })
-}
-
-class App extends React.Component<Props, State> {
-	constructor(props: Props) {
-		super(props)
-		this.state = {
-			now: moment(),
-			intervalId: 0,
-			periods: [],
-		}
-	}
-
-	tick() {
-		const now = this.state.now.add({ s: 1 })
-
-		if (now.second() !== 0) {
-			this.setState({ now })
-		} else {
-			const periods = this.state.periods.map(period =>
-				updatePeriod(period, now),
-			)
-
-			this.setState({ now, periods })
-		}
-	}
-
-	async initialize() {
-		const infos = await loadData()
-		const intervalId = setInterval(this.tick.bind(this), 1000)
-
-		const periods = _.map({ ...infos.base.periods, ...infos.d.periods })
-			.map(initialPeriod)
-			.map(period => updatePeriod(period, this.state.now))
-
-		// TDOO: Correct initialize
-		this.setState({ intervalId, periods })
-
-		window.addEventListener(
-			'touchmove',
-			event => {
-				event.preventDefault()
-			},
-			true,
-		)
-	}
-
-	componentDidMount() {
-		this.initialize()
-	}
-
-	componentWillUnmount() {
-		clearInterval(this.state.intervalId)
-	}
-
-	render() {
-		const { state } = this
-
-		return (
-			<MainWrap>
-				<Header />
-				<Board periods={state.periods} />
-				<Footer now={state.now} />
-			</MainWrap>
-		)
-	}
+	return (
+		<MainWrap>
+			<GlobalStyle />
+			<Header />
+			<Board periods={periods} />
+			<Footer />
+		</MainWrap>
+	)
 }
 
 export default App
