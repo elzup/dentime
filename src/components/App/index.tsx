@@ -10,9 +10,9 @@ import { usePeriods } from './hooks'
 const MainWrap = styled.div``
 
 function App() {
-	const [periods] = usePeriods()
+	const periods = usePeriods()
 
-	useEffect(() => disableTouch(), [])
+	useEffect(disableTouch, [])
 
 	return (
 		<MainWrap>

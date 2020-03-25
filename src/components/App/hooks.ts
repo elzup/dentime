@@ -56,21 +56,16 @@ const updatePeriod = (period: Period, now: Time): Period => ({
 	status: diffStatus(period, now),
 })
 
-export function usePeriods() {
-	const [now] = useTimeHm()
+export function usePeriods(): Period[] {
+	const now = useTimeHm()
+
 	const { data } = useSWR<TimeResponse>('/time.json', fetcher)
-	const [periods, setPeriods] = useState<Period[]>([])
 
-	console.log({ periods })
+	if (!data) return []
 
-	useEffect(() => {
-		if (!data) return
+	const periods = Object.values({ ...data.base.periods, ...data.d.periods })
+		.map(initialPeriod)
+		.map(period => updatePeriod(period, now))
 
-		const periods = Object.values({ ...data.base.periods, ...data.d.periods })
-			.map(initialPeriod)
-			.map(period => updatePeriod(period, now))
-
-		setPeriods(periods)
-	}, [now, data])
-	return [periods]
+	return periods
 }

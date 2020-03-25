@@ -2,7 +2,7 @@ import React from 'react'
 import styled from 'styled-components'
 import config from '../../config'
 import { pad, pad2 } from '../../utils/formats'
-import { useTimeHm } from '../../utils/hooks'
+import { useTime } from '../../utils/hooks'
 
 const Wrapper = styled.div`
 	background: ${config.color.main};
@@ -22,7 +22,7 @@ const SubSecond = styled.span`
 `
 
 const Clock = () => {
-	const [hm, sec] = useTimeHm()
+	const [hm, sec] = useTime()
 
 	return (
 		<Wrapper>
