@@ -3,6 +3,7 @@ import React from 'react'
 import styled from 'styled-components'
 import ProgressBar from '../ProgressBar'
 import type { Period, PeriodStatus } from '../../types'
+import { pad } from '../../utils/formats'
 
 
 const Wrapper = styled.div`
@@ -82,7 +83,7 @@ const TimeRow = ({
 		<Row>
 			<PeriodLabel>{period.info.period.toLowerCase()}.</PeriodLabel>
 			<TimeRange>
-				{period.start.format('HH:mm')} - {period.end.format('HH:mm')}
+				{pad(period.info.start)} - {pad(period.info.end)}
 			</TimeRange>
 			<Remain>{remainLabel(period.status)}</Remain>
 			<Status>{getStatus(period.status)}</Status>

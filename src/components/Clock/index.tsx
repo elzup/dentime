@@ -1,9 +1,8 @@
 import React from 'react'
-import { Moment } from 'moment'
 import styled from 'styled-components'
 import config from '../../config'
-import { useTimeHm } from '../../utils/hooks'
 import { pad, pad2 } from '../../utils/formats'
+import { useTimeHm } from '../../utils/hooks'
 
 const Wrapper = styled.div`
 	background: ${config.color.main};

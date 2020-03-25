@@ -1,6 +1,5 @@
 /* eslint-disable import/no-extraneous-dependencies */
 import React from 'react'
-import moment from 'moment'
 
 import '../config/initialize'
 import { storiesOf } from '@storybook/react'
@@ -19,12 +18,10 @@ import TimeRow from '../components/TimeRow'
 storiesOf('Header', module).add('normal', () => <Header />)
 
 storiesOf('Clock', module)
-	.add('00:00', () => <Clock now={moment({ h: 0, m: 0 })} />)
-	.add('12:59', () => <Clock now={moment({ h: 12, m: 59 })} />)
-	.add('09:09', () => <Clock now={moment({ h: 9, m: 9 })} />)
+	.add('00:00', () => <Clock />)
+	// .add('12:59', () => <Clock now={moment({ h: 12, m: 59 })} />)
+	// .add('09:09', () => <Clock now={moment({ h: 9, m: 9 })} />)
 const pb: Period = {
-	start: moment({ h: 10, m: 40 }),
-	end: moment({ h: 12, m: 10 }),
 	info: {
 		start: { h: 10, m: 40 },
 		end: { h: 12, m: 10 },

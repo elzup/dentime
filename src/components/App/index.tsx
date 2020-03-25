@@ -7,8 +7,6 @@ import Footer from '../Footer'
 import Header from '../Header'
 import { usePeriods } from './hooks'
 
-type Props = {}
-
 const MainWrap = styled.div``
 
 function App() {
