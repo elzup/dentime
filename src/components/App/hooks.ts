@@ -1,13 +1,12 @@
-import { useEffect, useState } from 'react'
 import useSWR from 'swr'
 import { fetcher } from '../../api'
 import {
-	TimeResponse,
 	Period,
 	PeriodInfo,
+	PeriodStatus,
 	PeriodStatusType,
 	Time,
-	PeriodStatus,
+	TimeResponse,
 } from '../../types'
 import { useTimeHm } from '../../utils/hooks'
 
