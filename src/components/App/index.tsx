@@ -1,24 +1,25 @@
 
-import React from 'react'
-import moment, {Moment} from 'moment'
 import _ from 'lodash'
-
+import moment, { Moment } from 'moment'
+import React, { useEffect, useState } from 'react'
 import styled from 'styled-components'
-import Header from '../Header'
-import Footer from '../Footer'
+import useSWR from 'swr'
+import fetch from 'unfetch'
+import { useSeconds } from 'use-seconds'
+import { GlobalStyle } from '../../config/initialize'
+import type { Period, PeriodInfo, PeriodStatus, TimeResponse } from '../../types'
 import Board from '../Board'
+import Footer from '../Footer'
+import Header from '../Header'
 
 
-import { loadData } from '../../api'
-import type { Period, PeriodInfo, PeriodStatus } from '../../types'
+async function fetcher <JSON = unknown>(url: string): Promise<JSON> {
+	const r = await fetch(url)
+
+	return r.json()
+}
 
 type Props = {}
-
-type State = {
-	now: Moment,
-	intervalId: unknown,
-	periods: Period[],
-}
 
 const MainWrap = styled.div``
 
@@ -63,40 +64,14 @@ function updatePeriod(period: Period, now: Moment): Period {
 	return Object.assign(period, { status })
 }
 
-class App extends React.Component<Props, State> {
-	constructor(props: Props) {
-		super(props)
-		this.state = {
-			now: moment(),
-			intervalId: 0,
-			periods: [],
-		}
-	}
+function App (props: Props) {
+	const [now] = useSeconds()
+	const { data } = useSWR<TimeResponse>('/time.json', fetcher)
+	const [periods, setPeriods] = useState<Period[]>([])
 
-	tick() {
-		const now = this.state.now.add({ s: 1 })
-
-		if (now.second() !== 0) {
-			this.setState({ now })
-		} else {
-			const periods = this.state.periods.map(period =>
-				updatePeriod(period, now),
-			)
-
-			this.setState({ now, periods })
-		}
-	}
-
-	async initialize() {
-		const infos = await loadData()
-		const intervalId = setInterval(this.tick.bind(this), 1000)
-
-		const periods = _.map({ ...infos.base.periods, ...infos.d.periods })
-			.map(initialPeriod)
-			.map(period => updatePeriod(period, this.state.now))
-
-		// TDOO: Correct initialize
-		this.setState({ intervalId, periods })
+	console.log({periods});
+	
+	useEffect(() => {
 
 		window.addEventListener(
 			'touchmove',
@@ -105,27 +80,26 @@ class App extends React.Component<Props, State> {
 			},
 			true,
 		)
-	}
 
-	componentDidMount() {
-		this.initialize()
-	}
+	}, [])
+	useEffect(() => {
+		if (!data) return
+	
+		const periods = _.map({ ...data.base.periods, ...data.d.periods })
+			.map(initialPeriod)
+			.map(period => updatePeriod(period, moment(now)))
 
-	componentWillUnmount() {
-		clearInterval(this.state.intervalId)
-	}
-
-	render() {
-		const { state } = this
+			setPeriods(periods)
+	}, [now, data])
 
 		return (
 			<MainWrap>
+				<GlobalStyle />
 				<Header />
-				<Board periods={state.periods} />
-				<Footer now={state.now} />
+				<Board periods={periods} />
+				<Footer now={moment(now)} />
 			</MainWrap>
 		)
-	}
 }
 
 export default App
