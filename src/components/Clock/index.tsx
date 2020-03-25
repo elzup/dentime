@@ -2,6 +2,8 @@ import React from 'react'
 import { Moment } from 'moment'
 import styled from 'styled-components'
 import config from '../../config'
+import { useTimeHm } from '../../utils/hooks'
+import { pad, pad2 } from '../../utils/formats'
 
 const Wrapper = styled.div`
 	background: ${config.color.main};
@@ -20,17 +22,17 @@ const SubSecond = styled.span`
 	color: gray;
 `
 
-type Props = {
-	now: Moment
-}
+const Clock = () => {
+	const [hm, sec] = useTimeHm()
 
-const Clock = ({ now }: Props) => (
-	<Wrapper>
-		<Frame>
-			{now.format('HH:mm')}
-			<SubSecond>{now.format('.ss')}</SubSecond>
-		</Frame>
-	</Wrapper>
-)
+	return (
+		<Wrapper>
+			<Frame>
+				{pad(hm)}
+				<SubSecond>.{pad2(sec)}</SubSecond>
+			</Frame>
+		</Wrapper>
+	)
+}
 
 export default Clock

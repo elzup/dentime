@@ -21,16 +21,12 @@ const Link = styled.a`
 	text-decoration: none;
 `
 
-type Props = {
-	now: Moment
-}
-
-const Footer = ({ now }: Props) => (
+const Footer = () => (
 	<Row>
 		<SideBlock>
 			<Link href="https://github.com/elzup/dentime">{'</>'}</Link>
 		</SideBlock>
-		<Clock now={now} />
+		<Clock />
 		<SideBlock>
 			<Link href="https://elzup.com">{"'ω'"}</Link>
 		</SideBlock>
