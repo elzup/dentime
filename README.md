@@ -1,4 +1,5 @@
-[DenTime](https://elzup.github.io/dentime/)
+[DenTime](https://dentime.anozon.me/)
+[![Netlify Status](https://api.netlify.com/api/v1/badges/a266e157-ed26-43f4-bdf5-c8484aa5b3dd/deploy-status)](https://app.netlify.com/sites/dentime/deploys)
 [![All Contributors](https://img.shields.io/badge/all_contributors-2-orange.svg?style=flat-square)](#contributors)
 ===
 
