@@ -1,5 +1,4 @@
 import 'normalize.css'
-import 'moment/locale/ja'
 import { createGlobalStyle } from 'styled-components'
 import config from './'
 

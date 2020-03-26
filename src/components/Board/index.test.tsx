@@ -2,7 +2,6 @@ import React from 'react'
 import renderer from 'react-test-renderer'
 import Board from '.'
 import periods from './testdata'
-import 'moment/locale/ja'
 
 import 'jest-styled-components'
 

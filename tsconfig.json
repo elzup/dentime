@@ -1,26 +1,22 @@
 {
-  "compileOnSave": false,
   "compilerOptions": {
-    "target": "esnext",
-    "module": "esnext",
-    "allowJs": false,
-    "jsx": "preserve",
-    "moduleResolution": "node",
-    "allowSyntheticDefaultImports": true,
-    "noImplicitAny": false,
-    "strict": true,
-    "strictNullChecks": true,
-    "preserveConstEnums": true,
-    "skipLibCheck": true,
-    "sourceMap": true,
-    "noEmit": true,
-    "lib": ["es6", "dom", "es2016"],
-    "baseUrl": ".",
-    "forceConsistentCasingInFileNames": true,
+    "allowJs": true,
+    "alwaysStrict": true,
     "esModuleInterop": true,
+    "forceConsistentCasingInFileNames": true,
+    "isolatedModules": true,
+    "jsx": "preserve",
+    "lib": ["dom", "es2017"],
+    "module": "esnext",
+    "moduleResolution": "node",
+    "noEmit": true,
+    "noFallthroughCasesInSwitch": true,
     "resolveJsonModule": true,
-    "isolatedModules": true
+    "typeRoots": ["node_modules/@types", "types"], // src/@types ディレクトリの中にある型定義を読み込ませたい
+    "skipLibCheck": true,
+    "strict": true,
+    "target": "esnext"
   },
   "exclude": ["node_modules"],
-  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", "src/config/registerServiceWorker.js"]
+  "include": ["**/*.ts", "**/*.tsx"]
 }
