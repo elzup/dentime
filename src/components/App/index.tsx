@@ -6,6 +6,7 @@ import Board from '../Board'
 import Footer from '../Footer'
 import Header from '../Header'
 import { usePeriods } from './hooks'
+import Warning from './Warning'
 
 const MainWrap = styled.div``
 
@@ -18,6 +19,7 @@ function App() {
 		<MainWrap>
 			<GlobalStyle />
 			<Header />
+			<Warning />
 			<Board periods={periods} />
 			<Footer />
 		</MainWrap>

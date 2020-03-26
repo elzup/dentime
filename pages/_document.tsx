@@ -45,7 +45,7 @@ class Document extends NextDocument<{}> {
 						sizes="192x192"
 					/>
 					<link rel="manifest" href="/static/manifest.json" />
-					<link rel="shortcut icon" href="/static/icon.png" />
+					<link rel="shortcut icon" href="/static/icon-1x.png" />
 					<link rel="apple-touch-icon" href="/static/icon-2x.png" />
 
 					<meta charSet="utf-8" />
