@@ -1,5 +1,3 @@
-
-import React from 'react'
 import styled from 'styled-components'
 import ProgressBar from '../ProgressBar'
 import type { Period, PeriodStatus } from '../../types'
