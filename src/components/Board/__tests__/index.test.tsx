@@ -1,5 +1,7 @@
+import React from 'react'
+
 import renderer from 'react-test-renderer'
-import Board from '.'
+import Board from '../'
 import periods from './testdata'
 
 import 'jest-styled-components'

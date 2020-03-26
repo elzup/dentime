@@ -17,6 +17,9 @@
 				]
 			],
 			"presets": ["next/babel"]
+		},
+		"test": {
+			"presets": ["next/babel"]
 		}
 	},
 	"plugins": [

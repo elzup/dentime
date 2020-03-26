@@ -1,3 +1,4 @@
+import React from 'react'
 import styled from 'styled-components'
 import TimeRow from '../TimeRow'
 import type { Period } from '../../types'

@@ -1,4 +1,4 @@
-import { Period } from '../../types'
+import { Period } from '../../../types'
 
 const periodsData: Period[] = [
 	{

@@ -1,8 +1,8 @@
+import React from 'react'
 import styled from 'styled-components'
 import ProgressBar from '../ProgressBar'
 import type { Period, PeriodStatus } from '../../types'
 import { pad } from '../../utils/formats'
-
 
 const Wrapper = styled.div`
 	margin-top: 10px;
@@ -31,19 +31,18 @@ const Status = styled.div`
 	align-self: flex-end;
 `
 
-const StRow = styled.div`
+const StRow = styled.div<{ color: string }>`
 	margin-left: 5px;
 	display: flex;
+	>div {
+		color: ${p => p.color};
+	}
 `
 
 const PeriodLabel = styled.div`
 	width: 50px;
 	margin-left: 5px;
 	color: #a6ccff;
-`
-
-const StatusLabel = styled.div`
-	color: ${p => p.color};
 `
 
 function getStatus(st: PeriodStatus) {
@@ -57,8 +56,8 @@ function getStatus(st: PeriodStatus) {
 	}[st.type]
 
 	return (
-		<StRow>
-			<StatusLabel color={color}>{label}</StatusLabel>
+		<StRow color={color}>
+			<div>{label}</div>
 		</StRow>
 	)
 }
