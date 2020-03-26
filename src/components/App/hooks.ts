@@ -58,7 +58,7 @@ const updatePeriod = (period: Period, now: Time): Period => ({
 export function usePeriods(): Period[] {
 	const now = useTimeHm()
 
-	const { data } = useSWR<TimeResponse>('/time.json', fetcher)
+	const { data } = useSWR<TimeResponse>('/static/time.json', fetcher)
 
 	if (!data) return []
 
