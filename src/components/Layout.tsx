@@ -1,7 +1,6 @@
 import * as React from 'react'
 import Head from 'next/head'
-import Link from 'next/link'
-import { createGlobalStyle } from 'styled-components'
+import { GlobalStyle } from '../config/initialize'
 
 type Props = {
 	reset?: boolean
