@@ -2,7 +2,7 @@
 	"name": "time",
 	"version": "0.2.0",
 	"private": true,
-	"homepage": "https://elzup.github.io",
+	"homepage": "https://dentime.anozon.me",
 	"scripts": {
 		"dev": "next",
 		"test": "jest",
