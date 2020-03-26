@@ -19,8 +19,6 @@ storiesOf('Header', module).add('normal', () => <Header />)
 
 storiesOf('Clock', module)
 	.add('00:00', () => <Clock />)
-	// .add('12:59', () => <Clock now={moment({ h: 12, m: 59 })} />)
-	// .add('09:09', () => <Clock now={moment({ h: 9, m: 9 })} />)
 const pb: Period = {
 	info: {
 		start: { h: 10, m: 40 },

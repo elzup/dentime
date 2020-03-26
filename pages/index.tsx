@@ -1,9 +1,6 @@
-import ReactDOM from 'react-dom'
-import App from './components/App'
-import './config/initialize'
+import App from '../src/components/App'
 
-const root = document.getElementById('root')
-
-if (root !== null) {
-	ReactDOM.render(<App />, root)
+const IndexPage: NextPage = () => {
+	return <App />
 }
+export default IndexPage
