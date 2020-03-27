@@ -3,7 +3,7 @@
 import '../config/initialize'
 import { storiesOf } from '@storybook/react'
 
-import type {
+import {
 	Period,
 	PeriodStatusBefore,
 	PeriodStatusProgress,
@@ -16,8 +16,7 @@ import TimeRow from '../components/TimeRow'
 
 storiesOf('Header', module).add('normal', () => <Header />)
 
-storiesOf('Clock', module)
-	.add('00:00', () => <Clock />)
+storiesOf('Clock', module).add('00:00', () => <Clock />)
 const pb: Period = {
 	info: {
 		start: { h: 10, m: 40 },

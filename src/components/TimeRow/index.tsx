@@ -1,7 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
 import ProgressBar from '../ProgressBar'
-import type { Period, PeriodStatus } from '../../types'
+import { Period, PeriodStatus } from '../../types'
 import { pad } from '../../utils/formats'
 
 const Wrapper = styled.div`
@@ -34,7 +34,7 @@ const Status = styled.div`
 const StRow = styled.div<{ color: string }>`
 	margin-left: 5px;
 	display: flex;
-	>div {
+	> div {
 		color: ${p => p.color};
 	}
 `
@@ -73,8 +73,8 @@ const TimeRow = ({
 	period,
 	nextBreak,
 }: {
-	period: Period,
-	nextBreak: boolean,
+	period: Period
+	nextBreak: boolean
 }) => (
 	<Wrapper data-nextspace={nextBreak}>
 		<Row>

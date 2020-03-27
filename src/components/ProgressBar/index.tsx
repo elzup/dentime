@@ -1,6 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
-import type { PeriodStatus } from '../../types'
+import { PeriodStatus } from '../../types'
 
 const Wrapper = styled.div`
 	width: 100%;
@@ -9,7 +9,7 @@ const Wrapper = styled.div`
 	border-radius: 5px;
 `
 
-const Bar = styled.div<{rate: number}>`
+const Bar = styled.div<{ rate: number }>`
 	width: ${p => p.rate * 100}%;
 	height: 100%;
 	background: #a6c0bf;
@@ -17,7 +17,7 @@ const Bar = styled.div<{rate: number}>`
 `
 
 type Props = {
-	status: PeriodStatus,
+	status: PeriodStatus
 }
 
 const ProgressBar = ({ status }: Props) => {
