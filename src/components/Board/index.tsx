@@ -24,15 +24,9 @@ const Board = ({ periods }: { periods: Period[] }) => {
 	return (
 		<Wrapper>
 			<BoardFrame>
-				<p>開館 08:00</p>
-				{periods.map(period => (
-					<TimeRow
-						nextBreak={['2', '5'].includes(period.info.period)}
-						key={period.info.period}
-						period={period}
-					/>
+				{periods.map((period, i) => (
+					<TimeRow key={i} period={period} />
 				))}
-				<p>閉館 22:30</p>
 			</BoardFrame>
 		</Wrapper>
 	)

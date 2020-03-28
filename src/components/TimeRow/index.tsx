@@ -1,8 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
 import ProgressBar from '../ProgressBar'
-import { Period, PeriodStatus } from '../../types'
-import { pad } from '../../utils/formats'
+import { Period, PeriodStatus, isPeriodNote } from '../../types'
 
 const Wrapper = styled.div`
 	margin-top: 10px;
@@ -69,24 +68,28 @@ function remainLabel(st: PeriodStatus) {
 	return <span>({100 - st.progress}min)</span>
 }
 
-const TimeRow = ({
+function TimeRow({
 	period,
-	nextBreak,
+	nextBreak = false,
 }: {
 	period: Period
-	nextBreak: boolean
-}) => (
-	<Wrapper data-nextspace={nextBreak}>
-		<Row>
-			<PeriodLabel>{period.info.period.toLowerCase()}.</PeriodLabel>
-			<TimeRange>
-				{pad(period.info.start)} - {pad(period.info.end)}
-			</TimeRange>
-			<Remain>{remainLabel(period.status)}</Remain>
-			<Status>{getStatus(period.status)}</Status>
-		</Row>
-		<ProgressBar status={period.status} />
-	</Wrapper>
-)
+	nextBreak?: boolean
+}) {
+	if (isPeriodNote(period)) return <p>{period.info.text}</p>
+
+	return (
+		<Wrapper data-nextspace={nextBreak}>
+			<Row>
+				<PeriodLabel>{period.info.period.toLowerCase()}.</PeriodLabel>
+				<TimeRange>
+					{period.info.start} - {period.info.end}
+				</TimeRange>
+				<Remain>{remainLabel(period.status)}</Remain>
+				<Status>{getStatus(period.status)}</Status>
+			</Row>
+			<ProgressBar status={period.status} />
+		</Wrapper>
+	)
+}
 
 export default TimeRow

@@ -8,7 +8,7 @@ exports[`renders correctly 1`] = `
     className=""
   >
     <p>
-      開館 08:00
+       8:00
     </p>
     <div
       className=""
@@ -26,7 +26,7 @@ exports[`renders correctly 1`] = `
         <div
           className=""
         >
-          09:20
+           9:20
            - 
           11:00
         </div>
@@ -56,7 +56,7 @@ exports[`renders correctly 1`] = `
     </div>
     <div
       className=""
-      data-nextspace={true}
+      data-nextspace={false}
     >
       <div
         className=""
@@ -194,7 +194,7 @@ exports[`renders correctly 1`] = `
     </div>
     <div
       className=""
-      data-nextspace={true}
+      data-nextspace={false}
     >
       <div
         className=""

@@ -4,20 +4,13 @@ import {
 	Period,
 	PeriodInfo,
 	PeriodStatus,
+	PeriodInfoTerm,
 	PeriodStatusType,
 	Time,
 	TimeResponse,
+	isPeriodInfoNote,
 } from '../../types'
 import { useTimeHm } from '../../utils/hooks'
-
-function initialPeriod(info: PeriodInfo): Period {
-	const status = null
-
-	return {
-		info,
-		status,
-	}
-}
 
 const compare = (bt: number, et: number, nt: number): PeriodStatusType => {
 	if (nt < bt) return 'before'
@@ -25,9 +18,17 @@ const compare = (bt: number, et: number, nt: number): PeriodStatusType => {
 	return 'finish'
 }
 
-function diffStatus(period: Period, now: Time): PeriodStatus {
-	const bt = period.info.start.h * 60 + period.info.start.m
-	const et = period.info.end.h * 60 + period.info.end.m
+const parseHm = (hm: string): [number, number] => {
+	const a = hm.split(':').map(Number)
+
+	return [a[0], a[1]]
+}
+
+function diffStatus(info: PeriodInfoTerm, now: Time): PeriodStatus {
+	const [startH, startM] = parseHm(info.start)
+	const [endH, endM] = parseHm(info.end)
+	const bt = startH * 60 + startM
+	const et = endH * 60 + endM
 	const nt = now.h * 60 + now.m
 	const statusType = compare(bt, et, nt)
 
@@ -50,10 +51,14 @@ function diffStatus(period: Period, now: Time): PeriodStatus {
 	}
 }
 
-const updatePeriod = (period: Period, now: Time): Period => ({
-	...period,
-	status: diffStatus(period, now),
-})
+const updatePeriod = (info: PeriodInfo, now: Time): Period => {
+	if (isPeriodInfoNote(info)) return { info, status: null }
+
+	return {
+		info,
+		status: diffStatus(info, now),
+	}
+}
 
 export function usePeriods(): Period[] {
 	const now = useTimeHm()
@@ -62,9 +67,7 @@ export function usePeriods(): Period[] {
 
 	if (!data) return []
 
-	const periods = Object.values({ ...data.base.periods, ...data.d.periods })
-		.map(initialPeriod)
-		.map(period => updatePeriod(period, now))
+	const periods = data.base.periods.map(period => updatePeriod(period, now))
 
 	return periods
 }
