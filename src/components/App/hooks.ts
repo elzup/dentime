@@ -67,7 +67,7 @@ export function usePeriods(): Period[] {
 
 	if (!data) return []
 
-	const periods = data.base.periods.map(period => updatePeriod(period, now))
+	const periods = data.base.periods.map((period) => updatePeriod(period, now))
 
 	return periods
 }

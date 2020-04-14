@@ -34,7 +34,7 @@ const StRow = styled.div<{ color: string }>`
 	margin-left: 5px;
 	display: flex;
 	> div {
-		color: ${p => p.color};
+		color: ${(p) => p.color};
 	}
 `
 

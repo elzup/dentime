@@ -39,7 +39,7 @@ const periodsData: Period[] = [
 	},
 ]
 
-const periods = periodsData.map(p => ({
+const periods = periodsData.map((p) => ({
 	...p,
 }))
 
