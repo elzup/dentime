@@ -60,10 +60,10 @@ const updatePeriod = (info: PeriodInfo, now: Time): Period => {
 	}
 }
 
-export function usePeriods(): Period[] {
+export function usePeriods(id: string): Period[] {
 	const now = useTimeHm()
 
-	const { data } = useSWR<TimeResponse>('/static/time.json', fetcher)
+	const { data } = useSWR<TimeResponse>(`/static/${id}.json`, fetcher)
 
 	if (!data) return []
 

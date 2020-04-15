@@ -9,8 +9,9 @@ import { usePeriods } from './hooks'
 
 const MainWrap = styled.div``
 
-function App() {
-	const periods = usePeriods()
+type Props = { id: string }
+function App({ id }: Props) {
+	const periods = usePeriods(id)
 
 	useEffect(disableTouch, [])
 
