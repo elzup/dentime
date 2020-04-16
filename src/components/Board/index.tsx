@@ -23,9 +23,11 @@ const Style = styled.div`
 const Board = ({ periods }: { periods: Period[] }) => {
 	return (
 		<Style>
-			{periods.map((period, i) => (
-				<TimeRow key={i} period={period} />
-			))}
+			<div>
+				{periods.map((period, i) => (
+					<TimeRow key={i} period={period} />
+				))}
+			</div>
 		</Style>
 	)
 }

@@ -4,325 +4,327 @@ exports[`renders correctly 1`] = `
 <div
   className=""
 >
-  <p>
-     8:00
-  </p>
-  <div
-    className=""
-    data-nextspace={false}
-  >
+  <div>
+    <p>
+       8:00
+    </p>
     <div
       className=""
+      data-nextspace={false}
     >
-      <div
-        className=""
-      >
-        1
-        .
-      </div>
-      <div
-        className=""
-      >
-         9:20
-         - 
-        11:00
-      </div>
-      <div
-        className=""
-      />
       <div
         className=""
       >
         <div
           className=""
-          color="gray"
         >
-          <div>
-            Fin
-          </div>
+          1
+          .
         </div>
-      </div>
-    </div>
-    <div
-      className=""
-    >
-      <div
-        className=""
-      />
-    </div>
-  </div>
-  <div
-    className=""
-    data-nextspace={false}
-  >
-    <div
-      className=""
-    >
-      <div
-        className=""
-      >
-        2
-        .
-      </div>
-      <div
-        className=""
-      >
-        11:10
-         - 
-        12:50
-      </div>
-      <div
-        className=""
-      />
-      <div
-        className=""
-      >
         <div
           className=""
-          color="gray"
         >
-          <div>
-            Fin
+           9:20
+           - 
+          11:00
+        </div>
+        <div
+          className=""
+        />
+        <div
+          className=""
+        >
+          <div
+            className=""
+            color="gray"
+          >
+            <div>
+              Fin
+            </div>
           </div>
         </div>
-      </div>
-    </div>
-    <div
-      className=""
-    >
-      <div
-        className=""
-      />
-    </div>
-  </div>
-  <div
-    className=""
-    data-nextspace={false}
-  >
-    <div
-      className=""
-    >
-      <div
-        className=""
-      >
-        3
-        .
-      </div>
-      <div
-        className=""
-      >
-        13:40
-         - 
-        15:20
-      </div>
-      <div
-        className=""
-      >
-        <span>
-          (
-          25
-          min)
-        </span>
       </div>
       <div
         className=""
       >
         <div
           className=""
-          color="#ebe971"
-        >
-          <div>
-            Now
-          </div>
-        </div>
+        />
       </div>
     </div>
     <div
       className=""
+      data-nextspace={false}
     >
-      <div
-        className=""
-      />
-    </div>
-  </div>
-  <div
-    className=""
-    data-nextspace={false}
-  >
-    <div
-      className=""
-    >
-      <div
-        className=""
-      >
-        4
-        .
-      </div>
-      <div
-        className=""
-      >
-        15:30
-         - 
-        17:10
-      </div>
-      <div
-        className=""
-      />
       <div
         className=""
       >
         <div
           className=""
-          color="black"
         >
-          <div>
-            
+          2
+          .
+        </div>
+        <div
+          className=""
+        >
+          11:10
+           - 
+          12:50
+        </div>
+        <div
+          className=""
+        />
+        <div
+          className=""
+        >
+          <div
+            className=""
+            color="gray"
+          >
+            <div>
+              Fin
+            </div>
           </div>
         </div>
       </div>
-    </div>
-    <div
-      className=""
-    >
-      <div
-        className=""
-      />
-    </div>
-  </div>
-  <div
-    className=""
-    data-nextspace={false}
-  >
-    <div
-      className=""
-    >
-      <div
-        className=""
-      >
-        5
-        .
-      </div>
-      <div
-        className=""
-      >
-        17:20
-         - 
-        19:00
-      </div>
-      <div
-        className=""
-      />
       <div
         className=""
       >
         <div
           className=""
-          color="black"
-        >
-          <div>
-            
-          </div>
-        </div>
+        />
       </div>
     </div>
     <div
       className=""
+      data-nextspace={false}
     >
-      <div
-        className=""
-      />
-    </div>
-  </div>
-  <div
-    className=""
-    data-nextspace={false}
-  >
-    <div
-      className=""
-    >
-      <div
-        className=""
-      >
-        d5
-        .
-      </div>
-      <div
-        className=""
-      >
-        18:00
-         - 
-        19:40
-      </div>
-      <div
-        className=""
-      />
       <div
         className=""
       >
         <div
           className=""
-          color="black"
         >
-          <div>
-            
+          3
+          .
+        </div>
+        <div
+          className=""
+        >
+          13:40
+           - 
+          15:20
+        </div>
+        <div
+          className=""
+        >
+          <span>
+            (
+            25
+            min)
+          </span>
+        </div>
+        <div
+          className=""
+        >
+          <div
+            className=""
+            color="#ebe971"
+          >
+            <div>
+              Now
+            </div>
           </div>
         </div>
       </div>
-    </div>
-    <div
-      className=""
-    >
-      <div
-        className=""
-      />
-    </div>
-  </div>
-  <div
-    className=""
-    data-nextspace={false}
-  >
-    <div
-      className=""
-    >
-      <div
-        className=""
-      >
-        d6
-        .
-      </div>
-      <div
-        className=""
-      >
-        19:50
-         - 
-        21:30
-      </div>
-      <div
-        className=""
-      />
       <div
         className=""
       >
         <div
           className=""
-          color="black"
-        >
-          <div>
-            
-          </div>
-        </div>
+        />
       </div>
     </div>
     <div
       className=""
+      data-nextspace={false}
     >
       <div
         className=""
-      />
+      >
+        <div
+          className=""
+        >
+          4
+          .
+        </div>
+        <div
+          className=""
+        >
+          15:30
+           - 
+          17:10
+        </div>
+        <div
+          className=""
+        />
+        <div
+          className=""
+        >
+          <div
+            className=""
+            color="black"
+          >
+            <div>
+              
+            </div>
+          </div>
+        </div>
+      </div>
+      <div
+        className=""
+      >
+        <div
+          className=""
+        />
+      </div>
     </div>
+    <div
+      className=""
+      data-nextspace={false}
+    >
+      <div
+        className=""
+      >
+        <div
+          className=""
+        >
+          5
+          .
+        </div>
+        <div
+          className=""
+        >
+          17:20
+           - 
+          19:00
+        </div>
+        <div
+          className=""
+        />
+        <div
+          className=""
+        >
+          <div
+            className=""
+            color="black"
+          >
+            <div>
+              
+            </div>
+          </div>
+        </div>
+      </div>
+      <div
+        className=""
+      >
+        <div
+          className=""
+        />
+      </div>
+    </div>
+    <div
+      className=""
+      data-nextspace={false}
+    >
+      <div
+        className=""
+      >
+        <div
+          className=""
+        >
+          d5
+          .
+        </div>
+        <div
+          className=""
+        >
+          18:00
+           - 
+          19:40
+        </div>
+        <div
+          className=""
+        />
+        <div
+          className=""
+        >
+          <div
+            className=""
+            color="black"
+          >
+            <div>
+              
+            </div>
+          </div>
+        </div>
+      </div>
+      <div
+        className=""
+      >
+        <div
+          className=""
+        />
+      </div>
+    </div>
+    <div
+      className=""
+      data-nextspace={false}
+    >
+      <div
+        className=""
+      >
+        <div
+          className=""
+        >
+          d6
+          .
+        </div>
+        <div
+          className=""
+        >
+          19:50
+           - 
+          21:30
+        </div>
+        <div
+          className=""
+        />
+        <div
+          className=""
+        >
+          <div
+            className=""
+            color="black"
+          >
+            <div>
+              
+            </div>
+          </div>
+        </div>
+      </div>
+      <div
+        className=""
+      >
+        <div
+          className=""
+        />
+      </div>
+    </div>
+    <p>
+      閉館 22:30
+    </p>
   </div>
-  <p>
-    閉館 22:30
-  </p>
 </div>
 `;
