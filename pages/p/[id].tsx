@@ -3,15 +3,18 @@ import { useRouter } from 'next/router'
 import App from '../../src/components/App'
 import Layout from '../../src/components/Layout'
 
-const IndexPage: NextPage = () => {
+function useQueryId(): [string, boolean] {
 	const router = useRouter()
+	const { id } = router.query
 
-	if (!router) return null
+	if (typeof id !== 'string') return ['', true]
+	return [id, false]
+}
 
-	console.log(router.query)
+const IndexPage: NextPage = () => {
+	const [id, loading] = useQueryId()
 
-	const queryId = router.query['id']
-	const id = typeof queryId === 'string' ? queryId : queryId[0]
+	if (loading) return null
 
 	return (
 		<Layout>
