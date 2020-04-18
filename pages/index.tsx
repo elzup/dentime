@@ -5,7 +5,7 @@ import Layout from '../src/components/Layout'
 const IndexPage: NextPage = () => {
 	return (
 		<Layout>
-			<App id={'time'} />
+			<App id={'tdu'} />
 		</Layout>
 	)
 }

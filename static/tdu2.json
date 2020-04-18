@@ -1,0 +1,12 @@
+{
+	"name": "TDU2",
+	"times": [
+		{ "period": "N1", "start": " 9:00", "end": "10:30" },
+		{ "period": "N2", "start": "10:40", "end": "12:10" },
+		{ "period": "N3", "start": "13:10", "end": "14:40" },
+		{ "period": "N4", "start": "14:50", "end": "16:20" },
+		{ "period": "N5", "start": "16:30", "end": "18:00" },
+		{ "period": "N6", "start": "18:10", "end": "19:40" },
+		{ "period": "N7", "start": "19:50", "end": "21:20" }
+	]
+}

@@ -51,9 +51,8 @@ export const isPeriodNote = (period: Period): period is PeriodNote =>
 export type Period = PeriodTerm | PeriodNote
 
 export type Profile = {
-	periods: PeriodInfo[]
+	name: string
+	times: PeriodInfo[]
 }
 
-export type TimeResponse = {
-	base: Profile
-}
+export type TimeResponse = Profile
