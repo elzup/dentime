@@ -11,7 +11,7 @@
 
 本システムは東京電機大学のスケジュールを表示するアプリですが、別の時間割も作成可能です。
 
-リンクから依頼してください → https://github.com/elzup/dentime/issues/new
+リンクから依頼してください → https://github.com/elzup/dentime/issues/new/choose
 
 または連絡先: https://twitter.com/anozon
 
