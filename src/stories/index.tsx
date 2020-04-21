@@ -19,8 +19,8 @@ storiesOf('Header', module).add('normal', () => <Header />)
 storiesOf('Clock', module).add('00:00', () => <Clock />)
 const pb: Period = {
 	info: {
-		start: { h: 10, m: 40 },
-		end: { h: 12, m: 10 },
+		start: '10:40',
+		end: '12:10',
 		period: '2',
 	},
 	status: null,
