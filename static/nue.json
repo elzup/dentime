@@ -1,0 +1,17 @@
+{
+	"name": "NUE(試験時)",
+	"times": [
+		{ "period": null, "text": "開館" },
+		{ "period": "1", "start": " 9:30", "end": "11:00" },
+		{ "period": "2", "start": "11:10", "end": "12:40" },
+		{ "period": null, "text": "昼" },
+		{ "period": "3", "start": "13:20", "end": "14:50" },
+		{ "period": "4", "start": "15:00", "end": "16:30" },
+		{ "period": "5", "start": "16:40", "end": "18:10" },
+		{ "period": null, "text": "閉館" }
+	],
+	"links": [
+		{ "id": "nue", "label": "平常時" },
+		{ "id": "nue-ex", "label": "試験時" }
+	]
+}

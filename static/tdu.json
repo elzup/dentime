@@ -2,7 +2,7 @@
 	"name": "TDU",
 	"times": [
 		{ "period": null, "text": "開館 8:00" },
-		{ "period": "1", "start": " 9:20", "end": "11;00" },
+		{ "period": "1", "start": " 9:20", "end": "11:00" },
 		{ "period": "2", "start": "11:10", "end": "12:50" },
 		{ "period": null, "text": "昼" },
 		{ "period": "3", "start": "13:40", "end": "15:20" },
