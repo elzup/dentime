@@ -1,10 +1,10 @@
 import { NextPage } from 'next'
 import { useRouter } from 'next/router'
 import { useEffect } from 'react'
-import { useLocalStorage } from '../src/utils/browser'
+import { useFavorite } from '../src/utils/browser'
 
 const IndexPage: NextPage = () => {
-	const [favorite] = useLocalStorage('favorite', '/')
+	const [favorite] = useFavorite()
 	const router = useRouter()
 
 	useEffect(() => {

@@ -36,3 +36,5 @@ export function useLocalStorage(key: string, initialValue: unknown) {
 
 	return [storedValue, setValue]
 }
+
+export const useFavorite = useLocalStorage.bind(null, 'favorite', '/')
