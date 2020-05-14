@@ -10,7 +10,7 @@ const Wrapper = styled.div`
 		font-size: 1.5em;
 		font-weight: 700;
 		padding: 2.5px 0;
-		border-left: solid black 12px;
+		margin-left: 16px;
 		.label {
 			width: 50px;
 			margin-left: 5px;
@@ -19,7 +19,14 @@ const Wrapper = styled.div`
 	}
 	&[data-study='true'] {
 		.row {
-			border-left: solid yellow 12px;
+			&::before {
+				content: '★';
+				position: absolute;
+				margin-left: -16px;
+				font-size: 20px;
+				margin-top: -2px;
+				color: orange;
+			}
 		}
 	}
 `

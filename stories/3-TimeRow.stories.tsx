@@ -47,7 +47,7 @@ const statusFinish: PeriodStatusFinish = {
 }
 
 export const Progress = () => (
-	<div>
+	<div style={{ padding: '12px' }}>
 		<TimeRow period={{ ...pb, status: statusBefore }} />
 		<TimeRow period={{ ...pb, status: statusProgress1, study: true }} />
 		<TimeRow period={{ ...pb, status: statusProgress2, study: true }} />
