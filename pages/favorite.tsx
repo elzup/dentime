@@ -1,6 +1,7 @@
+import React, { useEffect } from 'react'
 import { NextPage } from 'next'
 import { useRouter } from 'next/router'
-import { useEffect } from 'react'
+
 import { useFavorite } from '../src/utils/browser'
 
 const IndexPage: NextPage = () => {

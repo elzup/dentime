@@ -1,3 +1,5 @@
+import React from 'react'
+
 function isNewHost() {
 	return (
 		typeof window !== 'undefined' && /anozon\.me/.exec(window.location.href)

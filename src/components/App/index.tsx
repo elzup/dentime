@@ -1,4 +1,5 @@
-import { useEffect } from 'react'
+import React, { useEffect } from 'react'
+
 import styled from 'styled-components'
 import { GlobalStyle } from '../../config/initialize'
 import { disableTouch } from '../../utils/browser'

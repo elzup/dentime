@@ -1,6 +1,7 @@
+import React, { useEffect } from 'react'
 import { NextPage } from 'next'
 import { useRouter } from 'next/router'
-import { useEffect } from 'react'
+
 import App from '../../src/components/App'
 import Layout from '../../src/components/Layout'
 import { useFavorite } from '../../src/utils/browser'

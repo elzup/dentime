@@ -1,4 +1,4 @@
-import { NextPage } from 'next'
+import React, { NextPage } from 'next'
 import App from '../src/components/App'
 import Layout from '../src/components/Layout'
 
