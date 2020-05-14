@@ -16,9 +16,12 @@ const Title = styled.h2`
 	font-size: 20px;
 `
 
-const Header = () => (
+type Props = {
+	name: string
+}
+const Header = ({ name }: Props) => (
 	<Wrapper>
-		<Title>Dendai Time</Title>
+		<Title>{name} Time</Title>
 	</Wrapper>
 )
 

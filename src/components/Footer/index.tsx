@@ -5,12 +5,12 @@ import Clock from '../Clock'
 const Row = styled.div`
 	display: flex;
 	justify-content: space-between;
-	margin-top: 10px;
+	margin: 10px 0;
 `
 
 const SideBlock = styled.div`
 	width: 30px;
-	padding: 10px 15px 0;
+	padding: 10px 15px;
 	text-align: center;
 `
 

@@ -63,15 +63,15 @@ const updatePeriod = (info: PeriodInfo, now: Time, study: Study): Period => {
 	}
 }
 
-export function usePeriods(id: string, study: Study): Period[] {
+export function usePeriods(id: string, study: Study): [Period[], string] {
 	const now = useTimeHm()
 	const { data } = useSWR<TimeResponse>(`/static/${id}.json`, fetcher)
 
-	if (!data) return []
+	if (!data) return [[], 'Not Found']
 
 	const periods = data.times.map((period) => updatePeriod(period, now, study))
 
-	return periods
+	return [periods, data.name]
 }
 
 export const useStudy = () => useLocalStorage<Study>('study', {})
