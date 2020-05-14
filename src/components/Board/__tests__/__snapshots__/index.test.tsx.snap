@@ -5,18 +5,20 @@ exports[`renders correctly 1`] = `
   className=""
 >
   <div>
-    <p>
+    <p
+      className=""
+    >
        8:00
     </p>
     <div
       className=""
-      data-nextspace={false}
+      data-study={true}
     >
       <div
-        className=""
+        className="row"
       >
         <div
-          className=""
+          className="label"
         >
           1
           .
@@ -54,13 +56,13 @@ exports[`renders correctly 1`] = `
     </div>
     <div
       className=""
-      data-nextspace={false}
+      data-study={true}
     >
       <div
-        className=""
+        className="row"
       >
         <div
-          className=""
+          className="label"
         >
           2
           .
@@ -98,13 +100,13 @@ exports[`renders correctly 1`] = `
     </div>
     <div
       className=""
-      data-nextspace={false}
+      data-study={false}
     >
       <div
-        className=""
+        className="row"
       >
         <div
-          className=""
+          className="label"
         >
           3
           .
@@ -148,13 +150,13 @@ exports[`renders correctly 1`] = `
     </div>
     <div
       className=""
-      data-nextspace={false}
+      data-study={true}
     >
       <div
-        className=""
+        className="row"
       >
         <div
-          className=""
+          className="label"
         >
           4
           .
@@ -192,13 +194,13 @@ exports[`renders correctly 1`] = `
     </div>
     <div
       className=""
-      data-nextspace={false}
+      data-study={false}
     >
       <div
-        className=""
+        className="row"
       >
         <div
-          className=""
+          className="label"
         >
           5
           .
@@ -236,13 +238,13 @@ exports[`renders correctly 1`] = `
     </div>
     <div
       className=""
-      data-nextspace={false}
+      data-study={true}
     >
       <div
-        className=""
+        className="row"
       >
         <div
-          className=""
+          className="label"
         >
           d5
           .
@@ -280,13 +282,13 @@ exports[`renders correctly 1`] = `
     </div>
     <div
       className=""
-      data-nextspace={false}
+      data-study={false}
     >
       <div
-        className=""
+        className="row"
       >
         <div
-          className=""
+          className="label"
         >
           d6
           .
@@ -322,7 +324,9 @@ exports[`renders correctly 1`] = `
         />
       </div>
     </div>
-    <p>
+    <p
+      className=""
+    >
       閉館 22:30
     </p>
   </div>

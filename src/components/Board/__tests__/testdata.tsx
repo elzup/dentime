@@ -8,30 +8,37 @@ const periodsData: Period[] = [
 	{
 		info: { period: '1', start: ' 9:20', end: '11:00' },
 		status: { type: 'finish' },
+		study: true,
 	},
 	{
 		info: { period: '2', start: '11:10', end: '12:50' },
 		status: { type: 'finish' },
+		study: true,
 	},
 	{
 		info: { period: '3', start: '13:40', end: '15:20' },
 		status: { type: 'progress', progress: 75, rate: 0.75 },
+		study: false,
 	},
 	{
 		info: { period: '4', start: '15:30', end: '17:10' },
 		status: { type: 'before' },
+		study: true,
 	},
 	{
 		info: { period: '5', start: '17:20', end: '19:00' },
 		status: { type: 'before' },
+		study: false,
 	},
 	{
 		info: { period: 'D5', start: '18:00', end: '19:40' },
 		status: { type: 'before' },
+		study: true,
 	},
 	{
 		info: { period: 'D6', start: '19:50', end: '21:30' },
 		status: { type: 'before' },
+		study: false,
 	},
 	{
 		info: { period: null, text: '閉館 22:30' },
