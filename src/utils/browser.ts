@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useState, Dispatch, SetStateAction } from 'react'
 
 export const disableTouch = () => {
 	window.addEventListener(
@@ -10,12 +10,15 @@ export const disableTouch = () => {
 	)
 }
 
-export function useLocalStorage(key: string, initialValue: unknown) {
-	const [storedValue, setStoredValue] = useState(() => {
+export function useLocalStorage<T = unknown>(
+	key: string,
+	initialValue: T,
+): [T, Dispatch<SetStateAction<T>>] {
+	const [storedValue, setStoredValue] = useState<T>(() => {
 		try {
 			const item = window.localStorage.getItem(key)
 
-			return item ? JSON.parse(item) : initialValue
+			return item ? (JSON.parse(item) as T) : initialValue
 		} catch (error) {
 			console.log(error)
 			return initialValue
@@ -37,4 +40,4 @@ export function useLocalStorage(key: string, initialValue: unknown) {
 	return [storedValue, setValue]
 }
 
-export const useFavorite = useLocalStorage.bind(null, 'favorite', '/')
+export const useFavorite = () => useLocalStorage<string>('favorite', '/')

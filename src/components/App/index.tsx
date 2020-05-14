@@ -5,13 +5,14 @@ import { disableTouch } from '../../utils/browser'
 import Board from '../Board'
 import Footer from '../Footer'
 import Header from '../Header'
-import { usePeriods } from './hooks'
+import { usePeriods, useStudy } from './hooks'
 
 const MainWrap = styled.div``
 
 type Props = { id: string }
 function App({ id }: Props) {
-	const periods = usePeriods(id)
+	const [study, setStudy] = useStudy()
+	const periods = usePeriods(id, study)
 
 	useEffect(disableTouch, [])
 

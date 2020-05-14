@@ -39,6 +39,7 @@ export type PeriodStatus =
 export type PeriodTerm = {
 	readonly info: PeriodInfoTerm
 	status: PeriodStatus
+	study: boolean
 }
 export type PeriodNote = {
 	readonly info: PeriodInfoNote
@@ -53,6 +54,13 @@ export type Period = PeriodTerm | PeriodNote
 export type Profile = {
 	name: string
 	times: PeriodInfo[]
+}
+
+export type WeekDay = number
+export type Study = {
+	[w: number]: {
+		[pid: string]: boolean
+	}
 }
 
 export type TimeResponse = Profile

@@ -9,8 +9,10 @@ import {
 	Time,
 	TimeResponse,
 	isPeriodInfoNote,
+	Study,
 } from '../../types'
 import { useTimeHm } from '../../utils/hooks'
+import { useLocalStorage } from '../../utils/browser'
 
 const compare = (bt: number, et: number, nt: number): PeriodStatusType => {
 	if (nt < bt) return 'before'
@@ -51,23 +53,25 @@ function diffStatus(info: PeriodInfoTerm, now: Time): PeriodStatus {
 	}
 }
 
-const updatePeriod = (info: PeriodInfo, now: Time): Period => {
+const updatePeriod = (info: PeriodInfo, now: Time, study: Study): Period => {
 	if (isPeriodInfoNote(info)) return { info, status: null }
 
 	return {
 		info,
 		status: diffStatus(info, now),
+		study: study[new Date().getDate()]?.[info.period],
 	}
 }
 
-export function usePeriods(id: string): Period[] {
+export function usePeriods(id: string, study: Study): Period[] {
 	const now = useTimeHm()
-
 	const { data } = useSWR<TimeResponse>(`/static/${id}.json`, fetcher)
 
 	if (!data) return []
 
-	const periods = data.times.map((period) => updatePeriod(period, now))
+	const periods = data.times.map((period) => updatePeriod(period, now, study))
 
 	return periods
 }
+
+export const useStudy = () => useLocalStorage<Study>('study', {})

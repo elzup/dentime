@@ -5,18 +5,24 @@ import { Period, PeriodStatus, isPeriodNote } from '../../types'
 
 const Wrapper = styled.div`
 	margin-top: 10px;
-	&[data-nextspace='true'] {
-		border-bottom: #717b8a dashed;
-		padding-bottom: 5px;
+	.row {
+		display: flex;
+		font-size: 1.5em;
+		font-weight: 700;
+		padding: 2.5px 0;
+		border-left: solid black 12px;
+		.label {
+			width: 50px;
+			margin-left: 5px;
+			color: #a6ccff;
+		}
+	}
+	&[data-study='true'] {
+		.row {
+			border-left: solid yellow 12px;
+		}
 	}
 `
-const Row = styled.div`
-	display: flex;
-	font-size: 1.5em;
-	font-weight: 700;
-	padding: 2.5px 0;
-`
-
 const TimeRange = styled.div`
 	flex: auto;
 `
@@ -30,18 +36,14 @@ const Status = styled.div`
 	align-self: flex-end;
 `
 
+const Break = styled.p``
+
 const StRow = styled.div<{ color: string }>`
 	margin-left: 5px;
 	display: flex;
 	> div {
 		color: ${(p) => p.color};
 	}
-`
-
-const PeriodLabel = styled.div`
-	width: 50px;
-	margin-left: 5px;
-	color: #a6ccff;
 `
 
 function getStatus(st: PeriodStatus) {
@@ -68,25 +70,19 @@ function remainLabel(st: PeriodStatus) {
 	return <span>({100 - st.progress}min)</span>
 }
 
-function TimeRow({
-	period,
-	nextBreak = false,
-}: {
-	period: Period
-	nextBreak?: boolean
-}) {
-	if (isPeriodNote(period)) return <p>{period.info.text}</p>
+function TimeRow({ period }: { period: Period }) {
+	if (isPeriodNote(period)) return <Break>{period.info.text}</Break>
 
 	return (
-		<Wrapper data-nextspace={nextBreak}>
-			<Row>
-				<PeriodLabel>{period.info.period.toLowerCase()}.</PeriodLabel>
+		<Wrapper data-study={period.study}>
+			<div className="row">
+				<div className="label">{period.info.period.toLowerCase()}.</div>
 				<TimeRange>
 					{period.info.start} - {period.info.end}
 				</TimeRange>
 				<Remain>{remainLabel(period.status)}</Remain>
 				<Status>{getStatus(period.status)}</Status>
-			</Row>
+			</div>
 			<ProgressBar status={period.status} />
 		</Wrapper>
 	)
