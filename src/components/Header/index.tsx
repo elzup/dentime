@@ -25,4 +25,8 @@ const Header = ({ name }: Props) => (
 	</Wrapper>
 )
 
+Header.defaultProps = {
+	name: 'dentime',
+}
+
 export default Header
