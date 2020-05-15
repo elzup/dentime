@@ -7,6 +7,7 @@ import Board from '../Board'
 import Footer from '../Footer'
 import Header from '../Header'
 import config from '../../config'
+import StudyTable from '../StudyTable'
 import { usePeriods, useStudy } from './hooks'
 
 const MainWrap = styled.div`
@@ -17,6 +18,7 @@ const MainWrap = styled.div`
 	}
 	.main {
 		background: ${config.color.sub};
+		overflow: scroll;
 	}
 `
 
@@ -35,7 +37,7 @@ function App({ id }: Props) {
 			</div>
 			<div className="main">
 				<Board periods={periods} />
-				<div>pane</div>
+				<StudyTable periods={periods} study={study} setStudy={setStudy} />
 			</div>
 			<div className="foot">
 				<Footer />

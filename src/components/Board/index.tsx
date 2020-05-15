@@ -10,6 +10,7 @@ const Style = styled.div`
 
 	display: flex;
 	justify-content: center;
+	min-height: calc(100vh - 111px);
 	> div {
 		min-width: 300px;
 		width: 100%;

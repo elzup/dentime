@@ -16,6 +16,9 @@ export type PeriodInfoNote = {
 }
 export type PeriodInfo = PeriodInfoTerm | PeriodInfoNote
 
+export const isPeriodTerm = (p: Period): p is PeriodTerm =>
+	p.info.period !== null
+
 export type PeriodStatusType = 'before' | 'progress' | 'finish'
 export type PeriodStatusBefore = {
 	type: 'before'
