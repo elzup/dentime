@@ -1,6 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
 import { Study, Period, isPeriodTerm } from '../types'
+import config from '../config'
 
 type Props = {
 	study: Study
@@ -22,14 +23,23 @@ const Style = styled.div`
 	}
 	th,
 	td {
-		height: 2em;
-		border: solid 1px #a6c0bf;
-		button {
-			width: 100%;
-			height: 100%;
-			text-align: center;
-			&[data-on='true'] {
-				background: white;
+		padding: 8px;
+		/* border: solid 1px #a6c0bf; */
+		div {
+			display: grid;
+			justify-content: center;
+			button {
+				background: ${config.color.main};
+				width: 2rem;
+				height: 2rem;
+				margin: 0 auto;
+				text-align: center;
+				background: ${config.color.main};
+				color: white;
+				border-radius: 8px;
+
+				&[data-on='true'] {
+				}
 			}
 		}
 	}
@@ -57,20 +67,22 @@ function StudyTable({ periods, study, setStudy }: Props) {
 								<th>{pid}</th>
 								{weekDays.map((wd, k) => (
 									<td key={k}>
-										<button
-											data-on={study[k]?.[pid]}
-											onClick={() => {
-												setStudy({
-													...study,
-													[k]: {
-														...study[k],
-														[pid]: !study[k]?.[pid],
-													},
-												})
-											}}
-										>
-											{study[k]?.[pid] ? '★' : ''}
-										</button>
+										<div>
+											<button
+												data-on={study[k]?.[pid]}
+												onClick={() => {
+													setStudy({
+														...study,
+														[k]: {
+															...study[k],
+															[pid]: !study[k]?.[pid],
+														},
+													})
+												}}
+											>
+												{study[k]?.[pid] ? '★' : ''}
+											</button>
+										</div>
 									</td>
 								))}
 							</tr>
