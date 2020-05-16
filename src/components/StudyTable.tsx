@@ -7,6 +7,7 @@ type Props = {
 	study: Study
 	setStudy: (study: Study) => void
 	periods: Period[]
+	favoriteIds: string[]
 }
 
 const weekDays = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat']
@@ -44,11 +45,22 @@ const Style = styled.div`
 		}
 	}
 `
+const Link = styled.a`
+	color: #a6ccff;
+	margin-left: 1rem;
+`
 
-function StudyTable({ periods, study, setStudy }: Props) {
+function StudyTable({ periods, study, setStudy, favoriteIds }: Props) {
 	return (
 		<Style>
 			<h3>Your Schedule</h3>
+			<div>
+				{favoriteIds.map((id) => (
+					<Link key={id} href={`/p/${id}`}>
+						{id}
+					</Link>
+				))}
+			</div>
 			<table>
 				<thead>
 					<tr>

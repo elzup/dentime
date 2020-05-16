@@ -1,20 +1,18 @@
 import useSWR from 'swr'
-import { SetStateAction, Dispatch } from 'react'
-import { useRouter } from 'next/router'
 import { fetcher } from '../../api'
 import {
+	isPeriodInfoNote,
 	Period,
 	PeriodInfo,
-	PeriodStatus,
 	PeriodInfoTerm,
+	PeriodStatus,
 	PeriodStatusType,
+	Study,
 	Time,
 	TimeResponse,
-	isPeriodInfoNote,
-	Study,
 } from '../../types'
-import { useTimeHm } from '../../utils/hooks'
 import { useLocalStorage } from '../../utils/browser'
+import { useTimeHm } from '../../utils/hooks'
 
 const compare = (bt: number, et: number, nt: number): PeriodStatusType => {
 	if (nt < bt) return 'before'

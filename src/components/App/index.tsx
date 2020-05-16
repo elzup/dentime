@@ -24,7 +24,7 @@ const MainWrap = styled.div`
 
 type Props = { id: string }
 function App({ id }: Props) {
-	const [study, setStudy] = useStudy(id)
+	const [study, setStudy, favoriteIds] = useStudy(id)
 	const [periods, name] = usePeriods(id, study)
 
 	useEffect(disableTouch, [])
@@ -37,7 +37,12 @@ function App({ id }: Props) {
 			</div>
 			<div className="main">
 				<Board periods={periods} />
-				<StudyTable periods={periods} study={study} setStudy={setStudy} />
+				<StudyTable
+					periods={periods}
+					study={study}
+					setStudy={setStudy}
+					favoriteIds={favoriteIds}
+				/>
 			</div>
 			<div className="foot">
 				<Footer />
