@@ -24,7 +24,7 @@ const MainWrap = styled.div`
 
 type Props = { id: string }
 function App({ id }: Props) {
-	const [study, setStudy] = useStudy()
+	const [study, setStudy] = useStudy(id)
 	const [periods, name] = usePeriods(id, study)
 
 	useEffect(disableTouch, [])

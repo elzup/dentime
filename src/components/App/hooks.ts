@@ -1,4 +1,6 @@
 import useSWR from 'swr'
+import { SetStateAction, Dispatch } from 'react'
+import { useRouter } from 'next/router'
 import { fetcher } from '../../api'
 import {
 	Period,
@@ -74,4 +76,17 @@ export function usePeriods(id: string, study: Study): [Period[], string] {
 	return [periods, data.name]
 }
 
-export const useStudy = () => useLocalStorage<Study>('study', {})
+export function useStudy(id: string): [Study, (s: Study) => void, string[]] {
+	const [studies, setStudies] = useStudiesStorage()
+
+	return [
+		studies[id] || {},
+		(s: Study) => {
+			return setStudies((ss) => ({ ...ss, [id]: s }))
+		},
+		Object.keys(studies),
+	]
+}
+type Studies = { [id: string]: Study }
+export const useStudiesStorage = () =>
+	useLocalStorage<Studies>('study-list', {})
