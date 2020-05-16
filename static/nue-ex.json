@@ -1,5 +1,5 @@
 {
-	"name": "NUE",
+	"name": "NUE(exam)",
 	"times": [
 		{ "period": null, "text": "開館" },
 		{ "period": "1", "start": " 9:30", "end": "11:00" },
