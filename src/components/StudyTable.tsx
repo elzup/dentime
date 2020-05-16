@@ -2,6 +2,7 @@ import React from 'react'
 import styled from 'styled-components'
 import { Study, Period, isPeriodTerm } from '../types'
 import config from '../config'
+import { encodeStudy } from '../utils/formats'
 
 type Props = {
 	study: Study
@@ -51,6 +52,10 @@ const Link = styled.a`
 `
 
 function StudyTable({ periods, study, setStudy, favoriteIds }: Props) {
+	const periodIds = periods
+		.filter(isPeriodTerm)
+		.map((period) => period.info.period)
+
 	return (
 		<Style>
 			<h3>Your Schedule</h3>
@@ -71,36 +76,39 @@ function StudyTable({ periods, study, setStudy, favoriteIds }: Props) {
 					</tr>
 				</thead>
 				<tbody>
-					{periods
-						.filter(isPeriodTerm)
-						.map((period) => period.info.period)
-						.map((pid) => (
-							<tr key={pid}>
-								<th>{pid}</th>
-								{weekDays.map((wd, k) => (
-									<td key={k}>
-										<div>
-											<button
-												data-on={study[k]?.[pid]}
-												onClick={() => {
-													setStudy({
-														...study,
-														[k]: {
-															...study[k],
-															[pid]: !study[k]?.[pid],
-														},
-													})
-												}}
-											>
-												{study[k]?.[pid] ? '★' : ''}
-											</button>
-										</div>
-									</td>
-								))}
-							</tr>
-						))}
+					{periodIds.map((pid) => (
+						<tr key={pid}>
+							<th>{pid}</th>
+							{weekDays.map((wd, k) => (
+								<td key={k}>
+									<div>
+										<button
+											data-on={study[k]?.[pid]}
+											onClick={() => {
+												setStudy({
+													...study,
+													[k]: {
+														...study[k],
+														[pid]: !study[k]?.[pid],
+													},
+												})
+											}}
+										>
+											{study[k]?.[pid] ? '★' : ''}
+										</button>
+									</div>
+								</td>
+							))}
+						</tr>
+					))}
 				</tbody>
 			</table>
+			<div>
+				ShareLink
+				<p>
+					{window.location.href + '?study=' + encodeStudy(study, periodIds)}
+				</p>
+			</div>
 		</Style>
 	)
 }
