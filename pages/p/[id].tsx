@@ -6,12 +6,13 @@ import App from '../../src/components/App'
 import Layout from '../../src/components/Layout'
 import { useFavorite } from '../../src/utils/browser'
 
-function useQueryId(): [string, string, boolean] {
+function useQueryId(): [string, string | undefined, boolean] {
 	const router = useRouter()
 	const { id, study } = router.query
 
+	console.log(router.query)
+
 	if (typeof id !== 'string') return ['', '', true]
-	if (typeof study !== 'string') return ['', '', true]
 	return [id, study, false]
 }
 

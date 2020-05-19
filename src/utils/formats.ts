@@ -48,8 +48,6 @@ export function encodeStudy(study: Study, periodKeys: string[]): string {
 		.map((wi) => study[wi] || {})
 		.reduce((p: boolean[], c) => p.concat(periodKeys.map((pk) => !!c[pk])), [])
 
-	console.log(bools)
-
 	return bools2Hex(bools)
 }
 

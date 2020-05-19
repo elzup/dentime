@@ -1,14 +1,15 @@
-import React from 'react'
 import { NextPage } from 'next'
-import App from '../src/components/App'
-import Layout from '../src/components/Layout'
+import { useRouter } from 'next/router'
+import React, { useEffect } from 'react'
 
 const IndexPage: NextPage = () => {
-	return (
-		<Layout>
-			<App id={'tdu'} />
-		</Layout>
-	)
+	const router = useRouter()
+
+	useEffect(() => {
+		router.push('/p/tdu')
+	}, [])
+
+	return <div />
 }
 
 export default IndexPage
