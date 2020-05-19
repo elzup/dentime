@@ -8,6 +8,8 @@ import Footer from '../Footer'
 import Header from '../Header'
 import config from '../../config'
 import StudyTable from '../StudyTable'
+import { decodeStudy } from '../../utils/formats'
+import { isPeriodTerm } from '../../types'
 import { usePeriods, useStudy } from './hooks'
 
 const MainWrap = styled.div`
@@ -22,10 +24,28 @@ const MainWrap = styled.div`
 	}
 `
 
-type Props = { id: string }
-function App({ id }: Props) {
+function useStudyPeriods(id: string, studyCode?: string) {
 	const [study, setStudy, favoriteIds] = useStudy(id)
+
 	const [periods, name] = usePeriods(id, study)
+
+	useEffect(() => {
+		if (!studyCode) return
+		const periodIds = periods.filter(isPeriodTerm).map((v) => v.info.period)
+		const study = decodeStudy(studyCode, periodIds)
+
+		setStudy(study)
+	}, [studyCode, JSON.stringify(study), periods])
+
+	return [study, favoriteIds, periods, name, setStudy] as const
+}
+
+type Props = { id: string; studyCode?: string }
+function App({ id, studyCode }: Props) {
+	const [study, favoriteIds, periods, name, setStudy] = useStudyPeriods(
+		id,
+		studyCode,
+	)
 
 	useEffect(disableTouch, [])
 

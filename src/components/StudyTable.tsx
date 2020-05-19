@@ -3,6 +3,7 @@ import styled from 'styled-components'
 import { Study, Period, isPeriodTerm } from '../types'
 import config from '../config'
 import { encodeStudy } from '../utils/formats'
+import { getHost } from '../utils/browser'
 
 type Props = {
 	study: Study
@@ -105,9 +106,7 @@ function StudyTable({ periods, study, setStudy, favoriteIds }: Props) {
 			</table>
 			<div>
 				ShareLink
-				<p>
-					{window.location.href + '?study=' + encodeStudy(study, periodIds)}
-				</p>
+				<p>{getHost() + '?study=' + encodeStudy(study, periodIds)}</p>
 			</div>
 		</Style>
 	)

@@ -6,16 +6,17 @@ import App from '../../src/components/App'
 import Layout from '../../src/components/Layout'
 import { useFavorite } from '../../src/utils/browser'
 
-function useQueryId(): [string, boolean] {
+function useQueryId(): [string, string, boolean] {
 	const router = useRouter()
-	const { id } = router.query
+	const { id, study } = router.query
 
-	if (typeof id !== 'string') return ['', true]
-	return [id, false]
+	if (typeof id !== 'string') return ['', '', true]
+	if (typeof study !== 'string') return ['', '', true]
+	return [id, study, false]
 }
 
 const IndexPage: NextPage = () => {
-	const [id, loading] = useQueryId()
+	const [id, studyCode, loading] = useQueryId()
 	const [_favorite, setFavorite] = useFavorite()
 
 	useEffect(() => {
@@ -26,7 +27,7 @@ const IndexPage: NextPage = () => {
 
 	return (
 		<Layout>
-			<App id={id} />
+			<App id={id} studyCode={studyCode} />
 		</Layout>
 	)
 }
