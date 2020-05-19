@@ -13,7 +13,9 @@ function useQueryId(): [string, string | undefined, boolean] {
 	console.log(router.query)
 
 	if (typeof id !== 'string') return ['', '', true]
-	return [id, study, false]
+	const studyq = typeof study !== 'object' ? study : undefined
+
+	return [id, studyq, false]
 }
 
 const IndexPage: NextPage = () => {
