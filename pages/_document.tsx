@@ -16,7 +16,7 @@ class Document extends NextDocument<{}> {
 		try {
 			ctx.renderPage = () =>
 				originalRenderPage({
-					enhanceApp: App => props =>
+					enhanceApp: (App) => (props) =>
 						styledComponentSheets.collectStyles(<App {...props} />),
 				})
 
@@ -50,7 +50,6 @@ class Document extends NextDocument<{}> {
 
 					<meta charSet="utf-8" />
 					<meta name="theme-color" content="#001a3c" />
-					<meta name="robots" content="noindex,nofollow,noarchive" />
 					<meta name="viewport" content="width=device-width, initial-scale=1" />
 					<meta name="apple-mobile-web-app-capable" content="yes" />
 				</Head>
