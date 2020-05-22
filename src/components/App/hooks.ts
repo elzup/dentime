@@ -59,7 +59,7 @@ const updatePeriod = (info: PeriodInfo, now: Time, study: Study): Period => {
 	return {
 		info,
 		status: diffStatus(info, now),
-		study: study[new Date().getDate()]?.[info.period],
+		study: !!study[new Date().getDay()]?.[info.period],
 	}
 }
 

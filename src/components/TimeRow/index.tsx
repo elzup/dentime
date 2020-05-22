@@ -21,16 +21,16 @@ const Wrapper = styled.div`
 		.row {
 			&::before {
 				content: '★';
-				position: absolute;
 				margin-left: -16px;
-				font-size: 20px;
-				margin-top: -2px;
+				font-size: 16px;
+				margin-top: 4px;
 				color: orange;
 			}
 		}
 	}
 `
-const TimeRange = styled.div`
+const TimeRange = styled.span`
+	font-weight: bold;
 	flex: auto;
 `
 const Remain = styled.div`
