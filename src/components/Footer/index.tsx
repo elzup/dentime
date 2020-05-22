@@ -26,7 +26,7 @@ const Footer = () => (
 		</SideBlock>
 		<Clock />
 		<SideBlock>
-			<Link href="https://elzup.com">{"'ω'"}</Link>
+			<Link href="https://anozon.me">{"'ω'"}</Link>
 		</SideBlock>
 	</Row>
 )
