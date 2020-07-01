@@ -8992,10 +8992,10 @@ nested-object-assign@^1.0.3:
   resolved "https://registry.yarnpkg.com/nested-object-assign/-/nested-object-assign-1.0.3.tgz#5aca69390d9affe5a612152b5f0843ae399ac597"
   integrity sha512-kgq1CuvLyUcbcIuTiCA93cQ2IJFSlRwXcN+hLcb2qLJwC2qrePHGZZa7IipyWqaWF6tQjdax2pQnVxdq19Zzwg==
 
-next-pwa@2.6.3:
-  version "2.6.3"
-  resolved "https://registry.yarnpkg.com/next-pwa/-/next-pwa-2.6.3.tgz#4c98155318c829142c1f9270704b62880945097b"
-  integrity sha512-WYjp7Yv736S6GwBG+FwC5E1OOVS2Y21Pr6STGLRfRxJc0SX55OlC/0E97iLddQck8KXKYQNrZAwct/M1Cwfodw==
+next-pwa@3.0.1:
+  version "3.0.1"
+  resolved "https://registry.yarnpkg.com/next-pwa/-/next-pwa-3.0.1.tgz#ac9d3bf86eae8f72a05f75022533f952ea0bbe74"
+  integrity sha512-yWRf1wOarWZiGvO+XO2s5WSWzkPWx08QgUesV6/eTvfN0j+E/cBh87x+YzWgO+LuGyhkIBbQ8zbPWyjEnNbaTA==
   dependencies:
     clean-webpack-plugin "^3.0.0"
     globby "^11.0.0"
