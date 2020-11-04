@@ -1,5 +1,5 @@
 {
-	"extends": ["nzap", "nzap/react", "nzap/typescript", "nzap/jest"],
+	"extends": ["nzap", "nzap/react", "nzap/tsx"],
 	"rules": {
 		"@typescript-eslint/no-var-requires": 0
 	}
