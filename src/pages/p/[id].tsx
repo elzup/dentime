@@ -4,13 +4,11 @@ import { useRouter } from 'next/router'
 
 import App from '../../components/App'
 import Layout from '../../components/Layout'
-import { useFavorite } from '../../utils/browser'
+import { useFavorite } from '../../hooks/useLocalStorage'
 
 function useQueryId(): [string, string | undefined, boolean] {
 	const router = useRouter()
 	const { id, study } = router.query
-
-	console.log(router.query)
 
 	if (typeof id !== 'string') return ['', '', true]
 	const studyq = typeof study !== 'object' ? study : undefined
@@ -20,11 +18,13 @@ function useQueryId(): [string, string | undefined, boolean] {
 
 const IndexPage: NextPage = () => {
 	const [id, studyCode, loading] = useQueryId()
-	const [_favorite, setFavorite] = useFavorite()
+	const [, setFavorite] = useFavorite()
+
+	useEffect(() => {}, [])
 
 	useEffect(() => {
 		setFavorite('/p/' + id)
-	}, [id])
+	}, [id, setFavorite])
 
 	if (loading) return null
 

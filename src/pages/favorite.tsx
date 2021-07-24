@@ -1,8 +1,7 @@
 import React, { useEffect } from 'react'
 import { NextPage } from 'next'
 import { useRouter } from 'next/router'
-
-import { useFavorite } from '../utils/browser'
+import { useFavorite } from '../hooks/useLocalStorage'
 
 const IndexPage: NextPage = () => {
 	const [favorite] = useFavorite()
@@ -10,7 +9,7 @@ const IndexPage: NextPage = () => {
 
 	useEffect(() => {
 		router.push(favorite)
-	}, [])
+	}, [favorite, router])
 
 	return <div />
 }

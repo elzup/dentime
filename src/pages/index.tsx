@@ -7,7 +7,7 @@ const IndexPage: NextPage = () => {
 
 	useEffect(() => {
 		router.push('/p/tdu')
-	}, [])
+	}, [router])
 
 	return <div />
 }

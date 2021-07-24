@@ -1,5 +1,6 @@
 import useSWR from 'swr'
 import { fetcher } from '../../api'
+import { useLocalStorage } from '../../hooks/useLocalStorage'
 import {
 	isPeriodInfoNote,
 	Period,
@@ -11,7 +12,6 @@ import {
 	Time,
 	TimeResponse,
 } from '../../types'
-import { useLocalStorage } from '../../utils/browser'
 import { useTimeHm } from '../../utils/hooks'
 
 const compare = (bt: number, et: number, nt: number): PeriodStatusType => {
