@@ -1,6 +1,4 @@
 {
-	"extends": ["nzap", "nzap/react", "nzap/tsx"],
-	"rules": {
-		"@typescript-eslint/no-var-requires": 0
-	}
+	"extends": ["next"],
+	"rules": {}
 }

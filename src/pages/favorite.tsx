@@ -2,7 +2,7 @@ import React, { useEffect } from 'react'
 import { NextPage } from 'next'
 import { useRouter } from 'next/router'
 
-import { useFavorite } from '../src/utils/browser'
+import { useFavorite } from '../utils/browser'
 
 const IndexPage: NextPage = () => {
 	const [favorite] = useFavorite()

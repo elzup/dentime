@@ -2,9 +2,9 @@ import React, { useEffect } from 'react'
 import { NextPage } from 'next'
 import { useRouter } from 'next/router'
 
-import App from '../../src/components/App'
-import Layout from '../../src/components/Layout'
-import { useFavorite } from '../../src/utils/browser'
+import App from '../../components/App'
+import Layout from '../../components/Layout'
+import { useFavorite } from '../../utils/browser'
 
 function useQueryId(): [string, string | undefined, boolean] {
 	const router = useRouter()

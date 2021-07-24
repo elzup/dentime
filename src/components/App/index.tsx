@@ -1,15 +1,14 @@
 import React, { useEffect } from 'react'
-
 import styled from 'styled-components'
+import config from '../../config'
 import { GlobalStyle } from '../../config/initialize'
+import { isPeriodTerm } from '../../types'
 import { disableTouch } from '../../utils/browser'
+import { decodeStudy } from '../../utils/formats'
 import Board from '../Board'
 import Footer from '../Footer'
 import Header from '../Header'
-import config from '../../config'
 import StudyTable from '../StudyTable'
-import { decodeStudy } from '../../utils/formats'
-import { isPeriodTerm } from '../../types'
 import { usePeriods, useStudy } from './hooks'
 
 const MainWrap = styled.div`
@@ -35,7 +34,7 @@ function useStudyPeriods(id: string, studyCode?: string) {
 		const study = decodeStudy(studyCode, periodIds)
 
 		setStudy(study)
-	}, [studyCode, JSON.stringify(study), periods])
+	}, [studyCode, setStudy, JSON.stringify(study), periods])
 
 	return [study, favoriteIds, periods, name, setStudy] as const
 }
