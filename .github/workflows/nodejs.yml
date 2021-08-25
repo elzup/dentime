@@ -22,6 +22,7 @@ jobs:
       run: |
         yarn
         yarn test
+        yarn export
       env:
         CI: true
         TZ: 'Asia/Tokyo'
