@@ -44,7 +44,7 @@
 		"@types/react": "17.0.19",
 		"@types/react-dom": "17.0.9",
 		"@types/react-test-renderer": "17.0.1",
-		"@types/styled-components": "5.1.12",
+		"@types/styled-components": "5.1.13",
 		"all-contributors-cli": "6.20.0",
 		"babel-jest": "^27.0.6",
 		"babel-loader": "8.2.2",
