@@ -23,6 +23,7 @@ jobs:
         with:
           publish-dir: './out'
           production-branch: master
+          netlify-config-path: "./netlify.toml"
           github-token: ${{ secrets.GITHUB_TOKEN }}
           deploy-message: "Deploy from GitHub Actions"
           enable-commit-comment: true
