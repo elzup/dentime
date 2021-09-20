@@ -1,5 +1,15 @@
 [[redirects]]
-  from = "/p/*"
+  from = "/p/tdu/*"
   to = "/p/[pid]/[bid].html"
+  status = 200
+  force = true
+[[redirects]]
+  from = "/p/nue/*"
+  to = "/p/[pid]/[bid].html"
+  status = 200
+  force = true
+[[redirects]]
+  from = "/p/*"
+  to = "/p/[pid].html"
   status = 200
   force = true
