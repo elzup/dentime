@@ -5,6 +5,7 @@ import { Book, isPeriodTerm, Period } from '../types'
 import { getHost } from '../utils/browser'
 import { bookId, decodeStudy, encodeStudy } from '../utils/formats'
 import { useBooksStorage } from './App/hooks'
+import { useRouter } from 'next/router'
 
 type Props = {
 	book: Book
@@ -49,13 +50,19 @@ const Style = styled.div`
 	.booklist {
 		> div {
 			display: flex;
+			gap: 4px;
+			margin: 4px;
+			[type='radio'] {
+				margin: 4px;
+			}
 		}
 	}
 `
 const Link = styled.a`
 	color: #a6ccff;
-	margin-left: 1rem;
 `
+const makeLink = (book: Book) =>
+	`${getHost()}?code=${book.studyCode}&name=${encodeURIComponent(book.label)}`
 
 function StudyTable({ periods, book, setBook }: Props) {
 	const periodIds = periods
@@ -63,33 +70,44 @@ function StudyTable({ periods, book, setBook }: Props) {
 		.map((period) => period.info.period)
 	const [books] = useBooksStorage()
 	const times = decodeStudy(book.studyCode, periodIds)
-	const shareLink = `${getHost()}?code=${
-		book.studyCode
-	}&name=${encodeURIComponent(book.label)}`
+	const shareLink = makeLink(book)
 	const [newBookLabel, setNewBookLabel] = useState<string>('')
+	const router = useRouter()
 
 	return (
 		<Style>
 			<h3>Your Schedule</h3>
 			<div className="booklist">
-				{Object.entries(books).map(([id, b]) => (
-					<div key={id} data-active={bookId(b) === bookId(book)}>
-						<Link href={`/p/${b.pid}`}>
-							{b.pid === b.label ? b.label : `${b.pid} - ${b.label}`}
-						</Link>
-						{bookId(b) === bookId(book) && (
-							<>
-								<input value={book.label} />
-								<button>Delete</button>
-							</>
-						)}
-					</div>
-				))}
-				<input
-					value={newBookLabel}
-					onChange={(e) => setNewBookLabel(e.target.value)}
-				/>
-				<button>Create</button>
+				{Object.entries(books)
+					.map(([id, b]) => [id, b, bookId(b) === bookId(book)] as const)
+					.map(([id, b, active]) => (
+						<div key={id} data-active={active}>
+							<input type="radio" checked={active} contentEditable={false} />
+							<Link href={`/p/${b.pid}`}>
+								{b.pid === b.label ? b.label : `${b.pid} - ${b.label}`}
+							</Link>
+							{active && (
+								<>
+									<input value={book.label} />
+									<button>Delete</button>
+								</>
+							)}
+						</div>
+					))}
+				<div>
+					<button
+						onClick={() => {
+							const label = window.prompt(
+								'スケジュール名を入力してください.input name.',
+							)
+							if (label) {
+								router.push(makeLink({ ...book, label }))
+							}
+						}}
+					>
+						Create
+					</button>
+				</div>
 			</div>
 			<table>
 				<thead>
