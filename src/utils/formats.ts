@@ -1,4 +1,4 @@
-import { Time, Study } from '../types'
+import { Study, Time } from '../types'
 
 export const pad2 = (n: number) => `${n}`.padStart(2, '0')
 
@@ -58,7 +58,7 @@ export function decodeStudy(key: string, periodKeys: string[]): Study {
 	wds.forEach((w, wi) => {
 		study[w] = {}
 		periodKeys.forEach((pk, pi) => {
-			study[w][pk] = bools[wi * periodKeys.length + pi]
+			study[w][pk] = bools[wi * periodKeys.length + pi] || false
 		})
 	})
 	return study

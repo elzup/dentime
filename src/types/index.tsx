@@ -19,6 +19,8 @@ export type PeriodInfo = PeriodInfoTerm | PeriodInfoNote
 export const isPeriodTerm = (p: Period): p is PeriodTerm =>
 	p.info.period !== null
 
+export const isNonNll = <T,>(v: T | null): v is T => v !== null
+
 export type PeriodStatusType = 'before' | 'progress' | 'finish'
 export type PeriodStatusBefore = {
 	type: 'before'
@@ -67,7 +69,7 @@ export type Study = {
 }
 export type Book = {
 	pid: string
-	name: string
+	label: string
 	studyCode: string
 }
 

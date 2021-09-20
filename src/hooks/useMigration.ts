@@ -16,11 +16,11 @@ export function useMigration() {
 				nue: ['1', '2', '3', '4', '5'],
 			}
 			const books: Record<string, Book> = {}
-			Object.entries(studies).forEach(([name, study]) => {
-				books[`${name}_${name}`] = {
-					studyCode: encodeStudy(study, recover[name]),
-					name,
-					pid: name,
+			Object.entries(studies).forEach(([pid, study]) => {
+				books[pid] = {
+					studyCode: encodeStudy(study, recover[pid]),
+					label: pid,
+					pid,
 				}
 			})
 			setBooks(books)

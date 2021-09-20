@@ -1,17 +1,17 @@
+import { useRouter } from 'next/router'
 import React, { useEffect } from 'react'
 import styled from 'styled-components'
 import config from '../../config'
 import { GlobalStyle } from '../../config/initialize'
-import { isPeriodTerm } from '../../types'
+import { useMigration } from '../../hooks/useMigration'
+import { Book, isPeriodTerm, Profile, isNonNll } from '../../types'
 import { disableTouch } from '../../utils/browser'
 import { decodeStudy } from '../../utils/formats'
 import Board from '../Board'
 import Footer from '../Footer'
 import Header from '../Header'
 import StudyTable from '../StudyTable'
-import { usePeriods, useStudy, useBooksStorage } from './hooks'
-import { useRouter } from 'next/router'
-import { useMigration } from '../../hooks/useMigration'
+import { useBook, usePeriods, useStudy, useProfile } from './hooks'
 
 const MainWrap = styled.div`
 	display: grid;
@@ -25,40 +25,24 @@ const MainWrap = styled.div`
 	}
 `
 
-type RegisterBook = { studyCode: string; name: string }
-function useStudyPeriods(id: string, book?: RegisterBook) {
-	const [study, setStudy, favoriteIds] = useStudy(id)
-	const router = useRouter()
-	const [periods, name] = usePeriods(id, study)
-	const [books, setBooks] = useBooksStorage()
-
-	useEffect(() => {
-		console.log({ book })
-		if (!book) return
-
-		const periodIds = periods.filter(isPeriodTerm).map((v) => v.info.period)
-		const study = decodeStudy(book.studyCode, periodIds)
-
-		setStudy(study)
-		console.log({ ...book, pid: id })
-
-		setBooks((a) => ({ ...a, [`${id}_${book.name}`]: { ...book, pid: id } }))
-
-		setTimeout(() => {
-			router.push(`/p/${id}`)
-		}, 500)
-	}, [book, setStudy, study, periods, router, id, setBooks])
-
-	return [study, favoriteIds, periods, name, setStudy] as const
+function useStudyPeriods(profile: Profile, book: Book) {
+	const periodIds = profile.times.map((v) => v.period).filter(isNonNll)
+	const study = decodeStudy(book.studyCode, periodIds)
+	const periods = usePeriods(profile, study)
+	return { periodIds, study, periods }
 }
 
-type Props = { id: string; register?: RegisterBook }
-function App({ id, register }: Props) {
+type Props = { id: string; bookId?: string }
+function App({ id, bookId }: Props) {
+	const profile = useProfile(id)
+	if (!profile) return <p>loading profile</p>
+	return <AppGuard id={id} profile={profile} bookId={bookId} />
+}
+function AppGuard({ profile, id, bookId }: Props & { profile: Profile }) {
 	useMigration()
-	const [study, favoriteIds, periods, name, setStudy] = useStudyPeriods(
-		id,
-		register,
-	)
+	const [book, setBook] = useBook(id, bookId)
+	const { periods } = useStudyPeriods(profile, book)
+	console.log({ book, bookId, id })
 
 	useEffect(disableTouch, [])
 
@@ -66,16 +50,11 @@ function App({ id, register }: Props) {
 		<MainWrap>
 			<GlobalStyle />
 			<div className="head">
-				<Header name={name} />
+				<Header name={profile.name} />
 			</div>
 			<div className="main">
 				<Board periods={periods} />
-				<StudyTable
-					periods={periods}
-					study={study}
-					setStudy={setStudy}
-					favoriteIds={favoriteIds}
-				/>
+				<StudyTable periods={periods} book={book} setBook={setBook} />
 			</div>
 			<div className="foot">
 				<Footer />

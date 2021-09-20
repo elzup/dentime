@@ -6,5 +6,6 @@ const config = {
 		font: '#F2FCFC',
 	},
 }
+export const NON_STUDY_CODE = '-'
 
 export default config

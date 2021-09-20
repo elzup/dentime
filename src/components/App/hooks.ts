@@ -1,14 +1,16 @@
+import { useMemo } from 'react'
 import useSWR from 'swr'
 import { fetcher } from '../../api'
 import { useLocalStorage } from '../../hooks/useLocalStorage'
 import {
+	Book,
 	isPeriodInfoNote,
 	Period,
 	PeriodInfo,
 	PeriodInfoTerm,
 	PeriodStatus,
 	PeriodStatusType,
-	Book,
+	Profile,
 	Study,
 	Time,
 	TimeResponse,
@@ -64,15 +66,19 @@ const updatePeriod = (info: PeriodInfo, now: Time, study: Study): Period => {
 	}
 }
 
-export function usePeriods(id: string, study: Study): [Period[], string] {
-	const now = useTimeHm()
+export function useProfile(id: string): Profile | null {
 	const { data } = useSWR<TimeResponse>(`/static/${id}.json`, fetcher)
 
-	if (!data) return [[], 'Not Found']
+	return data || null
+}
 
-	const periods = data.times.map((period) => updatePeriod(period, now, study))
+export function usePeriods(profile: Profile, study: Study): Period[] {
+	const now = useTimeHm()
 
-	return [periods, data.name]
+	return useMemo(
+		() => profile.times.map((period) => updatePeriod(period, now, study)),
+		[now, profile, study],
+	)
 }
 
 export function useStudy(id: string): [Study, (s: Study) => void, string[]] {
@@ -88,11 +94,19 @@ type Studies = { [id: string]: Study }
 export const useStudiesStorage = () =>
 	useLocalStorage<Studies>('study-list', {})
 
-export function useBook(id: string): [Book, (s: Book) => void, string[]] {
+export function useBook(
+	pid: string,
+	bookId?: string,
+): [Book, (s: Book) => void, string[]] {
 	const [books, setBooks] = useBooksStorage()
+	const id = pid !== bookId ? `${pid}_${bookId}` : pid
+	const initialBook = { pid, label: pid, studyCode: '' }
+
+	console.log(books[id])
+	console.log(books)
 
 	return [
-		books[id] || {},
+		books[id] || initialBook,
 		(s: Book) => setBooks((ss) => ({ ...ss, [id]: s })),
 		Object.keys(books),
 	]

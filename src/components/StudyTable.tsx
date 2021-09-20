@@ -1,15 +1,15 @@
 import React from 'react'
 import styled from 'styled-components'
-import { Study, Period, isPeriodTerm } from '../types'
+import { Study, Period, isPeriodTerm, Book } from '../types'
 import config from '../config'
-import { encodeStudy } from '../utils/formats'
+import { encodeStudy, decodeStudy } from '../utils/formats'
 import { getHost } from '../utils/browser'
+import { useBooksStorage } from './App/hooks'
 
 type Props = {
-	study: Study
-	setStudy: (study: Study) => void
+	book: Book
+	setBook: (book: Book) => void
 	periods: Period[]
-	favoriteIds: string[]
 }
 
 const weekDays = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat']
@@ -52,18 +52,23 @@ const Link = styled.a`
 	margin-left: 1rem;
 `
 
-function StudyTable({ periods, study, setStudy, favoriteIds }: Props) {
+function StudyTable({ periods, book, setBook }: Props) {
 	const periodIds = periods
 		.filter(isPeriodTerm)
 		.map((period) => period.info.period)
+	const [books] = useBooksStorage()
+	const times = decodeStudy(book.studyCode, periodIds)
+	const shareLink = `${getHost()}?code=${
+		book.studyCode
+	}&name=${encodeURIComponent(book.label)}`
 
 	return (
 		<Style>
 			<h3>Your Schedule</h3>
 			<div>
-				{favoriteIds.map((id) => (
-					<Link key={id} href={`/p/${id}`}>
-						{id}
+				{Object.entries(books).map(([id, book]) => (
+					<Link key={id} href={`/p/${book.pid}`}>
+						{book.label}
 					</Link>
 				))}
 			</div>
@@ -84,14 +89,17 @@ function StudyTable({ periods, study, setStudy, favoriteIds }: Props) {
 								<td key={k}>
 									<div>
 										<button
-											data-on={study[k]?.[pid]}
+											data-on={times[k]?.[pid]}
 											onClick={() => {
-												const newStudy = { ...study }
-												newStudy[k][pid] = !study[k]?.[pid]
-												setStudy(newStudy)
+												const newStudy = { ...times }
+												newStudy[k][pid] = !times[k]?.[pid]
+												setBook({
+													...book,
+													studyCode: encodeStudy(newStudy, periodIds),
+												})
 											}}
 										>
-											{study[k]?.[pid] ? '★' : ''}
+											{times[k]?.[pid] ? '★' : ''}
 										</button>
 									</div>
 								</td>
@@ -102,7 +110,7 @@ function StudyTable({ periods, study, setStudy, favoriteIds }: Props) {
 			</table>
 			<div>
 				ShareLink
-				<p>{getHost() + '?study=' + encodeStudy(study, periodIds)}</p>
+				<p>{shareLink}</p>
 			</div>
 		</Style>
 	)
