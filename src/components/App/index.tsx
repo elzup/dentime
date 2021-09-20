@@ -31,10 +31,13 @@ function useStudyPeriods(id: string, studyCode?: string) {
 
 	useEffect(() => {
 		if (!studyCode) return
+
 		const periodIds = periods.filter(isPeriodTerm).map((v) => v.info.period)
 		const study = decodeStudy(studyCode, periodIds)
 		setStudy(study)
-		router.push(`/p/${id}`)
+		setTimeout(() => {
+			router.push(`/p/${id}`)
+		}, 500)
 	}, [studyCode, setStudy, study, periods, router, id])
 
 	return [study, favoriteIds, periods, name, setStudy] as const

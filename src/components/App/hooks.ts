@@ -79,9 +79,7 @@ export function useStudy(id: string): [Study, (s: Study) => void, string[]] {
 
 	return [
 		studies[id] || {},
-		(s: Study) => {
-			return setStudies((ss) => ({ ...ss, [id]: s }))
-		},
+		(s: Study) => setStudies((ss) => ({ ...ss, [id]: s })),
 		Object.keys(studies),
 	]
 }

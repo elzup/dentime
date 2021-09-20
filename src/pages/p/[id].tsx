@@ -20,8 +20,6 @@ const IndexPage: NextPage = () => {
 	const [id, studyCode, loading] = useQueryId()
 	const [, setFavorite] = useFavorite()
 
-	useEffect(() => {}, [])
-
 	useEffect(() => {
 		setFavorite('/p/' + id)
 	}, [id, setFavorite])

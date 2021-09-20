@@ -1,11 +1,5 @@
 [[redirects]]
   from = "/p/*"
-  to = "/p/[id].html?study=:study"
-  query = {study = ":study"}
-  status = 200
-  force = true
-[[redirects]]
-  from = "/p/*"
   to = "/p/[id].html"
   status = 200
   force = true
