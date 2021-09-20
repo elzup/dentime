@@ -8,6 +8,7 @@ import {
 	PeriodInfoTerm,
 	PeriodStatus,
 	PeriodStatusType,
+	Book,
 	Study,
 	Time,
 	TimeResponse,
@@ -86,3 +87,5 @@ export function useStudy(id: string): [Study, (s: Study) => void, string[]] {
 type Studies = { [id: string]: Study }
 export const useStudiesStorage = () =>
 	useLocalStorage<Studies>('study-list', {})
+
+export const useBooksStorage = () => useLocalStorage<Book[]>('books', [])

@@ -65,5 +65,10 @@ export type Study = {
 		[pid: string]: boolean
 	}
 }
+export type Book = {
+	pid: string
+	name: string
+	studyCode: string
+}
 
 export type TimeResponse = Profile

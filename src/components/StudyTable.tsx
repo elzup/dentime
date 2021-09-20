@@ -86,13 +86,9 @@ function StudyTable({ periods, study, setStudy, favoriteIds }: Props) {
 										<button
 											data-on={study[k]?.[pid]}
 											onClick={() => {
-												setStudy({
-													...study,
-													[k]: {
-														...study[k],
-														[pid]: !study[k]?.[pid],
-													},
-												})
+												const newStudy = { ...study }
+												newStudy[k][pid] = !study[k]?.[pid]
+												setStudy(newStudy)
 											}}
 										>
 											{study[k]?.[pid] ? '★' : ''}

@@ -11,6 +11,7 @@ import Header from '../Header'
 import StudyTable from '../StudyTable'
 import { usePeriods, useStudy } from './hooks'
 import { useRouter } from 'next/router'
+import { useMigration } from '../../hooks/useMigration'
 
 const MainWrap = styled.div`
 	display: grid;
@@ -45,6 +46,7 @@ function useStudyPeriods(id: string, studyCode?: string) {
 
 type Props = { id: string; studyCode?: string }
 function App({ id, studyCode }: Props) {
+	useMigration()
 	const [study, favoriteIds, periods, name, setStudy] = useStudyPeriods(
 		id,
 		studyCode,
