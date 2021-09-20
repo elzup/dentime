@@ -37,6 +37,7 @@ function useRegistoryBook(id: string, book?: RegisterBook) {
 		setBook({ ...book, pid: id })
 		setTimeout(() => {
 			const path = id !== book.label ? `/p/${id}/${book.label}` : `/p/${id}`
+			console.log('move', { path })
 			router.push(path)
 		}, 500)
 		// eslint-disable-next-line react-hooks/exhaustive-deps

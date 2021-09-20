@@ -6,6 +6,7 @@ import { getHost } from '../utils/browser'
 import { bookId, decodeStudy, encodeStudy } from '../utils/formats'
 import { useBooksStorage } from './App/hooks'
 import { useRouter } from 'next/router'
+import { encode } from 'querystring'
 
 type Props = {
 	book: Book
@@ -68,10 +69,17 @@ function StudyTable({ periods, book, setBook }: Props) {
 	const periodIds = periods
 		.filter(isPeriodTerm)
 		.map((period) => period.info.period)
-	const [books] = useBooksStorage()
+	const [books, setBooks] = useBooksStorage()
+	const deleteBook = (bookId: string) => {
+		setBooks((books) => {
+			const newBooks = { ...books }
+			delete newBooks[bookId]
+			return newBooks
+		})
+	}
+
 	const times = decodeStudy(book.studyCode, periodIds)
 	const shareLink = makeLink(book)
-	const [newBookLabel, setNewBookLabel] = useState<string>('')
 	const router = useRouter()
 
 	return (
@@ -82,14 +90,25 @@ function StudyTable({ periods, book, setBook }: Props) {
 					.map(([id, b]) => [id, b, bookId(b) === bookId(book)] as const)
 					.map(([id, b, active]) => (
 						<div key={id} data-active={active}>
-							<input type="radio" checked={active} contentEditable={false} />
-							<Link href={`/p/${b.pid}`}>
+							<input
+								type="radio"
+								defaultChecked={active}
+								contentEditable={false}
+							/>
+							<Link href={`/p/${b.pid}/${encodeURIComponent(b.label)}`}>
 								{b.pid === b.label ? b.label : `${b.pid} - ${b.label}`}
 							</Link>
 							{active && (
 								<>
-									<input value={book.label} />
-									<button>Delete</button>
+									<button
+										onClick={() => {
+											if (!confirm('Are you sure?')) return
+											deleteBook(bookId(b))
+											router.push('/')
+										}}
+									>
+										Delete
+									</button>
 								</>
 							)}
 						</div>
@@ -101,7 +120,7 @@ function StudyTable({ periods, book, setBook }: Props) {
 								'スケジュール名を入力してください.input name.',
 							)
 							if (label) {
-								router.push(makeLink({ ...book, label }))
+								location.replace(makeLink({ ...book, label }))
 							}
 						}}
 					>

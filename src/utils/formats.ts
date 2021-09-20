@@ -64,6 +64,5 @@ export function decodeStudy(key: string, periodKeys: string[]): Study {
 	return study
 }
 
-export function bookId(book: Book) {
-	return `${book.pid}/${book.label}`
-}
+export const bookId = (book: Book) => bookIdFormat(book.pid, book.label)
+export const bookIdFormat = (pid: string, bid: string) => `${pid}/${bid}`

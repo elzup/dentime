@@ -16,6 +16,7 @@ import {
 	TimeResponse,
 } from '../../types'
 import { useTimeHm } from '../../utils/hooks'
+import { bookIdFormat } from '../../utils/formats'
 
 const compare = (bt: number, et: number, nt: number): PeriodStatusType => {
 	if (nt < bt) return 'before'
@@ -99,7 +100,7 @@ export function useBook(
 	bookId?: string,
 ): [Book, (s: Book) => void, string[]] {
 	const [books, setBooks] = useBooksStorage()
-	const id = pid !== bookId ? `${pid}_${bookId}` : pid
+	const id = bookIdFormat(pid, bookId || pid)
 	const initialBook = { pid, label: pid, studyCode: '' }
 
 	return [
