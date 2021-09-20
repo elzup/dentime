@@ -15,4 +15,11 @@ body {
   'Noto Sans Japanese', 'ヒラギノ角ゴ ProN W3', Meiryo, monospace;
   margin: 0;
 }
+button {
+  background: #aaa0;
+  border: solid 1px white;
+  border-radius: 2px;
+  color: white;
+  margin-left: 4px;
+}
 `

@@ -1,12 +1,11 @@
-import React, { useState } from 'react'
+import { useRouter } from 'next/router'
+import React from 'react'
 import styled from 'styled-components'
 import config from '../config'
 import { Book, isPeriodTerm, Period } from '../types'
 import { getHost } from '../utils/browser'
 import { bookId, decodeStudy, encodeStudy } from '../utils/formats'
 import { useBooksStorage } from './App/hooks'
-import { useRouter } from 'next/router'
-import { encode } from 'querystring'
 
 type Props = {
 	book: Book
@@ -53,6 +52,11 @@ const Style = styled.div`
 			display: flex;
 			gap: 4px;
 			margin: 4px;
+			padding: 4px;
+			&[data-active='true'] {
+				background: #ffffff44;
+			}
+
 			[type='radio'] {
 				margin: 4px;
 			}
@@ -90,11 +94,7 @@ function StudyTable({ periods, book, setBook }: Props) {
 					.map(([id, b]) => [id, b, bookId(b) === bookId(book)] as const)
 					.map(([id, b, active]) => (
 						<div key={id} data-active={active}>
-							<input
-								type="radio"
-								defaultChecked={active}
-								contentEditable={false}
-							/>
+							<input type="radio" checked={active} onChange={() => {}} />
 							<Link href={`/p/${b.pid}/${encodeURIComponent(b.label)}`}>
 								{b.pid === b.label ? b.label : `${b.pid} - ${b.label}`}
 							</Link>
@@ -166,7 +166,27 @@ function StudyTable({ periods, book, setBook }: Props) {
 			</table>
 			<div>
 				ShareLink
-				<p>{shareLink}</p>
+				<p>
+					<code>{shareLink}</code>
+				</p>
+			</div>
+			<div>
+				Board Patterns
+				<div>
+					<p>
+						<Link href={`/p/tdu`}>tdu</Link>
+					</p>
+					<p>
+						<Link href={`/p/nue`}>nue</Link>
+					</p>
+					<p>
+						<Link
+							href={`https://github.com/elzup/dentime#%E4%BB%96%E5%A4%A7%E5%AD%A6%E3%81%AA%E3%81%A9%E5%88%A5%E3%81%AE%E6%96%BD%E8%A8%AD%E3%81%AE%E3%82%B9%E3%82%B1%E3%82%B8%E3%83%A5%E3%83%BC%E3%83%AB%E8%BF%BD%E5%8A%A0%E4%BE%9D%E9%A0%BC`}
+						>
+							Other Request
+						</Link>
+					</p>
+				</div>
 			</div>
 		</Style>
 	)
