@@ -1,23 +1,27 @@
-import React, { useEffect } from 'react'
 import { NextPage } from 'next'
 import { useRouter } from 'next/router'
-
+import React, { useEffect } from 'react'
 import App from '../../components/App'
 import Layout from '../../components/Layout'
 import { useFavorite } from '../../hooks/useLocalStorage'
 
-function useQueryId(): [string, string | undefined, boolean] {
+function useQueryId(): [
+	string,
+	{ studyCode: string; name: string } | undefined,
+	boolean,
+] {
 	const router = useRouter()
-	const { id, study } = router.query
+	const { id, book, name: nameq } = router.query
 
-	if (typeof id !== 'string') return ['', '', true]
-	const studyq = typeof study !== 'object' ? study : undefined
-
-	return [id, studyq, false]
+	if (typeof id !== 'string') return ['', undefined, true]
+	const studyCode = typeof book !== 'object' ? book : undefined
+	const name = typeof nameq !== 'object' ? nameq : undefined
+	if (studyCode && name) return [id, { studyCode, name }, false]
+	return [id, undefined, false]
 }
 
 const IndexPage: NextPage = () => {
-	const [id, studyCode, loading] = useQueryId()
+	const [id, register, loading] = useQueryId()
 	const [, setFavorite] = useFavorite()
 
 	useEffect(() => {
@@ -28,7 +32,7 @@ const IndexPage: NextPage = () => {
 
 	return (
 		<Layout>
-			<App id={id} studyCode={studyCode} />
+			<App id={id} register={register} />
 		</Layout>
 	)
 }

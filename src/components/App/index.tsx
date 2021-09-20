@@ -9,7 +9,7 @@ import Board from '../Board'
 import Footer from '../Footer'
 import Header from '../Header'
 import StudyTable from '../StudyTable'
-import { usePeriods, useStudy } from './hooks'
+import { usePeriods, useStudy, useBooksStorage } from './hooks'
 import { useRouter } from 'next/router'
 import { useMigration } from '../../hooks/useMigration'
 
@@ -25,31 +25,39 @@ const MainWrap = styled.div`
 	}
 `
 
-function useStudyPeriods(id: string, studyCode?: string) {
+type RegisterBook = { studyCode: string; name: string }
+function useStudyPeriods(id: string, book?: RegisterBook) {
 	const [study, setStudy, favoriteIds] = useStudy(id)
 	const router = useRouter()
 	const [periods, name] = usePeriods(id, study)
+	const [books, setBooks] = useBooksStorage()
 
 	useEffect(() => {
-		if (!studyCode) return
+		console.log({ book })
+		if (!book) return
 
 		const periodIds = periods.filter(isPeriodTerm).map((v) => v.info.period)
-		const study = decodeStudy(studyCode, periodIds)
+		const study = decodeStudy(book.studyCode, periodIds)
+
 		setStudy(study)
+		console.log({ ...book, pid: id })
+
+		setBooks((a) => ({ ...a, [`${id}_${book.name}`]: { ...book, pid: id } }))
+
 		setTimeout(() => {
 			router.push(`/p/${id}`)
 		}, 500)
-	}, [studyCode, setStudy, study, periods, router, id])
+	}, [book, setStudy, study, periods, router, id, setBooks])
 
 	return [study, favoriteIds, periods, name, setStudy] as const
 }
 
-type Props = { id: string; studyCode?: string }
-function App({ id, studyCode }: Props) {
+type Props = { id: string; register?: RegisterBook }
+function App({ id, register }: Props) {
 	useMigration()
 	const [study, favoriteIds, periods, name, setStudy] = useStudyPeriods(
 		id,
-		studyCode,
+		register,
 	)
 
 	useEffect(disableTouch, [])

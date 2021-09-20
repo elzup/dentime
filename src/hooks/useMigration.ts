@@ -15,16 +15,16 @@ export function useMigration() {
 				tdu: ['1', '2', '3', '4', '5', 'D5', 'D6'],
 				nue: ['1', '2', '3', '4', '5'],
 			}
-			const books: Book[] = Object.entries(studies).map(([name, study]) => ({
-				studyCode: encodeStudy(study, recover[name]),
-				name,
-				pid: name,
-			}))
+			const books: Record<string, Book> = {}
+			Object.entries(studies).forEach(([name, study]) => {
+				books[`${name}_${name}`] = {
+					studyCode: encodeStudy(study, recover[name]),
+					name,
+					pid: name,
+				}
+			})
 			setBooks(books)
 		}
-		if (version < 2) {
-			setBooks(books.map((book) => ({ ...book, pid: book.name })))
-		}
-		setVersion(2)
+		setVersion(1)
 	}, [version, setBooks, setVersion, studies, books])
 }

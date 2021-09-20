@@ -88,4 +88,14 @@ type Studies = { [id: string]: Study }
 export const useStudiesStorage = () =>
 	useLocalStorage<Studies>('study-list', {})
 
-export const useBooksStorage = () => useLocalStorage<Book[]>('books', [])
+export function useBook(id: string): [Book, (s: Book) => void, string[]] {
+	const [books, setBooks] = useBooksStorage()
+
+	return [
+		books[id] || {},
+		(s: Book) => setBooks((ss) => ({ ...ss, [id]: s })),
+		Object.keys(books),
+	]
+}
+export const useBooksStorage = () =>
+	useLocalStorage<Record<string, Book>>('books', {})
