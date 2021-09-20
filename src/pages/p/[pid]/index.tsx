@@ -4,13 +4,12 @@ import React, { useEffect } from 'react'
 import App from '../../../components/App'
 import { useBook } from '../../../components/App/hooks'
 import Layout from '../../../components/Layout'
-import { useFavorite } from '../../../hooks/useLocalStorage'
 
 const validQuery = (v: string | string[] | undefined) =>
 	typeof v !== 'object' ? v : undefined
 
 function useQueryId(): [
-	string,
+	string | undefined,
 	{ studyCode: string; label: string } | undefined,
 	boolean,
 	string | undefined,
@@ -32,26 +31,28 @@ function useRegistoryBook(id: string, book?: RegisterBook) {
 	const [, setBook] = useBook(id, book?.label)
 
 	useEffect(() => {
-		console.log({ book })
 		if (!book) return
-
-		console.log({ ...book, pid: id })
+		console.log(book, router, id)
 
 		setBook({ ...book, pid: id })
 		setTimeout(() => {
-			router.push(`/p/${id}/${book.label}`)
+			const path = id !== book.label ? `/p/${id}/${book.label}` : `/p/${id}`
+			router.push(path)
 		}, 500)
-	}, [book, router, id, setBook])
+		// eslint-disable-next-line react-hooks/exhaustive-deps
+	}, [])
 }
 
-const IndexPage: NextPage = () => {
-	const [id, registerTask, loading, bookId] = useQueryId()
-	const [, setFavorite] = useFavorite()
+const IndexPageQueryLoaded = ({
+	id,
+	registerTask,
+	bookId,
+}: {
+	id: string
+	registerTask: { studyCode: string; label: string } | undefined
+	bookId?: string
+}) => {
 	useRegistoryBook(id, registerTask)
-
-	useEffect(() => {
-		setFavorite('/p/' + id)
-	}, [id, setFavorite])
 
 	if (registerTask) return <Layout />
 
@@ -59,6 +60,15 @@ const IndexPage: NextPage = () => {
 		<Layout>
 			<App id={id} bookId={bookId} />
 		</Layout>
+	)
+}
+
+const IndexPage: NextPage = () => {
+	const [id, registerTask, loading, bookId] = useQueryId()
+	if (loading || !id) return <p>loading</p>
+
+	return (
+		<IndexPageQueryLoaded id={id} registerTask={registerTask} bookId={bookId} />
 	)
 }
 

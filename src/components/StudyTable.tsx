@@ -1,9 +1,9 @@
-import React from 'react'
+import React, { useState } from 'react'
 import styled from 'styled-components'
-import { Study, Period, isPeriodTerm, Book } from '../types'
 import config from '../config'
-import { encodeStudy, decodeStudy } from '../utils/formats'
+import { Book, isPeriodTerm, Period } from '../types'
 import { getHost } from '../utils/browser'
+import { bookId, decodeStudy, encodeStudy } from '../utils/formats'
 import { useBooksStorage } from './App/hooks'
 
 type Props = {
@@ -46,6 +46,11 @@ const Style = styled.div`
 			}
 		}
 	}
+	.booklist {
+		> div {
+			display: flex;
+		}
+	}
 `
 const Link = styled.a`
 	color: #a6ccff;
@@ -61,16 +66,30 @@ function StudyTable({ periods, book, setBook }: Props) {
 	const shareLink = `${getHost()}?code=${
 		book.studyCode
 	}&name=${encodeURIComponent(book.label)}`
+	const [newBookLabel, setNewBookLabel] = useState<string>('')
 
 	return (
 		<Style>
 			<h3>Your Schedule</h3>
-			<div>
-				{Object.entries(books).map(([id, book]) => (
-					<Link key={id} href={`/p/${book.pid}`}>
-						{book.label}
-					</Link>
+			<div className="booklist">
+				{Object.entries(books).map(([id, b]) => (
+					<div key={id} data-active={bookId(b) === bookId(book)}>
+						<Link href={`/p/${b.pid}`}>
+							{b.pid === b.label ? b.label : `${b.pid} - ${b.label}`}
+						</Link>
+						{bookId(b) === bookId(book) && (
+							<>
+								<input value={book.label} />
+								<button>Delete</button>
+							</>
+						)}
+					</div>
 				))}
+				<input
+					value={newBookLabel}
+					onChange={(e) => setNewBookLabel(e.target.value)}
+				/>
+				<button>Create</button>
 			</div>
 			<table>
 				<thead>

@@ -1,4 +1,4 @@
-import { Study, Time } from '../types'
+import { Book, Study, Time } from '../types'
 
 export const pad2 = (n: number) => `${n}`.padStart(2, '0')
 
@@ -62,4 +62,8 @@ export function decodeStudy(key: string, periodKeys: string[]): Study {
 		})
 	})
 	return study
+}
+
+export function bookId(book: Book) {
+	return `${book.pid}/${book.label}`
 }

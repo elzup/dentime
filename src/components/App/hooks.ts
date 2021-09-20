@@ -102,9 +102,6 @@ export function useBook(
 	const id = pid !== bookId ? `${pid}_${bookId}` : pid
 	const initialBook = { pid, label: pid, studyCode: '' }
 
-	console.log(books[id])
-	console.log(books)
-
 	return [
 		books[id] || initialBook,
 		(s: Book) => setBooks((ss) => ({ ...ss, [id]: s })),

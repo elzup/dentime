@@ -1,17 +1,16 @@
-import { useRouter } from 'next/router'
 import React, { useEffect } from 'react'
 import styled from 'styled-components'
 import config from '../../config'
 import { GlobalStyle } from '../../config/initialize'
 import { useMigration } from '../../hooks/useMigration'
-import { Book, isPeriodTerm, Profile, isNonNll } from '../../types'
+import { Book, isNonNll, Profile } from '../../types'
 import { disableTouch } from '../../utils/browser'
 import { decodeStudy } from '../../utils/formats'
 import Board from '../Board'
 import Footer from '../Footer'
 import Header from '../Header'
 import StudyTable from '../StudyTable'
-import { useBook, usePeriods, useStudy, useProfile } from './hooks'
+import { useBook, usePeriods, useProfile } from './hooks'
 
 const MainWrap = styled.div`
 	display: grid;
@@ -42,7 +41,6 @@ function AppGuard({ profile, id, bookId }: Props & { profile: Profile }) {
 	useMigration()
 	const [book, setBook] = useBook(id, bookId)
 	const { periods } = useStudyPeriods(profile, book)
-	console.log({ book, bookId, id })
 
 	useEffect(disableTouch, [])
 
