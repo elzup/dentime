@@ -6,7 +6,7 @@ const IndexPage: NextPage = () => {
 	const router = useRouter()
 
 	useEffect(() => {
-		router.push('/p/tdu')
+		router.replace('/p/tdu')
 	}, [router])
 
 	return <div />
