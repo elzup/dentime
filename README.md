@@ -5,7 +5,10 @@
 
 > TDU classes time board.
 
-![ss](https://user-images.githubusercontent.com/2284908/38863872-eb48d920-4273-11e8-8eb1-e6d9dc3bff08.png)
+<div style="display: flex;">
+<img style="width: 50%;" src="./ss/ss-top.png" alt="dentime preview" />
+<img style="width: 50%;" src="./ss/ss-conf.png" alt="dentime preview config" />
+</div>
 
 ## 他大学など別の施設のスケジュール追加依頼
 
