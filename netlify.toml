@@ -1,5 +1,0 @@
-[[redirects]]
-  from = "/p/*"
-  to = "/p/[pid]/[bid].html"
-  status = 200
-  force = true
