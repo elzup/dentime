@@ -42,7 +42,7 @@ function useRegistoryBook(id: string, book?: RegisterBook) {
 			router.push(path)
 		}, 500)
 		// eslint-disable-next-line react-hooks/exhaustive-deps
-	}, [])
+	}, [book])
 }
 
 const IndexPageQueryLoaded = ({
@@ -68,6 +68,7 @@ const IndexPageQueryLoaded = ({
 const IndexPage: NextPage = () => {
 	const [id, registerTask, loading, bookId] = useQueryId()
 	console.log({ loading, id })
+	// TODO: id is empty
 
 	if (loading || !id)
 		return (
