@@ -2,6 +2,7 @@ import { useEffect } from 'react'
 import { useBooksStorage, useStudiesStorage } from '../components/App/hooks'
 import { Book } from '../types'
 import { encodeStudy } from '../utils/formats'
+import { bookIdFormat } from './../utils/formats'
 import { useLocalStorage } from './useLocalStorage'
 
 export function useMigration() {
@@ -17,7 +18,7 @@ export function useMigration() {
 			}
 			const books: Record<string, Book> = {}
 			Object.entries(studies).forEach(([pid, study]) => {
-				books[pid] = {
+				books[bookIdFormat(pid, pid)] = {
 					studyCode: encodeStudy(study, recover[pid]),
 					label: pid,
 					pid,

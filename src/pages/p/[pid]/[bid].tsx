@@ -1,3 +1,4 @@
+/* eslint-disable @next/next/no-html-link-for-pages */
 import { NextPage } from 'next'
 import { useRouter } from 'next/router'
 import React, { useEffect } from 'react'
@@ -66,7 +67,14 @@ const IndexPageQueryLoaded = ({
 
 const IndexPage: NextPage = () => {
 	const [id, registerTask, loading, bookId] = useQueryId()
-	if (loading || !id) return <p>loading</p>
+	console.log({ loading, id })
+
+	if (loading || !id)
+		return (
+			<p>
+				loading <a href="/">top</a>
+			</p>
+		)
 
 	return (
 		<IndexPageQueryLoaded id={id} registerTask={registerTask} bookId={bookId} />
