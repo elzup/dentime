@@ -9,15 +9,3 @@
   to = "/p/[pid].html"
   status = 200
   force = true
-
-[[redirects]]
-  from = "/debug/:aid/:bid"
-  to = "/debug/[aid]/[bid].html"
-  status = 200
-  force = true
-
-[[redirects]]
-  from = "/debug/:aid"
-  to = "/debug/[aid].html"
-  status = 200
-  force = true
