@@ -1,11 +1,11 @@
 [[redirects]]
-  from = "/p/*/*"
+  from = "/p/:pid/:bid"
   to = "/p/[pid]/[bid].html"
   status = 200
   force = true
 
 [[redirects]]
-  from = "/p/*"
-  to = "/p/[id].html"
+  from = "/p/:pid"
+  to = "/p/[pid].html"
   status = 200
   force = true
