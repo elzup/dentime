@@ -58,7 +58,7 @@
 		"react-docgen-typescript-loader": "3.7.2",
 		"react-test-renderer": "17.0.2",
 		"ts-jest": "27.0.5",
-		"ts-loader": "9.2.5"
+		"ts-loader": "9.2.6"
 	},
 	"lint-staged": {
 		"*.ts,.*.tsx": [
