@@ -15,7 +15,7 @@
 	},
 	"dependencies": {
 		"@babel/plugin-proposal-decorators": "7.16.7",
-		"@babel/preset-env": "7.16.7",
+		"@babel/preset-env": "7.16.11",
 		"@babel/preset-react": "7.16.7",
 		"enzyme": "3.11.0",
 		"enzyme-adapter-react-16": "1.15.6",
@@ -32,7 +32,7 @@
 		"use-seconds": "1.6.0"
 	},
 	"devDependencies": {
-		"@babel/core": "7.16.7",
+		"@babel/core": "7.16.12",
 		"@babel/polyfill": "7.12.1",
 		"@storybook/addon-actions": "6.3.12",
 		"@storybook/addon-info": "5.3.21",
