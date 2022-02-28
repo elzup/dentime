@@ -20,7 +20,7 @@
 		"enzyme": "3.11.0",
 		"enzyme-adapter-react-16": "1.15.6",
 		"jest": "27.5.1",
-		"next": "11.1.4",
+		"next": "12.1.0",
 		"next-pwa": "5.4.4",
 		"normalize.css": "8.0.1",
 		"react": "17.0.2",
