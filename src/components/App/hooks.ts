@@ -97,10 +97,10 @@ export const useStudiesStorage = () =>
 
 export function useBook(
 	pid: string,
-	bookId?: string,
+	bookId: string | null,
 ): [Book, (s: Book) => void, string[]] {
 	const [books, setBooks] = useBooksStorage()
-	const id = bookIdFormat(pid, bookId || pid)
+	const id = bookIdFormat(pid, bookId ?? pid)
 	const initialBook = { pid, label: pid, studyCode: '' }
 
 	return [

@@ -1,6 +1,10 @@
 const withPWA = require('next-pwa')
 
+/** @type {import('next').NextConfig} */
 const settings = {
+	experimental: {
+		appDir: true,
+	},
 	pwa: { dest: 'public' },
 	async redirects() {
 		return [
@@ -10,6 +14,9 @@ const settings = {
 				permanent: false,
 			},
 		]
+	},
+	compiler: {
+		styledComponents: true,
 	},
 }
 

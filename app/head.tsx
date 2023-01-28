@@ -1,12 +1,9 @@
-import React from 'react'
-import { AppProps } from 'next/app'
 import 'normalize.css'
-import Head from 'next/head'
 
 const description = 'タイムスケジュールを表示します'
-const App = ({ Component, pageProps }: AppProps) => (
-	<>
-		<Head>
+export default function Head() {
+	return (
+		<>
 			<link
 				rel="icon"
 				type="image/png"
@@ -26,9 +23,6 @@ const App = ({ Component, pageProps }: AppProps) => (
 			<meta property="og:description" content={description} />
 			<meta property="description" content={description} />
 			<title>DenTime</title>
-		</Head>
-		<Component {...pageProps} />
-	</>
-)
-
-export default App
+		</>
+	)
+}

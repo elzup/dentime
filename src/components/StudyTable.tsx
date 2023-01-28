@@ -1,5 +1,5 @@
-import { useRouter } from 'next/router'
-import React from 'react'
+'use client'
+import { useRouter } from 'next/navigation'
 import styled from 'styled-components'
 import config from '../config'
 import { Book, isPeriodTerm, Period } from '../types'

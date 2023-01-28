@@ -1,7 +1,7 @@
 import { createGlobalStyle } from 'styled-components'
 import config from './'
 
-export const GlobalStyle = createGlobalStyle`
+export const GlobalStyle: any = createGlobalStyle`
 html, body {
   height: 100%;
   min-height: 100%;

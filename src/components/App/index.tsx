@@ -31,7 +31,7 @@ function useStudyPeriods(profile: Profile, book: Book) {
 	return { periodIds, study, periods }
 }
 
-type Props = { id: string; bookId?: string }
+type Props = { id: string; bookId: string | null }
 function App({ id, bookId }: Props) {
 	const profile = useProfile(id)
 	if (!profile) return <p>loading profile</p>
