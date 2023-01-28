@@ -1,4 +1,3 @@
-import 'jest-styled-components'
 import { encodeStudy, decodeStudy, hex2Bools } from '../formats'
 import { Study } from '../../types'
 
