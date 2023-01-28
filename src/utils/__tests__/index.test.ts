@@ -16,7 +16,80 @@ test('encodeStudy', () => {
 })
 
 test('decodeStudy', () => {
-	expect(decodeStudy(key, pks)).toMatchSnapshot()
+	expect(decodeStudy(key, pks)).toMatchInlineSnapshot(`
+		{
+		  "0": {
+		    "1": false,
+		    "2": false,
+		    "3": false,
+		    "4": false,
+		    "5": false,
+		    "6": false,
+		    "D5": false,
+		    "D6": false,
+		  },
+		  "1": {
+		    "1": false,
+		    "2": false,
+		    "3": false,
+		    "4": false,
+		    "5": false,
+		    "6": false,
+		    "D5": false,
+		    "D6": false,
+		  },
+		  "2": {
+		    "1": true,
+		    "2": true,
+		    "3": false,
+		    "4": false,
+		    "5": false,
+		    "6": false,
+		    "D5": false,
+		    "D6": false,
+		  },
+		  "3": {
+		    "1": false,
+		    "2": false,
+		    "3": false,
+		    "4": false,
+		    "5": false,
+		    "6": false,
+		    "D5": false,
+		    "D6": false,
+		  },
+		  "4": {
+		    "1": false,
+		    "2": false,
+		    "3": false,
+		    "4": false,
+		    "5": false,
+		    "6": false,
+		    "D5": false,
+		    "D6": false,
+		  },
+		  "5": {
+		    "1": true,
+		    "2": true,
+		    "3": false,
+		    "4": false,
+		    "5": false,
+		    "6": false,
+		    "D5": false,
+		    "D6": false,
+		  },
+		  "6": {
+		    "1": false,
+		    "2": false,
+		    "3": false,
+		    "4": false,
+		    "5": false,
+		    "6": false,
+		    "D5": false,
+		    "D6": true,
+		  },
+		}
+	`)
 })
 
 test('hex2Bools', () => {
