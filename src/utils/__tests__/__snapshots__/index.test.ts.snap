@@ -1,8 +1,8 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`decodeStudy 1`] = `
-Object {
-  "0": Object {
+{
+  "0": {
     "1": false,
     "2": false,
     "3": false,
@@ -12,7 +12,7 @@ Object {
     "D5": false,
     "D6": false,
   },
-  "1": Object {
+  "1": {
     "1": false,
     "2": false,
     "3": false,
@@ -22,7 +22,7 @@ Object {
     "D5": false,
     "D6": false,
   },
-  "2": Object {
+  "2": {
     "1": true,
     "2": true,
     "3": false,
@@ -32,7 +32,7 @@ Object {
     "D5": false,
     "D6": false,
   },
-  "3": Object {
+  "3": {
     "1": false,
     "2": false,
     "3": false,
@@ -42,7 +42,7 @@ Object {
     "D5": false,
     "D6": false,
   },
-  "4": Object {
+  "4": {
     "1": false,
     "2": false,
     "3": false,
@@ -52,7 +52,7 @@ Object {
     "D5": false,
     "D6": false,
   },
-  "5": Object {
+  "5": {
     "1": true,
     "2": true,
     "3": false,
@@ -62,7 +62,7 @@ Object {
     "D5": false,
     "D6": false,
   },
-  "6": Object {
+  "6": {
     "1": false,
     "2": false,
     "3": false,
