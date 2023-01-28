@@ -1,16 +1,19 @@
-import React from 'react'
-// import '../src/config/initialize'
-import TimeRow from '../src/components/TimeRow'
 import {
-	Period,
-	PeriodStatusBefore,
 	PeriodStatusFinish,
 	PeriodStatusProgress,
+	PeriodTerm,
 } from '../src/types'
 
-export default { title: 'TimeRow' }
+import { ComponentMeta, ComponentStoryObj } from '@storybook/react'
+import TimeRow from '../src/components/TimeRow'
 
-const pb: Period = {
+const Component = TimeRow
+type ComponentType = typeof Component
+type Story = ComponentStoryObj<ComponentType>
+
+export default { component: Component } as ComponentMeta<ComponentType>
+
+const pb: PeriodTerm = {
 	info: {
 		start: '10:40',
 		end: '12:10',
@@ -20,8 +23,10 @@ const pb: Period = {
 	status: null,
 }
 
-const statusBefore: PeriodStatusBefore = {
-	type: 'before',
+export const Before: Story = {
+	args: {
+		period: { ...pb, status: { type: 'before' } },
+	},
 }
 
 const statusProgress1: PeriodStatusProgress = {
@@ -29,11 +34,21 @@ const statusProgress1: PeriodStatusProgress = {
 	progress: 0,
 	rate: 0.0 / 100,
 }
+export const Progress1: Story = {
+	args: {
+		period: { ...pb, status: statusProgress1, study: true },
+	},
+}
 
 const statusProgress2: PeriodStatusProgress = {
 	type: 'progress',
 	progress: 40,
 	rate: 40.0 / 100,
+}
+export const Progress2: Story = {
+	args: {
+		period: { ...pb, status: statusProgress2, study: true },
+	},
 }
 
 const statusProgress3: PeriodStatusProgress = {
@@ -41,17 +56,17 @@ const statusProgress3: PeriodStatusProgress = {
 	progress: 85,
 	rate: 85.0 / 100,
 }
+export const Progress3: Story = {
+	args: {
+		period: { ...pb, status: statusProgress3 },
+	},
+}
 
 const statusFinish: PeriodStatusFinish = {
 	type: 'finish',
 }
-
-export const Progress = () => (
-	<div style={{ padding: '12px' }}>
-		<TimeRow period={{ ...pb, status: statusBefore }} />
-		<TimeRow period={{ ...pb, status: statusProgress1, study: true }} />
-		<TimeRow period={{ ...pb, status: statusProgress2, study: true }} />
-		<TimeRow period={{ ...pb, status: statusProgress3 }} />
-		<TimeRow period={{ ...pb, status: statusFinish }} />
-	</div>
-)
+export const Finish: Story = {
+	args: {
+		period: { ...pb, status: statusFinish },
+	},
+}

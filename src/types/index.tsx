@@ -1,5 +1,3 @@
-import periods from '../components/Board/__tests__/testdata'
-
 export type Time = {
 	h: number
 	m: number

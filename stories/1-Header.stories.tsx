@@ -1,7 +1,11 @@
-import React from 'react'
+import { ComponentMeta, ComponentStoryObj } from '@storybook/react'
 import Header from '../src/components/Header'
-// import '../config/initialize'
 
-export const Basic = () => <Header />
+const Component = Header
+type ComponentType = typeof Component
 
-export default { title: 'Header' }
+export default { component: Component } as ComponentMeta<ComponentType>
+
+export const Index: ComponentStoryObj<ComponentType> = {
+	args: {},
+}

@@ -1,7 +1,11 @@
-import React from 'react'
+import { ComponentMeta, ComponentStoryObj } from '@storybook/react'
 import Clock from '../src/components/Clock'
-// import '../src/config/initialize'
 
-export const Basic00 = () => <Clock />
+const Component = Clock
+type ComponentType = typeof Component
 
-export default { title: 'Clock' }
+export default { component: Component } as ComponentMeta<ComponentType>
+
+export const Index: ComponentStoryObj<ComponentType> = {
+	args: {},
+}
