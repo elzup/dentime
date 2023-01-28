@@ -6,12 +6,23 @@ import {
 
 import { ComponentMeta, ComponentStoryObj } from '@storybook/react'
 import TimeRow from '../src/components/TimeRow'
+import React from 'react'
+import config from '../src/config'
 
 const Component = TimeRow
 type ComponentType = typeof Component
 type Story = ComponentStoryObj<ComponentType>
 
-export default { component: Component } as ComponentMeta<ComponentType>
+export default {
+	component: Component,
+	decorators: [
+		(Story) => (
+			<div style={{ background: config.color.main }}>
+				<Story />
+			</div>
+		),
+	],
+} as ComponentMeta<ComponentType>
 
 const pb: PeriodTerm = {
 	info: {
