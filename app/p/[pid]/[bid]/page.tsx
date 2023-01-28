@@ -2,7 +2,7 @@
 
 import { NextPage } from 'next'
 import Link from 'next/link'
-import { usePathname, useRouter, useSearchParams } from 'next/navigation'
+import { useRouter, useSearchParams } from 'next/navigation'
 import { useEffect } from 'react'
 import App from '../../../../src/components/App'
 import { useBook } from '../../../../src/components/App/hooks'

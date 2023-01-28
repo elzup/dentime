@@ -1,11 +1,13 @@
-const withPWA = require('next-pwa')
+const withPWA = require('next-pwa')({
+	disable: process.env.NODE_ENV === 'development',
+	dest: 'public',
+})
 
 /** @type {import('next').NextConfig} */
 const settings = {
 	experimental: {
 		appDir: true,
 	},
-	pwa: { dest: 'public' },
 	async redirects() {
 		return [
 			{
