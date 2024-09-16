@@ -47,7 +47,7 @@
 		"@types/styled-components": "5.1.26",
 		"all-contributors-cli": "6.20.0",
 		"babel-jest": "27.5.1",
-		"babel-loader": "8.2.5",
+		"babel-loader": "9.2.1",
 		"babel-plugin-styled-components": "1.13.3",
 		"babel-preset-env": "1.7.0",
 		"babel-preset-react": "6.24.1",
