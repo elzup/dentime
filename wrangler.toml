@@ -1,6 +1,3 @@
 name = "dentime"
+pages_build_output_dir = "dist"
 compatibility_date = "2026-06-08"
-
-[assets]
-directory = "./dist"
-not_found_handling = "single-page-application"
