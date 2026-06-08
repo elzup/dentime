@@ -1,5 +1,4 @@
-'use client'
-import { useRouter } from 'next/navigation'
+import { useNavigate } from '@tanstack/react-router'
 import styled from 'styled-components'
 import config from '../config'
 import { Book, isPeriodTerm, Period } from '../types'
@@ -84,7 +83,7 @@ function StudyTable({ periods, book, setBook }: Props) {
 
 	const times = decodeStudy(book.studyCode, periodIds)
 	const shareLink = makeLink(book)
-	const router = useRouter()
+	const navigate = useNavigate()
 
 	return (
 		<Style>
@@ -104,7 +103,7 @@ function StudyTable({ periods, book, setBook }: Props) {
 										onClick={() => {
 											if (!confirm('Are you sure?')) return
 											deleteBook(bookId(b))
-											router.push('/')
+											navigate({ to: '/' })
 										}}
 									>
 										Delete

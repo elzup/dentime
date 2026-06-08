@@ -1,5 +1,5 @@
+import { useQuery } from '@tanstack/react-query'
 import { useMemo } from 'react'
-import useSWR from 'swr'
 import { fetcher } from '../../api'
 import { useLocalStorage } from '../../hooks/useLocalStorage'
 import {
@@ -68,9 +68,12 @@ const updatePeriod = (info: PeriodInfo, now: Time, study: Study): Period => {
 }
 
 export function useProfile(id: string): Profile | null {
-	const { data } = useSWR<TimeResponse>(`/static/${id}.json`, fetcher)
+	const { data } = useQuery({
+		queryKey: ['profile', id],
+		queryFn: () => fetcher<TimeResponse>(`/static/${id}.json`),
+	})
 
-	return data || null
+	return data ?? null
 }
 
 export function usePeriods(profile: Profile, study: Study): Period[] {

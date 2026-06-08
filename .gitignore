@@ -1,4 +1,9 @@
 node_modules
-.next
+dist
+*.local
 
-public/
+# vite-plugin-pwa generated output (built into dist/)
+dev-dist
+
+# wrangler local cache
+.wrangler
